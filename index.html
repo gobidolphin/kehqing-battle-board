@@ -40,6 +40,9 @@ select:focus,input:focus,textarea:focus{outline:none;border-color:var(--brand)} 
 .copy{position:absolute;top:8px;right:8px;background:var(--brand);color:#fff;border:none;border-radius:6px;padding:3px 10px;font-size:11px;cursor:pointer}
 .mat{display:inline-block;background:#EAF2FF;color:var(--brand);border-radius:6px;padding:5px 11px;font-size:12px;margin:4px 6px 0 0;text-decoration:none} .mat:hover{background:#D9E8FF}
 .del{color:#E8443C;font-size:12px;cursor:pointer;float:right;margin-top:8px}
+.day{border-left:3px solid var(--brand);padding:2px 0 2px 12px;margin:12px 0} .day .dh{font-weight:600;font-size:13.5px;color:#1D2129;margin-bottom:5px} .day .it{font-size:13px;color:#4E5969;padding:3px 0} .day .it b{color:var(--brand)}
+.lp{margin:10px 0} .lp .lh{font-weight:600;font-size:13.5px;color:var(--brand);margin-bottom:6px} .lp .li{font-size:13px;color:#4E5969;padding:3px 0 3px 14px;position:relative} .lp .li:before{content:'▪';position:absolute;left:0;color:#C5DAFF}
+.lp a{color:var(--brand);text-decoration:none;border-bottom:1px dashed #C5DAFF}
 .saved{position:fixed;bottom:20px;right:20px;background:#1D2129;color:#fff;padding:8px 16px;border-radius:8px;font-size:13px;opacity:0;transition:.3s;pointer-events:none} .saved.show{opacity:.92}
 .tip{font-size:12px;color:var(--sub);background:#FFF7E6;border:1px solid #FFE1A8;border-radius:8px;padding:9px 11px;margin-top:8px}
 .modal{position:fixed;inset:0;background:rgba(0,0,0,.4);display:none;align-items:center;justify-content:center;z-index:99} .modal.show{display:flex}
@@ -50,9 +53,14 @@ select:focus,input:focus,textarea:focus{outline:none;border-color:var(--brand)} 
 <div class="bar">
   <button class="btn" onclick="needEdit(addCompany)">+ 新增客户</button>
   <button class="btn ghost" onclick="exportData()">导出备份</button>
+  <a class="btn ghost" href="足迹地图.html" style="text-decoration:none">🗺️ 足迹地图</a>
+  <button class="btn ghost" onclick="toggleView('schedule')">📅 下周日程</button>
+  <button class="btn ghost" onclick="toggleView('learn')">📚 材料/学习计划</button>
   <button class="btn gray" onclick="needEdit(()=>{if(confirm('恢复到发布快照？本机修改将丢失')){localStorage.removeItem(KEY);location.reload();}})">恢复快照</button>
   <span class="lock" id="lock"></span>
 </div>
+
+<div class="panel" id="planPanel" style="display:none"></div>
 
 <div class="panel ing">
 <h2>🤖 AI 日报识别器（粘贴日报/陌拜记录，自动匹配公司并更新）</h2>
@@ -210,5 +218,72 @@ function parseReport(){
   document.getElementById('parseResult').textContent=hits.length?('✅ 已更新 '+hits.length+' 家：'+[...new Set(hits)].join('、')):'⚠️ 未匹配到已有公司，可用「+新增客户」手动添加';
   document.getElementById('reportBox').value='';
 }
+
+// ===== 下周日程 + 材料/学习计划 =====
+let curView=null;
+function toggleView(v){const p=document.getElementById('planPanel');if(curView===v){p.style.display='none';curView=null;return;}curView=v;p.style.display='block';p.innerHTML=(v==='schedule'?genSchedule():genLearnPlan());p.scrollIntoView({behavior:'smooth',block:'start'});}
+
+function genSchedule(){
+  // 按阶段+待办排优先级,分配到周一~周五
+  const live=DATA.filter(c=>c.stage>0).sort((a,b)=>b.stage-a.stage);
+  const days=['周一','周二','周三','周四','周五'];
+  const buckets=[[],[],[],[],[]];
+  // 热客户(≥4)优先塞前面的天,每天2-3件
+  live.forEach((c,i)=>{buckets[i%5].push(c);});
+  let h='<h2>📅 下周日程（按优先级自动排，热客户在前）</h2>';
+  days.forEach((d,i)=>{
+    const items=buckets[i].slice(0,3);if(!items.length)return;
+    h+='<div class="day"><div class="dh">'+d+'</div>';
+    items.forEach(c=>{const sg=suggest(c);h+='<div class="it"><b>'+ST[c.stage].emoji+' '+c.name.replace(/（北京）|\(北京\)/g,'')+'</b>：'+sg.act.replace(/^【优先】/,'')+'</div>';});
+    h+='</div>';
+  });
+  h+='<div class="tip">规则：阶段分越高越靠前排；每天聚焦 2-3 家避免铺太开。改了阶段/新增客户后重新点「下周日程」即刷新。</div>';
+  return h;
+}
+
+function genLearnPlan(){
+  // 汇总客户需求 → 推导要补的腾讯云产品 + 销售技巧
+  const need={gpu:0,inference:0,saas:0,startup:0,migrate:0,visit:0};
+  DATA.forEach(c=>{const t=(c.log||'')+(c.next||'');
+    if(/GPU|算力|推理|DeepSeek|Zhipu|Claude|大模型/i.test(t))need.inference++;
+    if(/AWS|阿里云|火山|华为云|谷歌云|迁移/i.test(t))need.migrate++;
+    if(c.stage>=4)need.saas++;
+    if(/起步|初创|刚/.test(t))need.startup++;
+    if(c.is_maibai)need.visit++;
+  });
+  let h='<h2>📚 材料准备 + 学习计划（据你的客户需求生成）</h2>';
+  // 材料准备
+  h+='<div class="lp"><div class="lh">🎒 优先准备的客户材料（点开可下载后发客户）</div>';
+  const mats=[
+    [need.inference,'推理/GPU 类客户多（'+need.inference+'家）→ 备好','腾讯云大模型AI推理场景方案v1.5','https://lexiangla.com/docs/09707aeb65ec4521b769067954ebdc2e'],
+    [need.migrate,'有友商云要迁移（'+need.migrate+'家）→ 备好','算力网络方案(qGPU省成本)+云上好CP案例','https://lexiangla.com/docs/72e0fb966d07459f833329d6aa9ffa75'],
+    [need.saas,'已建联待深挖（'+need.saas+'家）→ 备好','大模型推理和应用案例集(含阅文)','https://lexiangla.com/docs/b411ac44a5bd43cbad1b6ba32eaf9153'],
+    [need.startup,'成长期客户 → 备好','知识引擎产品介绍及扶持政策','https://lexiangla.com/docs/2138946c8e024b74b315eedf2e819518'],
+  ];
+  mats.filter(m=>m[0]>0).forEach(m=>{h+='<div class="li">'+m[1]+' <a href="'+m[3]+'" target="_blank">'+m[2]+'</a></div>';});
+  h+='</div>';
+  // 腾讯云产品学习
+  h+='<div class="lp"><div class="lh">☁️ 腾讯云产品学习（补齐当前客户涉及的知识）</div>';
+  const prod=[];
+  if(need.inference)prod.push('GPU云服务器 / HAI 高性能应用服务：实例选型、vLLM推理部署、0.8折优惠算账（对推理客户）');
+  if(need.inference)prod.push('TokenHub / Token Plan：混元/DeepSeek/GLM 各模型定价与降价点，能张口报价');
+  if(need.migrate)prod.push('友商对比：腾讯云 vs AWS/阿里云/华为云 的成本与迁移路径（对迁移客户）');
+  if(need.saas)prod.push('大模型知识引擎 / AGI 场景方案：SaaS 客户最常问的落地形态');
+  prod.push('IaaS 基础路径：CVM → TKE → PaaS/SaaS（周报里 Aaron 推荐的学习顺序）');
+  prod.forEach(p=>h+='<div class="li">'+p+'</div>');
+  h+='</div>';
+  // 销售技巧
+  h+='<div class="lp"><div class="lh">🎯 销售技巧学习（结合你的实战短板）</div>';
+  const sk=[
+    '陌拜破冰：关键词抓注意力（阿里/腾讯/GPU/大模型）→ 聊开 → 自然挖体量（你已有'+need.visit+'家陌拜经验，固化成话术）',
+    '电话节奏：超40秒放松输出，超1分钟直接问体量（自建机房?月成本?用什么云?国内国外?）',
+    '《大客户销售：谋攻之道》继续推进；《销售巨人》SPIN 提问法——用「未来能看到什么」消除客户决策焦虑',
+    '把「被拒是信号而非终点」内化：前台铁板果断止损，聊开但不掌握体量的转找对的人',
+  ];
+  sk.forEach(s=>h+='<div class="li">'+s+'</div>');
+  h+='</div><div class="tip">这份计划随客户数据变化——新增客户或更新需求后重新点「材料/学习计划」即重算。</div>';
+  return h;
+}
+
 render();
 </script></body></html>

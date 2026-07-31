@@ -1,0 +1,76 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>陌拜足迹地图</title>
+<style>
+html,body{margin:0;padding:0;height:100%;font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif}
+#map{width:100%;height:100vh}
+.panel{position:absolute;top:14px;left:14px;z-index:10;background:#fff;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,.15);padding:14px 16px;max-width:280px}
+.panel h1{font-size:16px;margin:0 0 8px;color:#0052D9}
+.legend{font-size:12.5px;line-height:1.9} .dot{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:6px;vertical-align:middle}
+.stat{font-size:12px;color:#86909C;margin-top:8px;border-top:1px solid #eee;padding-top:8px}
+.back{position:absolute;top:14px;right:14px;z-index:10;background:#0052D9;color:#fff;text-decoration:none;padding:8px 14px;border-radius:8px;font-size:13px}
+.tipbox{position:absolute;bottom:14px;left:14px;z-index:10;background:#FFF7E6;border:1px solid #FFE1A8;border-radius:8px;padding:8px 12px;font-size:12px;color:#86909C;max-width:300px}
+.info{padding:4px 2px;font-size:13px;min-width:180px} .info b{color:#0052D9} .info .r{margin:6px 0 3px;color:#86909C;font-size:12px}
+.info button{border:none;border-radius:6px;padding:4px 9px;font-size:12px;cursor:pointer;margin:2px 3px 0 0;color:#fff}
+</style>
+<script>window._TMapSecurityConfig={serviceHost:'http://127.0.0.1:__WB_HTTP_PORT__/_TMapService/_wbt/__WB_TMAP_SECRET__'};</script>
+<script src="https://map.qq.com/api/gljs?v=1.exp&libraries=service"></script>
+</head><body>
+<div id="map"></div>
+<div class="panel"><h1>🍊 陌拜足迹地图</h1>
+<div class="legend">
+<div><span class="dot" style="background:#E8443C"></span>没去过</div>
+<div><span class="dot" style="background:#0A9D54"></span>去了 + 已建联</div>
+<div><span class="dot" style="background:#F0B429"></span>去了没建联</div>
+</div>
+<div class="stat" id="stat"></div></div>
+<a class="back" href="index.html">← 返回作战台</a>
+<div class="tipbox">💡 点大头针可切换「去过/建联」状态，实时保存到本机。灰色针表示地址暂未定位成功。</div>
+<script>
+const PTS=[{"id": "15", "name": "北京驯鹿智能科技有限公司", "addr": "海淀区青云当代大厦20层", "stage": 5, "visited": true}, {"id": "24", "name": "锤云科技(北京)有限公司", "addr": "海淀区中关村大街11号10层1060B", "stage": 5, "visited": false}, {"id": "6", "name": "索意互动(北京)信息技术有限公司", "addr": "海淀区长春桥路5号12号楼1701", "stage": 5, "visited": false}, {"id": "9", "name": "北京飞如许信息科技有限责任公司", "addr": "海淀区紫竹院路广源闸5号6层6577", "stage": 5, "visited": true}, {"id": "11", "name": "北京光邮星空科技有限公司", "addr": "海淀区知春路63号6号厂房4层483", "stage": 4, "visited": true}, {"id": "12", "name": "清研智学(北京)科技有限公司", "addr": "丰台区右外西二条西头路南1幢1421", "stage": 4, "visited": false}, {"id": "14", "name": "北京无限码力科技有限公司", "addr": "朝阳区光华路2号地下车库-01层-101内089", "stage": 4, "visited": false}, {"id": "16", "name": "北京羽医甘蓝信息技术有限公司", "addr": "朝阳区容创路15号楼四层406", "stage": 4, "visited": false}, {"id": "27", "name": "机核(北京)文化传媒有限公司", "addr": "朝阳区东进国际中心A座17层", "stage": 4, "visited": false}, {"id": "18", "name": "北京胭脂鱼信息网络技术有限公司", "addr": "朝阳区光华路8号30幢六层7351", "stage": 3, "visited": false}, {"id": "19", "name": "北京同频互动网络科技有限公司", "addr": "大兴区新源大街26号院2号楼2层206", "stage": 3, "visited": false}, {"id": "20", "name": "眼前一亮(北京)文化有限公司", "addr": "东城区前永康胡同11号院", "stage": 3, "visited": false}, {"id": "26", "name": "北京华夏智康科技发展有限公司", "addr": "石景山区田顺庄北路1号院1号楼17层", "stage": 3, "visited": false}, {"id": "30", "name": "北京梧桐宇舟科技有限公司", "addr": "朝阳区酒仙桥路10号71号楼二层202", "stage": 3, "visited": false}, {"id": "30.1", "name": "本末动力(北京)科技股份有限公司", "addr": "经开区经海五路3号院5号楼2层225", "stage": 3, "visited": false}, {"id": "7", "name": "明合智道(北京)技术有限公司", "addr": "顺义区天竺综合保税区", "stage": 3, "visited": false}, {"id": "1", "name": "掌游天下(北京)信息技术股份有限公司", "addr": "西城区北三环中路甲29号院3号楼3层301内323", "stage": 1, "visited": true}, {"id": "10", "name": "北京一块互动网络技术有限公司", "addr": "海淀区白家疃尚品园1号楼1层109-2", "stage": 0, "visited": false}, {"id": "13", "name": "北京明日新程科技有限公司", "addr": "海淀区海淀大街甲36号5层(集群注册)", "stage": 0, "visited": false}, {"id": "17", "name": "数库(北京)科技有限公司", "addr": "朝阳区酒仙桥路4号A9-1楼", "stage": 0, "visited": false}, {"id": "2", "name": "北京数智万维人力资源科技有限公司", "addr": "海淀区北三环中路44号26幢5层501", "stage": 0, "visited": false}, {"id": "21", "name": "北京乐超游易网络科技有限公司", "addr": "经开区文化园西路6号院10号楼", "stage": 0, "visited": false}, {"id": "23", "name": "北京挚游信息科技有限公司", "addr": "通州区潞邑街道疃里南区5号楼", "stage": 0, "visited": false}, {"id": "25", "name": "北京联创智盟科技发展有限公司", "addr": "丰台区智成北街3号院", "stage": 0, "visited": false}, {"id": "28", "name": "亚博泰科科技(北京)有限公司", "addr": "朝阳区酒仙桥路20号楼15层", "stage": 0, "visited": false}, {"id": "29", "name": "北京字节探索科技有限公司", "addr": "大兴区兴华大街3号院2号楼", "stage": 0, "visited": false}, {"id": "3", "name": "中数经纬科技(北京)有限公司", "addr": "海淀区中国农大国际创业园2号楼", "stage": 0, "visited": false}, {"id": "4", "name": "北京润德嘉华科技有限公司", "addr": "朝阳区酒仙桥乙21号佳丽商务楼", "stage": 0, "visited": false}, {"id": "5", "name": "北京万盛和泰科技有限公司", "addr": "海淀区善缘街1号7层", "stage": 0, "visited": false}, {"id": "8", "name": "糖豆兄弟(北京)科技有限公司", "addr": "朝阳区盛昌路9号院7号楼", "stage": 0, "visited": false}], KEY='kehqing_footprint_v1';
+let state=load();
+function load(){try{const s=localStorage.getItem(KEY);if(s)return JSON.parse(s);}catch(e){}
+  const o={};PTS.forEach(p=>o[p.id]={visited:p.visited,linked:p.stage>=4});return o;}
+function save(){localStorage.setItem(KEY,JSON.stringify(state));}
+function color(id){const s=state[id];if(!s||!s.visited)return '#E8443C';return s.linked?'#0A9D54':'#F0B429';}
+
+const map=new TMap.Map('map',{zoom:11,center:new TMap.LatLng(39.94,116.40)});
+const geocoder=new TMap.service.Geocoder();
+let markers=null, infoWin=null, geo={};
+
+function pinSvg(c){return 'data:image/svg+xml,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="28" height="38" viewBox="0 0 28 38"><path d="M14 0C6.3 0 0 6.3 0 14c0 10 14 24 14 24s14-14 14-24C28 6.3 21.7 0 14 0z" fill="'+c+'"/><circle cx="14" cy="14" r="6" fill="#fff"/></svg>');}
+
+function buildStyles(){const st={};PTS.forEach(p=>{['#E8443C','#0A9D54','#F0B429'].forEach(c=>{const k='s'+c.slice(1);if(!st[k])st[k]=new TMap.MarkerStyle({width:28,height:38,anchor:{x:14,y:38},src:pinSvg(c)});});});return st;}
+function styleId(id){return 's'+color(id).slice(1);}
+
+async function geocodeAll(){
+  let done=0,ok=0;
+  for(const p of PTS){
+    try{
+      const r=await geocoder.getLocation({address:'北京市'+p.addr.replace(/^北京市?/,'')});
+      if(r&&r.result&&r.result.location){geo[p.id]=r.result.location;ok++;}
+    }catch(e){}
+    done++;document.getElementById('stat').textContent='定位中… '+done+'/'+PTS.length;
+    await new Promise(r=>setTimeout(r,120));
+  }
+  drawMarkers();refreshStat();
+}
+
+function drawMarkers(){
+  const geoms=PTS.filter(p=>geo[p.id]).map(p=>({id:p.id,styleId:styleId(p.id),position:geo[p.id]}));
+  if(markers)markers.setMap(null);
+  markers=new TMap.MultiMarker({map,styles:buildStyles(),geometries:geoms});
+  markers.on('click',e=>openInfo(e.geometry.id));
+}
+function openInfo(id){
+  const p=PTS.find(x=>x.id==id);const s=state[id]||{visited:false,linked:false};
+  const html='<div class="info"><b>'+p.name+'</b><div class="r">'+p.addr+'</div>'
+    +'<button style="background:'+(s.visited?'#0A9D54':'#E8443C')+'" onclick="tog(\''+id+'\',\'visited\')">'+(s.visited?'✓ 去过':'去过?')+'</button>'
+    +'<button style="background:'+(s.linked?'#0052D9':'#86909C')+'" onclick="tog(\''+id+'\',\'linked\')">'+(s.linked?'✓ 已建联':'已建联?')+'</button></div>';
+  if(infoWin)infoWin.close();
+  infoWin=new TMap.InfoWindow({map,position:geo[id],content:html,offset:{x:0,y:-38}});
+}
+window.tog=function(id,f){if(!state[id])state[id]={visited:false,linked:false};state[id][f]=!state[id][f];save();drawMarkers();openInfo(id);refreshStat();};
+function refreshStat(){let v=0,l=0,n=0;PTS.forEach(p=>{const s=state[p.id]||{};if(s.visited){v++;if(s.linked)l++;}else n++;});
+  document.getElementById('stat').textContent='共 '+PTS.length+' 家 · 去过 '+v+' · 建联 '+l+' · 未去 '+n;}
+geocodeAll();
+</script></body></html>
