@@ -1,0 +1,214 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>客情作战台</title>
+<style>
+:root{--brand:#0052D9;--bg:#F5F7FA;--card:#fff;--line:#E5E8EF;--text:#1D2129;--sub:#86909C}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);padding:18px;line-height:1.5}
+.wrap{max-width:1080px;margin:0 auto}
+h1{font-size:22px} .date{color:var(--sub);font-size:13px;margin-bottom:14px}
+.bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;align-items:center}
+.btn{border:1px solid var(--brand);background:var(--brand);color:#fff;border-radius:8px;padding:7px 14px;font-size:13px;cursor:pointer}
+.btn.ghost{background:#fff;color:var(--brand)} .btn.gray{background:#fff;color:var(--sub);border-color:var(--line)}
+.lock{margin-left:auto;font-size:12.5px;color:var(--sub)} .lock b{color:#E8443C}
+.panel{background:var(--card);border-radius:14px;padding:15px 17px;margin-bottom:14px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.panel h2{font-size:14px;color:var(--brand);margin-bottom:9px}
+.news{font-size:12.5px;color:#4E5969;padding:4px 0;border-bottom:1px dashed var(--line)} .news:last-child{border:none}
+.ing textarea{width:100%;border:1px solid var(--line);border-radius:8px;padding:10px;font-size:13px;min-height:70px;font-family:inherit}
+.ing .row{display:flex;gap:8px;margin-top:8px;align-items:center}
+.pReport{font-size:12px;color:var(--sub);flex:1}
+.todo{display:flex;flex-wrap:wrap;gap:10px} .todo .t{background:#EAF2FF;border:1px solid #C5DAFF;border-radius:10px;padding:9px 13px;font-size:13px;cursor:pointer;flex:1;min-width:230px}
+.todo .t:hover{background:#D9E8FF} .todo .t b{color:var(--brand)} .todo .t .act{color:var(--sub);font-size:12px;margin-top:3px}
+.filters{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}
+.fbtn{border:1px solid var(--line);background:#fff;border-radius:20px;padding:5px 13px;font-size:12.5px;cursor:pointer;color:var(--sub)} .fbtn.on{background:var(--brand);color:#fff;border-color:var(--brand)}
+.group{margin-bottom:6px} .ghd{font-size:13px;font-weight:600;padding:6px 4px;color:var(--sub)} .ghd .n{background:#EEF0F4;border-radius:10px;padding:1px 8px;font-size:12px;margin-left:6px}
+.card{background:var(--card);border-radius:12px;margin-bottom:8px;border-left:4px solid var(--line);overflow:hidden} .card:hover{box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.chd{padding:12px 15px;cursor:pointer;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.badge{font-size:12px;padding:2px 9px;border-radius:8px;white-space:nowrap;color:#fff}
+.tag{font-size:11px;padding:1px 8px;border-radius:6px;white-space:nowrap}
+.tag.mb{background:#FFF0E6;color:#F0700A;border:1px solid #FFD3AC} .tag.ps{background:#E8F7EE;color:#0A9D54;border:1px solid #A8E6C4}
+.nm{font-weight:600;flex:1;font-size:14px;min-width:120px} .nx{color:var(--sub);font-size:12.5px}
+.arw{color:var(--sub);transition:.2s;font-size:11px} .card.open .arw{transform:rotate(90deg)}
+.body{display:none;padding:4px 15px 15px;border-top:1px solid var(--line)} .card.open .body{display:block}
+.row{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
+.field{flex:1;min-width:150px} .field .lbl{font-size:11px;color:var(--sub);margin-bottom:3px}
+select,input,textarea{width:100%;border:1px solid var(--line);border-radius:7px;padding:7px 9px;font-size:13px;font-family:inherit;background:#fff} textarea{resize:vertical;min-height:50px}
+select:focus,input:focus,textarea:focus{outline:none;border-color:var(--brand)} :disabled{background:#F7F9FC;color:#86909C;cursor:not-allowed}
+.ai{background:linear-gradient(135deg,#EEF4FF,#F5F0FF);border:1px solid #C5DAFF;border-radius:9px;padding:11px;margin-top:10px}
+.ai .h{font-size:12px;color:var(--brand);font-weight:600;margin-bottom:5px} .ai .c{font-size:13px;color:#1D2129} .ai .why{font-size:11.5px;color:var(--sub);margin-top:5px}
+.ai button{background:#fff;color:var(--brand);border:1px solid var(--brand);border-radius:6px;padding:3px 10px;font-size:11px;cursor:pointer;margin-top:7px}
+.talk{background:#F7F9FC;border:1px dashed #C5DAFF;border-radius:8px;padding:11px;font-size:13px;position:relative;margin-top:6px} .talk textarea{background:transparent;border:none;padding:0;min-height:66px}
+.copy{position:absolute;top:8px;right:8px;background:var(--brand);color:#fff;border:none;border-radius:6px;padding:3px 10px;font-size:11px;cursor:pointer}
+.mat{display:inline-block;background:#EAF2FF;color:var(--brand);border-radius:6px;padding:5px 11px;font-size:12px;margin:4px 6px 0 0;text-decoration:none} .mat:hover{background:#D9E8FF}
+.del{color:#E8443C;font-size:12px;cursor:pointer;float:right;margin-top:8px}
+.saved{position:fixed;bottom:20px;right:20px;background:#1D2129;color:#fff;padding:8px 16px;border-radius:8px;font-size:13px;opacity:0;transition:.3s;pointer-events:none} .saved.show{opacity:.92}
+.tip{font-size:12px;color:var(--sub);background:#FFF7E6;border:1px solid #FFE1A8;border-radius:8px;padding:9px 11px;margin-top:8px}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.4);display:none;align-items:center;justify-content:center;z-index:99} .modal.show{display:flex}
+.mbox{background:#fff;border-radius:12px;padding:22px;width:300px;text-align:center} .mbox h3{font-size:15px;margin-bottom:12px} .mbox input{margin-bottom:12px}
+</style></head><body><div class="wrap">
+<h1>🍊 客情作战台</h1>
+<div class="date" id="today"></div>
+<div class="bar">
+  <button class="btn" onclick="needEdit(addCompany)">+ 新增客户</button>
+  <button class="btn ghost" onclick="exportData()">导出备份</button>
+  <button class="btn gray" onclick="needEdit(()=>{if(confirm('恢复到发布快照？本机修改将丢失')){localStorage.removeItem(KEY);location.reload();}})">恢复快照</button>
+  <span class="lock" id="lock"></span>
+</div>
+
+<div class="panel ing">
+<h2>🤖 AI 日报识别器（粘贴日报/陌拜记录，自动匹配公司并更新）</h2>
+<textarea id="reportBox" placeholder="把你的日报或陌拜记录粘进来，例如：&#10;【0730】飞如许 下周拜访，CTO给了新地址&#10;驯鹿AI 持续跟进推理成本&#10;然后点『识别并更新』"></textarea>
+<div class="row"><span class="pReport" id="parseResult"></span><button class="btn" onclick="needEdit(parseReport)">识别并更新</button></div>
+</div>
+
+<div class="panel"><h2>📰 联网热点（AI建议与话术的依据）</h2><div id="news"></div></div>
+<div class="panel"><h2>🎯 今日该催谁（阶段分≥4）</h2><div class="todo" id="todo"></div></div>
+
+<div class="filters" id="filters"></div>
+<div id="list"></div>
+
+<div class="panel" style="margin-top:14px"><div class="tip">👀 <b>访客可查看</b>，编辑需登录（密码，登录后 7 天内有效）。改动实时存本机浏览器。发布链接给导师同事，他们看到的是发布时的快照。</div></div>
+</div>
+<div class="saved" id="saved">已保存 ✓</div>
+<div class="modal" id="modal"><div class="mbox"><h3>🔒 输入编辑密码</h3><input type="password" id="pwd" placeholder="密码"><br><button class="btn" onclick="tryLogin()">登录</button> <button class="btn gray" onclick="closeModal()">取消</button><div id="pwderr" style="color:#E8443C;font-size:12px;margin-top:8px"></div></div></div>
+
+<script>
+const SEED=[{"id": "15", "name": "北京驯鹿智能科技有限公司", "stage": 5, "phone": "010-62560702", "addr": "海淀区青云当代大厦20层", "tier": "第三档", "log": "无有效沟通。", "next": "排除", "date": "2026-07-16", "play": "行业SaaS上云案例", "is_maibai": true, "is_panshi": false, "alias": ["驯鹿", "驯鹿AI", "驯鹿智能"]}, {"id": "24", "name": "锤云科技(北京)有限公司", "stage": 5, "phone": "13501197673", "addr": "海淀区中关村大街11号10层1060B", "tier": "第三档", "log": "加了微信后跟进，对方表示不需要了。", "next": "季度性轻回访一次，暂不主推", "date": "2026-07-16", "play": "行业SaaS上云案例", "is_maibai": false, "is_panshi": false, "alias": ["锤云"]}, {"id": "6", "name": "索意互动(北京)信息技术有限公司", "stage": 5, "phone": "010-82561949 / 18510964759 / 13699295135", "addr": "海淀区长春桥路5号12号楼1701", "tier": "第一档", "log": "已加微信+IT负责人，数据几百G，对上云价格有兴趣；在用DeepSeek和Zhipu，想要友商对比。Qiu博士多次未接。", "next": "发送腾讯云 vs 友商推理算力对比 + 约15min线上会", "date": "2026-07-16", "play": "推理算力降价", "is_maibai": false, "is_panshi": false, "alias": ["索意", "索意互动"]}, {"id": "9", "name": "北京飞如许信息科技有限责任公司", "stage": 5, "phone": "15810207695", "addr": "海淀区紫竹院路广源闸5号6层6577", "tier": "第二档", "log": "已加微信(Alex)，暂无明确需求。", "next": "推送1篇同体量公司案例养客", "date": "2026-07-16", "play": "行业SaaS上云案例", "is_maibai": true, "is_panshi": false, "alias": ["飞如许"]}, {"id": "new_1785473330453", "name": "NeuxMind.AI星尘浩宇", "stage": 5, "phone": "", "addr": "", "tier": "手动新增", "log": "【0728】自拓，与cto微信跟进，探索合作路径中，尝试约拜访\n【0730】cto婉拒，表示又需求再联系", "next": "微信跟进", "date": "2026-07-30", "play": "行业SaaS上云案例", "is_maibai": true, "is_panshi": true, "alias": ["星尘", "星尘浩宇", "NeuxMind", "NeuxMind.AI"]}, {"id": "11", "name": "北京光邮星空科技有限公司", "stage": 4, "phone": "18907138359", "addr": "海淀区知春路63号6号厂房4层483", "tier": "第二档", "log": "陌拜地址无公司；已加微信；对方表示是30-40人公司。", "next": "推送同体量SaaS上云案例，探需求", "date": "2026-07-16", "play": "行业SaaS上云案例", "is_maibai": true, "is_panshi": false, "alias": ["光邮", "光邮星空"]}, {"id": "12", "name": "清研智学(北京)科技有限公司", "stage": 4, "phone": "18211096529", "addr": "丰台区右外西二条西头路南1幢1421", "tier": "第二档", "log": "刚起步，已加微信。", "next": "推送免费试用资源/成长期扶持政策", "date": "2026-07-16", "play": "成长期扶持", "is_maibai": false, "is_panshi": false, "alias": ["清研", "清研智学"]}, {"id": "14", "name": "北京无限码力科技有限公司", "stage": 4, "phone": "010-82318363", "addr": "朝阳区光华路2号地下车库-01层-101内089", "tier": "第二档", "log": "第一通挂断，第二次已加微信，可再战。", "next": "微信破冰，发场景化话术", "date": "2026-07-16", "play": "行业SaaS上云案例", "is_maibai": false, "is_panshi": false, "alias": ["无限码力", "无限"]}, {"id": "16", "name": "北京羽医甘蓝信息技术有限公司", "stage": 4, "phone": "010-62662866", "addr": "朝阳区容创路15号楼四层406", "tier": "第三档", "log": "说打错了。", "next": "排除", "date": "2026-07-16", "play": "行业SaaS上云案例", "is_maibai": false, "is_panshi": false, "alias": []}, {"id": "27", "name": "机核(北京)文化传媒有限公司", "stage": 4, "phone": "—", "addr": "朝阳区东进国际中心A座17层", "tier": "第四档", "log": "风鸟所有电话未接通(新下发7/16)。", "next": "找其他触点", "date": "2026-07-16", "play": "行业SaaS上云案例", "is_maibai": false, "is_panshi": false, "alias": ["机核"]}, {"id": "18", "name": "北京胭脂鱼信息网络技术有限公司", "stage": 3, "phone": "18101911042", "addr": "朝阳区光华路8号30幢六层7351", "tier": "第三档", "log": "多次拨打：说20秒被挂、多次转语音留言。", "next": "换手机号/换时段最后一试", "date": "2026-07-16", "play": null, "is_maibai": false, "is_panshi": false, "alias": ["胭脂鱼"]}, {"id": "19", "name": "北京同频互动网络科技有限公司", "stage": 3, "phone": "18201669385", "addr": "大兴区新源大街26号院2号楼2层206", "tier": "第三档", "log": "未接通/通话中。", "next": "换时段重拨", "date": "2026-07-16", "play": null, "is_maibai": false, "is_panshi": false, "alias": ["同频"]}, {"id": "20", "name": "眼前一亮(北京)文化有限公司", "stage": 3, "phone": "18600056902", "addr": "东城区前永康胡同11号院", "tier": "第三档", "log": "未接通后直接挂断。", "next": "排除", "date": "2026-07-16", "play": null, "is_maibai": false, "is_panshi": false, "alias": ["眼前一亮"]}, {"id": "26", "name": "北京华夏智康科技发展有限公司", "stage": 3, "phone": "—", "addr": "石景山区田顺庄北路1号院1号楼17层", "tier": "第四档", "log": "通话中(新下发7/16)。", "next": "重拨接通", "date": "2026-07-16", "play": null, "is_maibai": false, "is_panshi": false, "alias": ["华夏智康"]}, {"id": "30", "name": "北京梧桐宇舟科技有限公司", "stage": 3, "phone": "—", "addr": "朝阳区酒仙桥路10号71号楼二层202", "tier": "第四档", "log": "加了微信，已有腾讯KA跟进，加到李总微信。", "next": "已被KA覆盖，转交/不重复触达", "date": "2026-07-16", "play": null, "is_maibai": false, "is_panshi": true, "alias": ["梧桐宇舟", "梧桐"]}, {"id": "30.1", "name": "本末动力(北京)科技股份有限公司", "stage": 3, "phone": "—", "addr": "经开区经海五路3号院5号楼2层225", "tier": "第四档", "log": "华为云20w/月，国外做硬件。", "next": "评估迁移动机，准备华为云对比话术", "date": "2026-07-16", "play": "推理算力降价", "is_maibai": false, "is_panshi": false, "alias": ["本末动力", "本末"]}, {"id": "7", "name": "明合智道(北京)技术有限公司", "stage": 3, "phone": "13381302935", "addr": "顺义区天竺综合保税区", "tier": "第一档", "log": "两次未接通。", "next": "换时段重拨", "date": "2026-07-16", "play": null, "is_maibai": false, "is_panshi": false, "alias": ["明合智道", "明合"]}, {"id": "1", "name": "掌游天下(北京)信息技术股份有限公司", "stage": 1, "phone": "010-53391672", "addr": "西城区北三环中路甲29号院3号楼3层301内323", "tier": "第一档", "log": "陌拜原址无公司；下周去海淀区知春路甲48号拜访；电话说打错了。", "next": "知春路甲48号线下拜访", "date": "2026-07-16", "play": null, "is_maibai": true, "is_panshi": false, "alias": ["掌游", "掌游天下"]}, {"id": "10", "name": "北京一块互动网络技术有限公司", "stage": 0, "phone": "010-64019382", "addr": "海淀区白家疃尚品园1号楼1层109-2", "tier": "第二档", "log": "转留言。", "next": "周三/周四14:00-16:00重拨", "date": "2026-07-16", "play": null, "is_maibai": false, "is_panshi": false, "alias": ["一块互动", "一块"]}, {"id": "13", "name": "北京明日新程科技有限公司", "stage": 0, "phone": "13811267665", "addr": "海淀区海淀大街甲36号5层(集群注册)", "tier": "第二档", "log": "留言了。", "next": "隔1天再打，备30秒强话术", "date": "2026-07-16", "play": null, "is_maibai": false, "is_panshi": false, "alias": ["明日新程"]}, {"id": "17", "name": "数库(北京)科技有限公司", "stage": 0, "phone": "13611366624", "addr": "朝阳区酒仙桥路4号A9-1楼", "tier": "第三档", "log": "打到技术部门，负责人说不清楚。", "next": "无对口人，排除", "date": "2026-07-16", "play": null, "is_maibai": false, "is_panshi": false, "alias": ["数库"]}, {"id": "2", "name": "北京数智万维人力资源科技有限公司", "stage": 0, "phone": "18222825769", "addr": "海淀区北三环中路44号26幢5层501", "tier": "第一档", "log": "两次未接通。", "next": "换时段重拨，否则降级", "date": "2026-07-16", "play": null, "is_maibai": false, "is_panshi": false, "alias": ["数智万维", "万维"]}, {"id": "21", "name": "北京乐超游易网络科技有限公司", "stage": 0, "phone": "18842936828", "addr": "经开区文化园西路6号院10号楼", "tier": "第三档", "log": "直接拒绝。", "next": "排除", "date": "2026-07-16", "play": null, "is_maibai": false, "is_panshi": false, "alias": ["乐超游易", "乐超"]}, {"id": "23", "name": "北京挚游信息科技有限公司", "stage": 0, "phone": "13773409887", "addr": "通州区潞邑街道疃里南区5号楼", "tier": "第三档", "log": "未接通。", "next": "重拨", "date": "2026-07-16", "play": null, "is_maibai": false, "is_panshi": false, "alias": ["挚游"]}, {"id": "25", "name": "北京联创智盟科技发展有限公司", "stage": 0, "phone": "—", "addr": "丰台区智成北街3号院", "tier": "第四档", "log": "股东说公司转型实体，与互联网无关。", "next": "不对口，排除", "date": "2026-07-16", "play": null, "is_maibai": false, "is_panshi": false, "alias": ["联创智盟", "联创"]}, {"id": "28", "name": "亚博泰科科技(北京)有限公司", "stage": 0, "phone": "—", "addr": "朝阳区酒仙桥路20号楼15层", "tier": "第四档", "log": "电话未接通，网络显示2025年8月已解散。", "next": "已解散，删除", "date": "2026-07-16", "play": null, "is_maibai": false, "is_panshi": false, "alias": ["亚博泰科", "亚博"]}, {"id": "29", "name": "北京字节探索科技有限公司", "stage": 0, "phone": "18600282037", "addr": "大兴区兴华大街3号院2号楼", "tier": "第四档", "log": "公费未接通；对方说不是我负责。", "next": "无对口人，排除", "date": "2026-07-16", "play": null, "is_maibai": false, "is_panshi": false, "alias": ["字节探索"]}, {"id": "3", "name": "中数经纬科技(北京)有限公司", "stage": 0, "phone": "13301373998", "addr": "海淀区中国农大国际创业园2号楼", "tier": "第一档", "log": "打了4个：1个听了挂，1个说业务后表示不做了。", "next": "不对口，排除", "date": "2026-07-16", "play": null, "is_maibai": false, "is_panshi": false, "alias": ["中数经纬", "经纬"]}, {"id": "4", "name": "北京润德嘉华科技有限公司", "stage": 0, "phone": "010-56274646", "addr": "朝阳区酒仙桥乙21号佳丽商务楼", "tier": "第一档", "log": "接了说暂时不用，其余未接。", "next": "排除", "date": "2026-07-16", "play": null, "is_maibai": false, "is_panshi": false, "alias": ["润德嘉华", "润德"]}, {"id": "5", "name": "北京万盛和泰科技有限公司", "stage": 0, "phone": "010-82580424", "addr": "海淀区善缘街1号7层", "tier": "第一档", "log": "接的说现在不做了/不用。", "next": "排除", "date": "2026-07-16", "play": null, "is_maibai": false, "is_panshi": false, "alias": ["万盛和泰", "万盛"]}, {"id": "8", "name": "糖豆兄弟(北京)科技有限公司", "stage": 0, "phone": "13910151615", "addr": "朝阳区盛昌路9号院7号楼", "tier": "第二档", "log": "暂无记录。", "next": "首次拨打", "date": "2026-07-16", "play": null, "is_maibai": false, "is_panshi": false, "alias": ["糖豆兄弟", "糖豆"]}], PLAY={"推理算力降价": {"hook": "腾讯云GPU 0.8折 + MiniMax-M3/混元推理降价50%，适配开源模型部署。", "talk": "王总您好，我是腾讯云的旭林。上次聊到贵司在用DeepSeek/Zhipu做推理——腾讯云这轮GPU云服务器低至0.8折，MiniMax-M3等模型推理成本直接减半，同规格算下来比自建和友商省不少。我整理了一份推理场景方案和成本对比，能不能占用您15分钟线上过一下？", "materials": [{"t": "腾讯云大模型AI推理场景方案v1.5(行业培训版)", "u": "https://lexiangla.com/docs/09707aeb65ec4521b769067954ebdc2e"}, {"t": "腾讯云算力网络解决方案(qGPU省成本)", "u": "https://lexiangla.com/docs/49a6eaac18764a73afd12fd69bb7c4a1"}, {"t": "GPU云服务器产品介绍", "u": "https://lexiangla.com/docs/6d21e7eefe374961bd79a0bfb0fbc3b4"}]}, "行业SaaS上云案例": {"hook": "同体量AI SaaS在腾讯云的落地案例(阅文/荣耀TACO-LLM加速)。", "talk": "您好，我是腾讯云旭林。给您分享一份和贵司体量相近的AI应用公司在腾讯云的落地案例合集，涉及模型部署、成本和弹性，参考价值挺高，方便发您看看吗？有兴趣的话我们约个短会细聊。", "materials": [{"t": "客户案例｜云上好CP合集2025(荣耀TACO-LLM)", "u": "https://lexiangla.com/docs/72e0fb966d07459f833329d6aa9ffa75"}, {"t": "腾讯云大模型推理和应用案例集(含阅文集团)", "u": "https://lexiangla.com/docs/b411ac44a5bd43cbad1b6ba32eaf9153"}, {"t": "客户案例｜腾讯云AGI场景解决方案(一站式)", "u": "https://lexiangla.com/docs/64c34b64d2ac456c8f65ddc8e32695c0"}]}, "成长期扶持": {"hook": "Token Plan 28元/月起 + 成长期资源扶持，前期成本很低。", "talk": "了解到贵司刚起步——腾讯云现在Token Plan最低28元/月就能用混元/DeepSeek/GLM全家桶，比按量省50%-80%，成长期还有云资源扶持。很适合你们前期控成本，我把方案和政策发您参考？", "materials": [{"t": "大模型知识引擎产品介绍及客户案例", "u": "https://lexiangla.com/docs/2138946c8e024b74b315eedf2e819518"}, {"t": "腾讯云大模型推理和应用案例集(含阅文集团)", "u": "https://lexiangla.com/docs/b411ac44a5bd43cbad1b6ba32eaf9153"}]}}, ST={"6": {"name": "商机/POC", "emoji": "🔥", "color": "E8443C"}, "5": {"name": "深度沟通", "emoji": "💬", "color": "F07D28"}, "4": {"name": "已建联", "emoji": "🤝", "color": "F0B429"}, "3": {"name": "已接触", "emoji": "📞", "color": "0052D9"}, "2": {"name": "待重拨", "emoji": "⏳", "color": "8A94A6"}, "1": {"name": "冷", "emoji": "❄️", "color": "B8C0CC"}, "0": {"name": "已死", "emoji": "⛔", "color": "D0D5DD"}}, NEWS=[{"t": "腾讯云GPU云服务器年度最低0.8折，HAI高性能应用服务0.8折起，可一键部署LLM推理。", "u": "https://developer.cloud.tencent.com/article/2659305?policyId=1003"}, {"t": "MiniMax-M3在腾讯云TokenHub全项降价50%(输入2元/输出8元每百万token)；Hy-MT2-Pro输入降66%。", "u": "https://gether.net/news/show-205.html"}, {"t": "Token Plan低至28元/月，覆盖混元/DeepSeek/GLM-5/Kimi/MiniMax，比按量计费省50%-80%。", "u": "https://gether.net/news/show-194.html"}, {"t": "6月AI产业应用大会：Agent Runtime全栈升级、Agent Memory Token消耗降60%，已集成进ADP。", "u": "https://gether.net/news/show-194.html"}];
+const KEY='kehqing_battle_board_v2', PWD='091313', LK='kehqing_login_ts', WEEK=7*24*3600*1000;
+let DATA=load(), pending=null;
+
+function load(){try{const s=localStorage.getItem(KEY);if(s)return JSON.parse(s);}catch(e){}return JSON.parse(JSON.stringify(SEED));}
+function save(){localStorage.setItem(KEY,JSON.stringify(DATA));toast();}
+function toast(){const t=document.getElementById('saved');t.classList.add('show');clearTimeout(window._tt);window._tt=setTimeout(()=>t.classList.remove('show'),1200);}
+function isLogged(){const ts=+localStorage.getItem(LK)||0;return Date.now()-ts<WEEK;}
+function refreshLock(){const el=document.getElementById('lock');if(isLogged()){const left=Math.ceil((WEEK-(Date.now()-(+localStorage.getItem(LK))))/86400000);el.innerHTML='🔓 已登录，可编辑（剩'+left+'天） <a href="#" onclick="logout();return false" style="color:#86909C">退出</a>';}else{el.innerHTML='🔒 <b>只读</b>模式，<a href="#" onclick="openModal();return false" style="color:#0052D9">登录编辑</a>';}}
+function openModal(){document.getElementById('modal').classList.add('show');document.getElementById('pwd').focus();}
+function closeModal(){document.getElementById('modal').classList.remove('show');document.getElementById('pwderr').textContent='';pending=null;}
+function tryLogin(){if(document.getElementById('pwd').value===PWD){localStorage.setItem(LK,Date.now());closeModal();refreshLock();render();const f=pending;pending=null;if(f)f();}else{document.getElementById('pwderr').textContent='密码错误';}}
+function logout(){localStorage.removeItem(LK);refreshLock();render();}
+function needEdit(fn){if(isLogged()){fn();}else{pending=fn;openModal();}}
+
+document.getElementById('today').textContent='共 '+DATA.length+' 家 · 点击卡片展开 · 陌拜🟠 磐石🟢';
+document.getElementById('news').innerHTML=NEWS.map(n=>'<div class="news">• <a href="'+n.u+'" target="_blank" style="color:#4E5969;text-decoration:none;border-bottom:1px dashed #C5DAFF">'+n.t+'</a></div>').join('');
+document.getElementById('pwd').addEventListener('keydown',e=>{if(e.key==='Enter')tryLogin();});
+
+let cur='all';
+const filters=[['all','全部'],['hot','热(≥4)'],['maibai','陌拜过'],['panshi','磐石name'],['live','待跟进'],['dead','已死']];
+const fEl=document.getElementById('filters');
+filters.forEach(([k,t])=>{const b=document.createElement('button');b.className='fbtn'+(k=='all'?' on':'');b.textContent=t;b.onclick=()=>{cur=k;[...fEl.children].forEach(x=>x.classList.remove('on'));b.classList.add('on');render();};fEl.appendChild(b);});
+function pass(c){if(cur=='all')return true;if(cur=='hot')return c.stage>=4;if(cur=='maibai')return c.is_maibai;if(cur=='panshi')return c.is_panshi;if(cur=='live')return c.stage==2||c.stage==3;if(cur=='dead')return c.stage==0;return true;}
+function esc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function cid(id){return String(id).replace(/[^a-zA-Z0-9]/g,'_');}
+function reorder(){DATA.sort((a,b)=>b.stage-a.stage||String(a.id).localeCompare(String(b.id)));}
+
+// ===== AI 下一步建议引擎(页面内规则) =====
+function suggest(c){
+  const log=(c.log||'')+' '+(c.next||''), s=c.stage;
+  let act='', why=[];
+  if(s>=5){act='本周约 15 分钟线上会，带上云方案/成本对比，推动到磐石建档';why.push('阶段='+ST[s].name+'，已建立深度触点，趁热推进');}
+  else if(s==4){act='微信 1v1 推送 1 篇同体量落地案例，试探当前云厂与预算';why.push('已加微信但需求未明，先用案例养客');}
+  else if(s==3){act='换时段重拨，超 1 分钟直接问体量（自建机房?月成本?用什么云?）';why.push('通了话没加上，按你的 Cold Call 法则加快节奏');}
+  else if(s==2){act='周三/周四 14:00-16:00 换时段重拨，备 30 秒强话术';why.push('留言/未接，属可再战，换时段命中率更高');}
+  else if(s==1){act='最后一次换号/换时段尝试，无果则降级排除';why.push('纯未接通，按排除法控制精力投入');}
+  else{act='暂不主动触达，季度轻回访一次即可';why.push('已死/不对口，节省精力');}
+  // 新闻+关键词叠加
+  if(/DeepSeek|Zhipu|推理|GPU|算力|AWS|阿里云|火山|华为云|Claude/i.test(log)){
+    act='【优先】'+act+'；主打腾讯云 GPU 0.8折 + 推理降价50%，做友商成本对比';
+    why.push('命中在用外部云/开源模型 → 对接当前腾讯云降价热点，成本是最强钩子');
+  }
+  if(/起步|初创|刚/.test(log)){act+='；附 Token Plan 28元/月 + 成长期扶持政策';why.push('成长期客户对成本敏感，扶持政策易破冰');}
+  if(c.is_panshi){why.push('已磐石name/KA在跟 → 先对齐主销售，避免重复触达');}
+  if(c.is_maibai&&s<=2){act='已陌拜过，改走电话/微信触点，别再跑空地址';why.push('陌拜地址曾跑空，换触达方式');}
+  return {act,why:why.join('；')};
+}
+
+function renderTodo(){
+  const el=document.getElementById('todo');el.innerHTML='';
+  const hot=DATA.filter(c=>c.stage>=4);
+  if(!hot.length){el.innerHTML='<span style="color:#86909C;font-size:13px">暂无阶段分≥4的热客户</span>';return;}
+  hot.forEach(c=>{const d=document.createElement('div');d.className='t';
+    d.innerHTML='<b>'+ST[c.stage].emoji+' '+c.name.replace(/（北京）|\(北京\)/g,'')+'</b><div class="act">▶ '+esc(c.next)+'</div>';
+    d.onclick=()=>{const el=document.getElementById('card_'+cid(c.id));if(el){el.classList.add('open');el.scrollIntoView({behavior:'smooth',block:'center'});}};el.appendChild(d);});
+}
+
+function render(){
+  reorder();renderTodo();refreshLock();
+  const ed=isLogged();
+  const list=document.getElementById('list');list.innerHTML='';
+  const groups={};DATA.filter(pass).forEach(c=>{(groups[c.stage]=groups[c.stage]||[]).push(c);});
+  Object.keys(groups).sort((a,b)=>b-a).forEach(s=>{
+    const g=document.createElement('div');g.className='group';
+    g.innerHTML='<div class="ghd">'+ST[s].emoji+' '+ST[s].name+'<span class="n">'+groups[s].length+'</span></div>';
+    groups[s].forEach(c=>g.appendChild(card(c,ed)));list.appendChild(g);
+  });
+  save();
+}
+function stageOptions(sel){return Object.keys(ST).sort((a,b)=>b-a).map(k=>'<option value="'+k+'"'+(k==sel?' selected':'')+'>'+ST[k].emoji+' '+k+' '+ST[k].name+'</option>').join('');}
+
+function card(c,ed){
+  const w=document.createElement('div');w.className='card';w.id='card_'+cid(c.id);w.style.borderLeftColor='#'+ST[c.stage].color;
+  const D=ed?'':'disabled';
+  const play=c.play&&PLAY[c.play]?PLAY[c.play]:null;
+  const sg=suggest(c);
+  let tags='';if(c.is_maibai)tags+='<span class="tag mb">陌拜</span>';if(c.is_panshi)tags+='<span class="tag ps">磐石name</span>';
+  let talkHtml='';
+  if(play){
+    const mats=play.materials.map(m=>'<a class="mat" href="'+m.u+'" target="_blank">📎 '+m.t+'</a>').join('');
+    talkHtml='<div class="field" style="flex-basis:100%"><div class="lbl">💬 可发送话术</div><div class="talk"><button class="copy" onclick="cpTalk(this,event)">复制</button><textarea '+D+' onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'talk_text\',this.value)">'+esc(c.talk_text||play.talk)+'</textarea></div><div class="lbl" style="margin-top:8px">📎 客户材料（点开下载后发客户）</div>'+mats+'</div>';
+  }
+  w.innerHTML='<div class="chd" onclick="if(event.target.tagName!==\'SELECT\'&&event.target.tagName!==\'INPUT\')this.parentElement.classList.toggle(\'open\')">'
+    +'<span class="badge" style="background:#'+ST[c.stage].color+'">'+ST[c.stage].emoji+' '+ST[c.stage].name+'</span>'+tags
+    +'<span class="nm">'+esc(c.name)+'</span><span class="nx">▶ '+esc(c.next)+'</span><span class="arw">▶</span></div>'
+    +'<div class="body">'
+    +'<div class="ai"><div class="h">🤖 AI 建议的下一步动作</div><div class="c">'+sg.act+'</div><div class="why">依据：'+sg.why+'</div>'
+      +(ed?'<button onclick="applySuggest(\''+c.id+'\',event)">采纳为下一步</button>':'')+'</div>'
+    +'<div class="row"><div class="field" style="max-width:180px"><div class="lbl">阶段（改后自动重排）</div><select '+D+' onclick="event.stopPropagation()" onchange="changeStage(\''+c.id+'\',this.value)">'+stageOptions(c.stage)+'</select></div>'
+      +'<div class="field" style="max-width:150px"><div class="lbl">最近更新</div><input '+D+' value="'+esc(c.date)+'" onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'date\',this.value)"></div>'
+      +'<div class="field" style="max-width:200px"><div class="lbl">电话</div><input '+D+' value="'+esc(c.phone)+'" onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'phone\',this.value)"></div></div>'
+    +'<div class="row"><div class="field" style="max-width:110px"><div class="lbl">陌拜</div><select '+D+' onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'is_maibai\',this.value==\'1\')"><option value="0"'+(!c.is_maibai?' selected':'')+'>否</option><option value="1"'+(c.is_maibai?' selected':'')+'>是</option></select></div>'
+      +'<div class="field" style="max-width:130px"><div class="lbl">磐石name</div><select '+D+' onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'is_panshi\',this.value==\'1\')"><option value="0"'+(!c.is_panshi?' selected':'')+'>否</option><option value="1"'+(c.is_panshi?' selected':'')+'>是</option></select></div>'
+      +'<div class="field"><div class="lbl">优先动作（下一步）</div><input '+D+' value="'+esc(c.next)+'" onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'next\',this.value)"></div></div>'
+    +'<div class="row"><div class="field"><div class="lbl">跟进记录</div><textarea '+D+' onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'log\',this.value)">'+esc(c.log)+'</textarea></div></div>'
+    +'<div class="row">'+talkHtml+'</div>'
+    +(ed?'<span class="del" onclick="delC(\''+c.id+'\',event)">删除此客户</span>':'')
+    +'</div>';
+  return w;
+}
+
+function upd(id,f,v){const c=DATA.find(x=>String(x.id)==String(id));if(c){c[f]=v;save();render();}}
+function changeStage(id,v){const c=DATA.find(x=>String(x.id)==String(id));if(c){c.stage=parseInt(v);render();}}
+function applySuggest(id,e){e.stopPropagation();const c=DATA.find(x=>String(x.id)==String(id));if(c){c.next=suggest(c).act;render();}}
+function delC(id,e){e.stopPropagation();if(confirm('确定删除该客户？')){DATA=DATA.filter(x=>String(x.id)!=String(id));render();}}
+function addCompany(){const name=prompt('新客户公司名？');if(!name)return;DATA.push({id:'new_'+Date.now(),name,stage:2,phone:'',addr:'',tier:'手动新增',log:'',next:'首次拨打',date:new Date().toISOString().slice(0,10),play:null,is_maibai:false,is_panshi:false,alias:[]});render();}
+function cpTalk(btn,e){e.stopPropagation();navigator.clipboard.writeText(btn.parentElement.querySelector('textarea').value);btn.textContent='已复制✓';setTimeout(()=>btn.textContent='复制',1500);}
+function exportData(){const blob=new Blob([JSON.stringify(DATA,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='客情作战台备份_'+new Date().toISOString().slice(0,10)+'.json';a.click();}
+
+// ===== AI 日报识别器 =====
+function parseReport(){
+  const txt=document.getElementById('reportBox').value;if(!txt.trim()){document.getElementById('parseResult').textContent='请先粘贴内容';return;}
+  const lines=txt.split(/\n|；|;/).map(l=>l.trim()).filter(Boolean);
+  let hits=[];
+  lines.forEach(line=>{
+    let best=null;
+    DATA.forEach(c=>{
+      const keys=[c.name,...(c.alias||[])];
+      for(const k of keys){const kk=k.replace(/（北京）|\(北京\)|北京|有限公司|科技|股份|信息|技术|网络|文化/g,'');if(kk.length>=2&&line.includes(kk)){best=c;break;}}
+    });
+    if(best){
+      const dm=line.match(/【?(\d{4})】?/);const dt=dm?('2026-'+dm[1].slice(0,2)+'-'+dm[1].slice(2)):best.date;
+      best.log=(best.log?best.log+'\n':'')+line;best.date=dt;
+      // 阶段线索
+      if(/加了?微信|加微|加到.*微信/.test(line)&&best.stage<4)best.stage=4;
+      if(/有兴趣|价格|对比|方案|约.*会|拜访|POC|试用/.test(line)&&best.stage<5)best.stage=5;
+      if(/婉拒|不需要|拒绝|不做了|解散|不对口|没需求/.test(line))best.stage=0;
+      if(/陌拜|敲门/.test(line))best.is_maibai=true;
+      if(/磐石|name|KA|建档/.test(line))best.is_panshi=true;
+      best.next=suggest(best).act;
+      hits.push(best.name.replace(/（北京）|\(北京\)/g,''));
+    }
+  });
+  render();
+  document.getElementById('parseResult').textContent=hits.length?('✅ 已更新 '+hits.length+' 家：'+[...new Set(hits)].join('、')):'⚠️ 未匹配到已有公司，可用「+新增客户」手动添加';
+  document.getElementById('reportBox').value='';
+}
+render();
+</script></body></html>
