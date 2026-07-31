@@ -23,7 +23,7 @@ svg{width:100%;height:auto;display:block;cursor:grab;touch-action:none} svg.drag
 .edit .nm{font-weight:600;color:#0052D9;margin-bottom:8px;font-size:13px} .edit button{border:none;border-radius:6px;padding:5px 11px;font-size:12px;cursor:pointer;margin:3px 4px 0 0;color:#fff} .edit .close{float:right;color:#86909C;cursor:pointer;background:none;padding:0;font-size:14px}
 </style></head><body><div class="wrap">
 <div class="top"><h1>🗺️ 陌拜足迹地图 · 北京城区</h1><a class="back" href="index.html">← 返回作战台</a></div>
-<div class="legend">状态：<span class="dot" style="background:#E8443C"></span>没去过<span class="dot" style="background:#0A9D54"></span>去了+已建联<span class="dot" style="background:#F0B429"></span>去了没建联<span class="dot" style="background:#9CA3AF"></span>放弃　·　点大头针改状态，滚轮/按钮缩放，拖动平移</div>
+<div class="legend">状态：<span class="dot" style="background:#E8443C"></span>地址无效<span class="dot" style="background:#0A9D54"></span>去了+已建联<span class="dot" style="background:#F0B429"></span>去了没建联<span class="dot" style="background:#9CA3AF"></span>放弃　·　点大头针改状态，滚轮/按钮缩放，拖动平移</div>
 <div class="mapbox" id="mapbox">
 <svg viewBox="0 0 900 680" id="svg" preserveAspectRatio="xMidYMid meet"><g id="scene">
 <g id="regions"></g><g id="labels"></g>
@@ -47,7 +47,7 @@ function savePhotos(){try{localStorage.setItem(PHOTOKEY,JSON.stringify(photos));
 function photoOf(p){const up=photos[p.id];if(up&&up.length)return up;return p.photo?[p.photo]:[];}
 function ptOf(id){return PTS.find(x=>x.id==id);}
 function color(id){const p=ptOf(id);if(p&&p.abandoned)return '#9CA3AF';const s=state[id];if(!s||!s.visited)return '#E8443C';return s.linked?'#0A9D54':'#F0B429';}
-function stName(id){const p=ptOf(id);if(p&&p.abandoned)return '放弃';const s=state[id];if(!s||!s.visited)return '没去过';return s.linked?'去了+已建联':'去了没建联';}
+function stName(id){const p=ptOf(id);if(p&&p.abandoned)return '放弃';const s=state[id];if(!s||!s.visited)return '地址无效';return s.linked?'去了+已建联':'去了没建联';}
 
 const svg=document.getElementById('svg');
 function applyVB(){svg.setAttribute('viewBox',vb.x+' '+vb.y+' '+vb.w+' '+vb.h);positionPins();}
