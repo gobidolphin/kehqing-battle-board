@@ -186,17 +186,7 @@ function renderDashboard(){
     +'<div class="kpi"><div class="v" style="color:#F0700A">'+maibai+'</div><div class="l">🟠陌拜过</div></div>'
     +'<div class="kpi"><div class="v" style="color:#0052D9">'+panshi+'</div><div class="l">🟢磐石name</div></div>'
     +'</div>';
-  let k2='<div class="kpis" style="margin-top:10px">'
-    +'<div class="kpi"><div class="v" style="color:#0052D9">13</div><div class="l">累计建联</div></div>'
-    +'<div class="kpi"><div class="v" style="color:#0A9D54">10</div><div class="l">累计完成IT摸排</div></div>'
-    +'<div class="kpi"><div class="v" style="color:#0A9D54">8</div><div class="l">其中名单内</div></div>'
-    +'<div class="kpi"><div class="v" style="color:#B57300">72.53</div><div class="l">累计IT规模(万/月)</div></div>'
-    +'<div class="kpi"><div class="v" style="color:#E8443C">2</div><div class="l">重点跟进中</div></div>'
-    +'<div class="kpi"><div class="v" style="color:#7B61E1">2</div><div class="l">ITS 5.1以上</div></div>'
-    +'<div class="kpi"><div class="v" style="color:#0052D9">2</div><div class="l">有商机客户数</div></div>'
-    +'<div class="kpi"><div class="v" style="color:#0052D9">6</div><div class="l">商机总金额(万/月)</div></div>'
-    +'</div>';
-  el.innerHTML='<div class="dash"><h2>📊 数据概览（自动统计当前所有客户）</h2>'+kpis+k2+'</div>';
+  el.innerHTML='<div class="dash"><h2>📊 数据概览（自动统计当前所有客户）</h2>'+kpis+'</div>';
 }
 
 function renderTodo(){
@@ -230,8 +220,10 @@ function card(c,ed){
   const play=c.play&&PLAY[c.play]?PLAY[c.play]:null;
   const sg=suggest(c);
   let tags='';if(c.is_maibai)tags+='<span class="tag mb">陌拜</span>';if(c.is_panshi)tags+='<span class="tag ps">磐石name</span>';if(c.is_waimai)tags+='<span class="tag wm">🛵外卖员</span>';
-  if(c.scale&&c.scale!=='未知')tags+='<span class="tag" style="background:#EAF2FF;color:#0052D9;border:1px solid #C5DAFF">📊 '+esc(c.scale)+'</span>';
-  if(c.cloud&&c.cloud!=='未知')tags+='<span class="tag" style="background:#F5F0FF;color:#7B61E1;border:1px solid #DDD3FC">☁️ '+esc(c.cloud)+'</span>';
+  const sVal=(c.scale&&c.scale!=='未知')?c.scale:'待摸排';
+  const cVal=(c.cloud&&c.cloud!=='未知')?c.cloud:'待摸排';
+  tags+='<span class="tag" style="background:#EAF2FF;color:#0052D9;border:1px solid #C5DAFF;font-weight:500">📊 '+esc(sVal)+'</span>';
+  tags+='<span class="tag" style="background:#F5F0FF;color:#7B61E1;border:1px solid #DDD3FC;font-weight:500">☁️ '+esc(cVal)+'</span>';
   let talkHtml='';
   if(play){
     const mats=play.materials.map(m=>'<a class="mat" href="'+m.u+'" target="_blank">📎 '+m.t+'</a>').join('');
