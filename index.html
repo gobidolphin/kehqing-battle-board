@@ -69,7 +69,7 @@ select:focus,input:focus,textarea:focus{outline:none;border-color:var(--brand)} 
 <div class="date" id="today"></div>
 <div class="bar">
   <button class="btn" onclick="needEdit(addCompany)">+ 新增客户</button>
-  <a class="btn mapBtn" href="map.html" style="text-decoration:none">🗺️ 足迹地图（含照片）</a>
+  <a class="btn mapBtn" href="map.html" style="text-decoration:none">🗺️ 足迹地图</a>
   <button class="btn ghost" onclick="exportData()">导出备份</button>
   <a class="btn ghost" href="https://docs.qq.com/sheet/DV1ZVcmpNTXFRa2pG?_fid=WVUrjMMqQkjF" target="_blank" style="text-decoration:none">📊 在线Excel</a>
   <button class="btn ghost" onclick="toggleView('schedule')">📅 下周日程</button>
@@ -91,8 +91,6 @@ select:focus,input:focus,textarea:focus{outline:none;border-color:var(--brand)} 
 <div class="row"><span class="pReport" id="parseResult"></span><button class="btn" onclick="needEdit(parseReport)">识别并更新</button></div>
 </div>
 
-<div class="panel"><h2>🎯 今日该催谁（阶段分≥4）</h2><div class="todo" id="todo"></div></div>
-
 <div class="filters" id="filters"></div>
 <div style="display:flex;gap:8px;margin-bottom:12px;align-items:center">
   <input id="qInput" placeholder="🔍 搜索公司名…" style="flex:1;border:1px solid var(--line);border-radius:20px;padding:7px 14px;font-size:13px;font-family:inherit;background:#fff;outline:none" oninput="doSearch(this.value)">
@@ -103,7 +101,8 @@ select:focus,input:focus,textarea:focus{outline:none;border-color:var(--brand)} 
 
 <!-- ===== 右侧边栏：联网热点 ===== -->
 <div class="side">
-<div class="panel"><h2>📰 联网热点（AI建议与话术的依据）</h2><div id="news"></div></div>
+<div class="panel" style="margin-bottom:14px"><h2>📰 联网热点（AI建议与话术的依据）</h2><div id="news"></div></div>
+<div class="panel"><h2>🎯 今日该催谁（阶段分≥4）</h2><div class="todo" id="todo"></div></div>
 </div><!-- /side -->
 </div><!-- /layout -->
 
