@@ -97,6 +97,8 @@ let DATA=load(), pending=null;
 
 function load(){try{const s=localStorage.getItem(KEY);if(s)return JSON.parse(s);}catch(e){}return JSON.parse(JSON.stringify(SEED));}
 function save(){localStorage.setItem(KEY,JSON.stringify(DATA));toast();}
+// 地图(或其他标签页)改动后,实时同步本页
+window.addEventListener('storage',e=>{if(e.key===KEY&&e.newValue){try{DATA=JSON.parse(e.newValue);render();}catch(_){}}});
 function toast(){const t=document.getElementById('saved');t.classList.add('show');clearTimeout(window._tt);window._tt=setTimeout(()=>t.classList.remove('show'),1200);}
 function isLogged(){const ts=+localStorage.getItem(LK)||0;return Date.now()-ts<WEEK;}
 function refreshLock(){const el=document.getElementById('lock');if(isLogged()){const left=Math.ceil((WEEK-(Date.now()-(+localStorage.getItem(LK))))/86400000);el.innerHTML='🔓 已登录，可编辑（剩'+left+'天） <a href="#" onclick="logout();return false" style="color:#86909C">退出</a>';}else{el.innerHTML='🔒 <b>只读</b>模式，<a href="#" onclick="openModal();return false" style="color:#0052D9">登录编辑</a>';}}
