@@ -134,10 +134,10 @@ document.getElementById('news').innerHTML=NEWS.map(n=>'<div class="news">• <a 
 document.getElementById('pwd').addEventListener('keydown',e=>{if(e.key==='Enter')tryLogin();});
 
 let cur='all', q='';
-const filters=[['all','全部'],['hot','热(≥4)'],['maibai','陌拜过'],['panshi','磐石name'],['live','待跟进'],['dead','已死'],['ab','放弃']];
+const filters=[['all','全部'],['hot','热(≥4)'],['maibai','陌拜过'],['panshi','磐石name'],['live','待跟进'],['ab','放弃']];
 const fEl=document.getElementById('filters');
 filters.forEach(([k,t])=>{const b=document.createElement('button');b.className='fbtn'+(k=='all'?' on':'');b.textContent=t;b.onclick=()=>{cur=k;[...fEl.children].forEach(x=>x.classList.remove('on'));b.classList.add('on');render();};fEl.appendChild(b);});
-function pass(c){if(cur=='all')return true;if(cur=='hot')return c.stage>=4;if(cur=='maibai')return c.is_maibai;if(cur=='panshi')return c.is_panshi;if(cur=='live')return c.stage==2||c.stage==3;if(cur=='dead')return c.stage==0;if(cur=='ab')return c.abandoned;return true;}
+function pass(c){if(cur=='all')return true;if(cur=='hot')return c.stage>=4;if(cur=='maibai')return c.is_maibai;if(cur=='panshi')return c.is_panshi;if(cur=='live')return c.stage==2||c.stage==3;if(cur=='ab')return c.abandoned||c.stage==0;return true;}
 function matchQ(c){if(!q)return true;const t=(c.name+' '+(c.alias||[]).join(' ')).toLowerCase();return t.includes(q.toLowerCase());}
 function doSearch(v){q=v.trim();render();}
 function esc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
