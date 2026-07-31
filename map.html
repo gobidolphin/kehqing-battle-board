@@ -106,10 +106,11 @@ function openEdit(e,p){
     +'<button style="background:#0052D9;margin-top:6px" onclick="saveAddr(\''+p.id+'\',event)">保存地址并重定位</button>'
     +'<div style="font-size:11px;color:#86909C;margin:10px 0 4px">现场照片（最多3张，存本机）</div>'
     +'<div>'+thumbs+'</div>'
-    +(canAdd?'<label style="display:inline-block;margin-top:6px;background:#EAF2FF;color:#0052D9;border-radius:6px;padding:5px 11px;font-size:12px;cursor:pointer">＋ 上传照片<input type="file" accept="image/*" style="display:none" onchange="upPhoto(\''+p.id+'\',this)"></label>':'<div style="font-size:11px;color:#86909C;margin-top:6px">已满3张，删一张再传</div>');
+    +(canAdd?'<div id="pastezone" tabindex="0" style="margin-top:6px;border:1.5px dashed #C5DAFF;border-radius:8px;padding:10px;text-align:center;font-size:12px;color:#0052D9;cursor:pointer;outline:none" onclick="event.stopPropagation();this.focus()">📋 点这里后按 Cmd+V 粘贴截图<br><span style="font-size:11px;color:#86909C">或 <label style="color:#0052D9;cursor:pointer;text-decoration:underline">选择文件<input type="file" accept="image/*" style="display:none" onchange="upPhoto(\''+p.id+'\',this)"></label></span></div>':'<div style="font-size:11px;color:#86909C;margin-top:6px">已满3张，删一张再传</div>');
   b.style.display='block';openId=p.id;
-  let x=e.clientX+10,y=e.clientY+10;if(x+250>innerWidth)x=innerWidth-254;if(y+320>innerHeight)y=Math.max(10,innerHeight-324);
+  let x=e.clientX+10,y=e.clientY+10;if(x+250>innerWidth)x=innerWidth-254;if(y+340>innerHeight)y=Math.max(10,innerHeight-344);
   b.style.left=x+'px';b.style.top=y+'px';
+  const pz=document.getElementById('pastezone');if(pz)pz.focus();
 }
 // 保存地址→按区名重定位针
 const RCENTER={"东城": [405.5, 342.0], "西城": [369.3, 338.0], "朝阳": [472.6, 317.0], "丰台": [303.0, 398.6], "石景山": [249.4, 331.3], "海淀": [281.6, 260.4], "通州": [604.2, 410.5], "顺义": [602.7, 190.0], "昌平": [266.6, 145.8], "大兴": [439.8, 517.6]};
@@ -133,8 +134,10 @@ const ADDRKEY='kehqing_addr_v1';
 function saveAddrStore(){const o={};PTS.forEach(p=>o[p.id]={addr:p.addr,x:p.x,y:p.y,region:p.region});localStorage.setItem(ADDRKEY,JSON.stringify(o));}
 function loadAddrStore(){try{const s=localStorage.getItem(ADDRKEY);if(s){const o=JSON.parse(s);PTS.forEach(p=>{if(o[p.id]){p.addr=o[p.id].addr;p.x=o[p.id].x;p.y=o[p.id].y;p.region=o[p.id].region;}});}}catch(e){}}
 // 上传照片:读文件→缩到宽320→base64存localStorage
-window.upPhoto=function(id,input){
-  const file=input.files[0];if(!file)return;
+// 通用:把一个图片File/Blob压缩后加到某家照片
+function addPhotoFromBlob(id,blob){
+  if(!blob){return;}
+  if((photos[id]||[]).length>=3){alert('已满3张，先删一张');return;}
   const reader=new FileReader();
   reader.onload=ev=>{
     const img=new Image();
@@ -147,8 +150,20 @@ window.upPhoto=function(id,input){
     };
     img.src=ev.target.result;
   };
-  reader.readAsDataURL(file);
-};
+  reader.readAsDataURL(blob);
+}
+window.upPhoto=function(id,input){const f=input.files[0];if(f)addPhotoFromBlob(id,f);};
+// 粘贴截图:编辑框打开时,Cmd+V把剪贴板图片贴给openId那家
+document.addEventListener('paste',e=>{
+  if(!openId)return;
+  const items=(e.clipboardData||{}).items||[];
+  for(const it of items){
+    if(it.type&&it.type.indexOf('image')===0){
+      const blob=it.getAsFile();if(blob){e.preventDefault();addPhotoFromBlob(openId,blob);}
+      break;
+    }
+  }
+});
 window.delPhoto=function(id,idx,e){if(e)e.stopPropagation();if(photos[id]){photos[id].splice(idx,1);savePhotos();const p=PTS.find(x=>x.id==id);const b=document.getElementById('editbox');openEdit({clientX:parseInt(b.style.left),clientY:parseInt(b.style.top)},p);}};
 window.closeEdit=function(e){if(e)e.stopPropagation();document.getElementById('editbox').style.display='none';openId=null;};
 window.tog=function(id,f,e){if(e)e.stopPropagation();if(!state[id])state[id]={visited:false,linked:false};state[id][f]=!state[id][f];save();draw();
