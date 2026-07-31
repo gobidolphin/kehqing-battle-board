@@ -72,8 +72,8 @@ select:focus,input:focus,textarea:focus{outline:none;border-color:var(--brand)} 
 <div class="panel" id="dashboard"></div>
 
 <div class="panel ing">
-<h2>🤖 AI 日报识别器（粘贴日报/陌拜记录，自动匹配公司并更新）</h2>
-<textarea id="reportBox" placeholder="把你的日报或陌拜记录粘进来，例如：&#10;【0730】飞如许 下周拜访，CTO给了新地址&#10;驯鹿AI 持续跟进推理成本&#10;然后点『识别并更新』"></textarea>
+<h2>🤖 AI 日报识别器（粘贴日报/陌拜记录，自动匹配已有客户；识别到新客户会自动建档）</h2>
+<textarea id="reportBox" placeholder="把你的日报或陌拜记录粘进来，例如：&#10;【0730】飞如许 下周拜访，CTO给了新地址&#10;【0731】XX智能科技 陌拜加了微信，在用阿里云（这种新公司会自动建一条新追踪）&#10;然后点『识别并更新』"></textarea>
 <div class="row"><span class="pReport" id="parseResult"></span><button class="btn" onclick="needEdit(parseReport)">识别并更新</button></div>
 </div>
 
@@ -240,13 +240,23 @@ function genPrompt(id,e){
 function parseReport(){
   const txt=document.getElementById('reportBox').value;if(!txt.trim()){document.getElementById('parseResult').textContent='请先粘贴内容';return;}
   const lines=txt.split(/\n|；|;/).map(l=>l.trim()).filter(Boolean);
-  let hits=[];
+  let hits=[], created=[];
   lines.forEach(line=>{
     let best=null;
     DATA.forEach(c=>{
       const keys=[c.name,...(c.alias||[])];
       for(const k of keys){const kk=k.replace(/（北京）|\(北京\)|北京|有限公司|科技|股份|信息|技术|网络|文化/g,'');if(kk.length>=2&&line.includes(kk)){best=c;break;}}
     });
+    // 匹配不到已有公司 → 尝试提取公司名并新建
+    if(!best){
+      const nm=extractCompany(line);
+      if(nm){
+        best={id:'new_'+Date.now()+'_'+Math.floor(Math.random()*1000),name:nm,stage:2,phone:'',addr:'',tier:'日报新增',
+          log:'',next:'首次跟进',date:new Date().toISOString().slice(0,10),play:null,is_maibai:false,is_panshi:false,alias:[],
+          prod:'',profit:'',cloud:'',scale:''};
+        DATA.push(best);created.push(nm);
+      }
+    }
     if(best){
       const dm=line.match(/【?(\d{4})】?/);const dt=dm?('2026-'+dm[1].slice(0,2)+'-'+dm[1].slice(2)):best.date;
       best.log=(best.log?best.log+'\n':'')+line;best.date=dt;
@@ -257,12 +267,29 @@ function parseReport(){
       if(/陌拜|敲门/.test(line))best.is_maibai=true;
       if(/磐石|name|KA|建档/.test(line))best.is_panshi=true;
       best.next=suggest(best).act;
-      hits.push(best.name.replace(/（北京）|\(北京\)/g,''));
+      if(created.indexOf(best.name)<0)hits.push(best.name.replace(/（北京）|\(北京\)/g,''));
     }
   });
   render();
-  document.getElementById('parseResult').textContent=hits.length?('✅ 已更新 '+hits.length+' 家：'+[...new Set(hits)].join('、')):'⚠️ 未匹配到已有公司，可用「+新增客户」手动添加';
+  let msg='';
+  if(created.length)msg+='🆕 新建 '+created.length+' 家：'+[...new Set(created)].map(n=>n.replace(/（北京）|\(北京\)/g,'')).join('、')+'　';
+  if(hits.length)msg+='✅ 更新 '+hits.length+' 家：'+[...new Set(hits)].join('、');
+  if(!msg)msg='⚠️ 没识别出公司名。新客户请在句中写明公司名（含"公司/科技/网络"等），或用「+新增客户」手动加';
+  document.getElementById('parseResult').textContent=msg;
   document.getElementById('reportBox').value='';
+}
+// 从一行日报里提取公司名(中文公司名通常以 公司/科技/网络/技术/信息/传媒/文化/集团 等结尾,或含AI品牌名)
+function extractCompany(line){
+  // 1) 完整公司名(以 有限公司/股份有限公司/有限责任公司 结尾) — 优先,避免把"科技"当后缀截断全名
+  let m=line.match(/([\u4e00-\u9fa5A-Za-z0-9.·]{2,20}?(?:股份有限公司|有限责任公司|有限公司))/);
+  if(m)return m[1];
+  // 2) 品牌式公司名(以 科技/网络/技术/信息/传媒/文化/集团 等结尾)
+  m=line.match(/([\u4e00-\u9fa5A-Za-z0-9.·]{2,20}?(?:科技|网络|技术|信息|传媒|文化|集团|工作室|研究院|实验室))/);
+  if(m)return m[1];
+  // 3) 英文/混合品牌名(如 NeuxMind.AI、XXX.AI)
+  m=line.match(/([A-Za-z][A-Za-z0-9]{2,}(?:\.[A-Za-z]{2,})?(?:\.AI|\.ai)?)/);
+  if(m&&m[1].length>=3&&!/^\d{4}$/.test(m[1]))return m[1];
+  return null;
 }
 
 // ===== 下周日程 + 材料/学习计划 =====
