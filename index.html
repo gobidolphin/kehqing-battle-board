@@ -158,13 +158,7 @@ function renderDashboard(){
     +'<div class="kpi"><div class="v" style="color:#F0700A">'+maibai+'</div><div class="l">🟠陌拜过</div></div>'
     +'<div class="kpi"><div class="v" style="color:#0052D9">'+panshi+'</div><div class="l">🟢磐石name</div></div>'
     +'</div>';
-  let bars='<div class="bars">';
-  Object.keys(ST).sort((a,b)=>b-a).forEach(k=>{
-    const n=byStage[k]||0;const w=Math.round(n/maxc*100);
-    bars+='<div class="barrow"><span class="nm">'+ST[k].emoji+' '+ST[k].name+'</span><span class="track"><span class="fill" style="width:'+w+'%;background:#'+ST[k].color+'"></span></span><span class="ct">'+n+'</span></div>';
-  });
-  bars+='</div>';
-  el.innerHTML='<div class="dash"><h2>📊 数据概览（自动统计当前所有客户）</h2>'+kpis+'<div style="font-size:12px;color:#86909C;margin:4px 0 6px">各阶段分布</div>'+bars+'</div>';
+  el.innerHTML='<div class="dash"><h2>📊 数据概览（自动统计当前所有客户）</h2>'+kpis+'</div>';
 }
 
 function renderTodo(){
