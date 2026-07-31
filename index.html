@@ -43,6 +43,12 @@ select:focus,input:focus,textarea:focus{outline:none;border-color:var(--brand)} 
 .day{border-left:3px solid var(--brand);padding:2px 0 2px 12px;margin:12px 0} .day .dh{font-weight:600;font-size:13.5px;color:#1D2129;margin-bottom:5px} .day .it{font-size:13px;color:#4E5969;padding:3px 0} .day .it b{color:var(--brand)}
 .lp{margin:10px 0} .lp .lh{font-weight:600;font-size:13.5px;color:var(--brand);margin-bottom:6px} .lp .li{font-size:13px;color:#4E5969;padding:3px 0 3px 14px;position:relative} .lp .li:before{content:'▪';position:absolute;left:0;color:#C5DAFF}
 .lp a{color:var(--brand);text-decoration:none;border-bottom:1px dashed #C5DAFF}
+.dash h2{font-size:14px;color:var(--brand);margin-bottom:12px}
+.kpis{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.kpi{flex:1;min-width:90px;background:linear-gradient(135deg,#F5F8FF,#EEF2FF);border:1px solid #E0E8F5;border-radius:10px;padding:12px 14px;text-align:center}
+.kpi .v{font-size:26px;font-weight:700;color:var(--brand);line-height:1.1} .kpi .l{font-size:12px;color:#86909C;margin-top:4px}
+.bars{margin-top:6px} .barrow{display:flex;align-items:center;gap:8px;margin:5px 0;font-size:12.5px}
+.barrow .nm{width:78px;text-align:right;color:#4E5969;flex-shrink:0} .barrow .track{flex:1;background:#F0F2F5;border-radius:6px;height:18px;overflow:hidden} .barrow .fill{height:100%;border-radius:6px;transition:width .4s} .barrow .ct{width:28px;color:#86909C;flex-shrink:0}
 .saved{position:fixed;bottom:20px;right:20px;background:#1D2129;color:#fff;padding:8px 16px;border-radius:8px;font-size:13px;opacity:0;transition:.3s;pointer-events:none} .saved.show{opacity:.92}
 .tip{font-size:12px;color:var(--sub);background:#FFF7E6;border:1px solid #FFE1A8;border-radius:8px;padding:9px 11px;margin-top:8px}
 .modal{position:fixed;inset:0;background:rgba(0,0,0,.4);display:none;align-items:center;justify-content:center;z-index:99} .modal.show{display:flex}
@@ -62,6 +68,8 @@ select:focus,input:focus,textarea:focus{outline:none;border-color:var(--brand)} 
 </div>
 
 <div class="panel" id="planPanel" style="display:none"></div>
+
+<div class="panel" id="dashboard"></div>
 
 <div class="panel ing">
 <h2>🤖 AI 日报识别器（粘贴日报/陌拜记录，自动匹配公司并更新）</h2>
@@ -130,6 +138,35 @@ function suggest(c){
   return {act,why:why.join('；')};
 }
 
+function renderDashboard(){
+  const el=document.getElementById('dashboard');if(!el)return;
+  const total=DATA.length;
+  const hot=DATA.filter(c=>c.stage>=4).length;
+  const dead=DATA.filter(c=>c.stage==0).length;
+  const live=total-dead;
+  const maibai=DATA.filter(c=>c.is_maibai).length;
+  const panshi=DATA.filter(c=>c.is_panshi).length;
+  // 各阶段计数
+  const byStage={};Object.keys(ST).forEach(k=>byStage[k]=0);
+  DATA.forEach(c=>byStage[c.stage]=(byStage[c.stage]||0)+1);
+  const maxc=Math.max(1,...Object.values(byStage));
+  let kpis='<div class="kpis">'
+    +'<div class="kpi"><div class="v">'+total+'</div><div class="l">客户总数</div></div>'
+    +'<div class="kpi"><div class="v" style="color:#E8443C">'+hot+'</div><div class="l">🔥热客户(≥建联)</div></div>'
+    +'<div class="kpi"><div class="v" style="color:#0A9D54">'+live+'</div><div class="l">存活跟进中</div></div>'
+    +'<div class="kpi"><div class="v" style="color:#86909C">'+dead+'</div><div class="l">已死/排除</div></div>'
+    +'<div class="kpi"><div class="v" style="color:#F0700A">'+maibai+'</div><div class="l">🟠陌拜过</div></div>'
+    +'<div class="kpi"><div class="v" style="color:#0052D9">'+panshi+'</div><div class="l">🟢磐石name</div></div>'
+    +'</div>';
+  let bars='<div class="bars">';
+  Object.keys(ST).sort((a,b)=>b-a).forEach(k=>{
+    const n=byStage[k]||0;const w=Math.round(n/maxc*100);
+    bars+='<div class="barrow"><span class="nm">'+ST[k].emoji+' '+ST[k].name+'</span><span class="track"><span class="fill" style="width:'+w+'%;background:#'+ST[k].color+'"></span></span><span class="ct">'+n+'</span></div>';
+  });
+  bars+='</div>';
+  el.innerHTML='<div class="dash"><h2>📊 数据概览（自动统计当前所有客户）</h2>'+kpis+'<div style="font-size:12px;color:#86909C;margin:4px 0 6px">各阶段分布</div>'+bars+'</div>';
+}
+
 function renderTodo(){
   const el=document.getElementById('todo');el.innerHTML='';
   const hot=DATA.filter(c=>c.stage>=4);
@@ -140,7 +177,7 @@ function renderTodo(){
 }
 
 function render(){
-  reorder();renderTodo();refreshLock();
+  reorder();renderTodo();refreshLock();renderDashboard();
   const ed=isLogged();
   const list=document.getElementById('list');list.innerHTML='';
   const groups={};DATA.filter(pass).forEach(c=>{(groups[c.stage]=groups[c.stage]||[]).push(c);});
