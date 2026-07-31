@@ -53,7 +53,7 @@ select:focus,input:focus,textarea:focus{outline:none;border-color:var(--brand)} 
 <div class="bar">
   <button class="btn" onclick="needEdit(addCompany)">+ 新增客户</button>
   <button class="btn ghost" onclick="exportData()">导出备份</button>
-  <a class="btn ghost" href="足迹地图.html" style="text-decoration:none">🗺️ 足迹地图</a>
+  <a class="btn ghost" href="map.html" style="text-decoration:none">🗺️ 足迹地图</a>
   <button class="btn ghost" onclick="toggleView('schedule')">📅 下周日程</button>
   <button class="btn ghost" onclick="toggleView('learn')">📚 材料/学习计划</button>
   <button class="btn gray" onclick="needEdit(()=>{if(confirm('恢复到发布快照？本机修改将丢失')){localStorage.removeItem(KEY);location.reload();}})">恢复快照</button>
