@@ -4,14 +4,23 @@
 :root{--brand:#0052D9;--bg:#F5F7FA;--card:#fff;--line:#E5E8EF;--text:#1D2129;--sub:#86909C}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);padding:18px;line-height:1.5}
-.wrap{max-width:1080px;margin:0 auto}
+.wrap{max-width:1240px;margin:0 auto}
 h1{font-size:22px} .date{color:var(--sub);font-size:13px;margin-bottom:14px}
 .bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;align-items:center}
 .btn{border:1px solid var(--brand);background:var(--brand);color:#fff;border-radius:8px;padding:7px 14px;font-size:13px;cursor:pointer}
 .btn.ghost{background:#fff;color:var(--brand)} .btn.gray{background:#fff;color:var(--sub);border-color:var(--line)}
+.btn.mapBtn{background:linear-gradient(135deg,#0052D9,#266FE8);color:#fff;border:none;padding:8px 18px;font-size:14px;font-weight:600;box-shadow:0 2px 8px rgba(0,82,217,.25)}
+.btn.mapBtn:hover{box-shadow:0 4px 12px rgba(0,82,217,.35);transform:translateY(-1px)}
 .lock{margin-left:auto;font-size:12.5px;color:var(--sub)} .lock b{color:#E8443C}
 .panel{background:var(--card);border-radius:14px;padding:15px 17px;margin-bottom:14px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .panel h2{font-size:14px;color:var(--brand);margin-bottom:9px}
+
+/* ===== 左右双栏布局 ===== */
+.layout{display:flex;gap:16px;align-items:flex-start}
+.main{flex:1;min-width:0}
+.side{width:300px;flex-shrink:0;position:sticky;top:18px}
+.side .panel{margin-bottom:0}
+@media(max-width:900px){.layout{flex-direction:column}.side{width:100%;position:static}}
 .news{font-size:12.5px;color:#4E5969;padding:4px 0;border-bottom:1px dashed var(--line)} .news:last-child{border:none}
 .ing textarea{width:100%;border:1px solid var(--line);border-radius:8px;padding:10px;font-size:13px;min-height:70px;font-family:inherit}
 .ing .row{display:flex;gap:8px;margin-top:8px;align-items:center}
@@ -60,8 +69,8 @@ select:focus,input:focus,textarea:focus{outline:none;border-color:var(--brand)} 
 <div class="date" id="today"></div>
 <div class="bar">
   <button class="btn" onclick="needEdit(addCompany)">+ 新增客户</button>
+  <a class="btn mapBtn" href="map.html" style="text-decoration:none">🗺️ 足迹地图（含照片）</a>
   <button class="btn ghost" onclick="exportData()">导出备份</button>
-  <a class="btn ghost" href="map.html" style="text-decoration:none">🗺️ 足迹地图</a>
   <a class="btn ghost" href="https://docs.qq.com/sheet/DV1ZVcmpNTXFRa2pG?_fid=WVUrjMMqQkjF" target="_blank" style="text-decoration:none">📊 在线Excel</a>
   <button class="btn ghost" onclick="toggleView('schedule')">📅 下周日程</button>
   <button class="btn ghost" onclick="toggleView('learn')">📚 材料/学习计划</button>
@@ -71,6 +80,9 @@ select:focus,input:focus,textarea:focus{outline:none;border-color:var(--brand)} 
 
 <div class="panel" id="planPanel" style="display:none"></div>
 
+<div class="layout">
+<!-- ===== 左侧主区：看板 → AI → 公司列表 ===== -->
+<div class="main">
 <div class="panel" id="dashboard"></div>
 
 <div class="panel ing">
@@ -79,15 +91,21 @@ select:focus,input:focus,textarea:focus{outline:none;border-color:var(--brand)} 
 <div class="row"><span class="pReport" id="parseResult"></span><button class="btn" onclick="needEdit(parseReport)">识别并更新</button></div>
 </div>
 
-<div class="panel"><h2>📰 联网热点（AI建议与话术的依据）</h2><div id="news"></div></div>
 <div class="panel"><h2>🎯 今日该催谁（阶段分≥4）</h2><div class="todo" id="todo"></div></div>
 
 <div class="filters" id="filters"></div>
 <div style="display:flex;gap:8px;margin-bottom:12px;align-items:center">
-  <input id="qInput" placeholder="🔍 搜索公司名…" style="flex:1;border:1px solid var(--line);border-radius:20px;padding:7px14px;font-size:13px;font-family:inherit;background:#fff;outline:none" oninput="doSearch(this.value)">
+  <input id="qInput" placeholder="🔍 搜索公司名…" style="flex:1;border:1px solid var(--line);border-radius:20px;padding:7px 14px;font-size:13px;font-family:inherit;background:#fff;outline:none" oninput="doSearch(this.value)">
   <span id="qCount" style="font-size:12px;color:var(--sub);white-space:nowrap"></span>
 </div>
 <div id="list"></div>
+</div><!-- /main -->
+
+<!-- ===== 右侧边栏：联网热点 ===== -->
+<div class="side">
+<div class="panel"><h2>📰 联网热点（AI建议与话术的依据）</h2><div id="news"></div></div>
+</div><!-- /side -->
+</div><!-- /layout -->
 
 <div class="panel" style="margin-top:14px"><div class="tip">👀 <b>访客可查看</b>，编辑需登录（密码，登录后 7 天内有效）。改动实时存本机浏览器。发布链接给导师同事，他们看到的是发布时的快照。</div></div>
 </div>
