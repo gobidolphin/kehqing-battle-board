@@ -140,7 +140,7 @@ filters.forEach(([k,t])=>{const b=document.createElement('button');b.className='
 function pass(c){if(cur=='all')return true;if(cur=='hot')return c.stage>=4;if(cur=='maibai')return c.is_maibai;if(cur=='panshi')return c.is_panshi;if(cur=='live')return c.stage==2||c.stage==3;if(cur=='waimai')return c.is_waimai;if(cur=='ab')return c.stage==0;return true;}
 function matchQ(c){if(!q)return true;const t=(c.name+' '+(c.alias||[]).join(' ')).toLowerCase();return t.includes(q.toLowerCase());}
 function doSearch(v){q=v.trim();render();}
-function esc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 function hasScale(c){return (parseFloat(c.it_scale)||0)>0||(c.scale&&c.scale!=='未知'&&c.scale!=='待摸排');}
 function cid(id){return String(id).replace(/[^a-zA-Z0-9]/g,'_');}
 function reorder(){DATA.sort((a,b)=>b.stage-a.stage||String(a.id).localeCompare(String(b.id)));}
