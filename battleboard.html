@@ -186,11 +186,6 @@ select:focus,input:focus,textarea:focus{outline:none;border-color:var(--brand);b
     <div class="side">
       <div class="panel" id="newsPanel"><h2>今日 AI 新闻</h2><div id="newsMeta" style="font-size:11px;color:var(--sub);margin:-6px 0 10px"></div><div id="newsBody"></div></div>
       <div class="panel" id="knowledgePanel"><h2 id="knowledgeTitle">今日 AI 知识点</h2><div id="knowledgeMeta" style="font-size:11px;color:var(--sub);margin:-6px 0 10px"></div><div id="knowledgeBody"></div></div>
-      <div class="panel"><h2>设置</h2><div style="font-size:13px;color:var(--sub)">
-        <p>密码：091313</p>
-        <p>数据存储在浏览器 localStorage</p>
-        <p>版本：v27（AI 识别器新增日期识别：今天/8月4日/08/04/0804）</p>
-      </div></div>
     </div>
   </div>
 </div>
@@ -228,7 +223,7 @@ select:focus,input:focus,textarea:focus{outline:none;border-color:var(--brand);b
       <div class="panel"><h2>设置</h2><div style="font-size:13px;color:var(--sub)">
         <p>密码：091313</p>
         <p>数据存储在浏览器 localStorage</p>
-        <p>版本：v27（AI 识别器新增日期识别：今天/8月4日/08/04/0804）</p>
+        <p>版本：v28（侧边精简：4条新闻 + 每日AI知识点，去设置面板）</p>
       </div></div>
     </div>
   </div>
@@ -280,7 +275,7 @@ document.getElementById('knowledgeBody').innerHTML=
 
 // 新闻
 document.getElementById('newsMeta').textContent=new Date().toLocaleDateString('zh-CN',{year:'numeric',month:'long',day:'numeric',weekday:'long'});
-const newsHtml=NEWS.map(n=>
+const newsHtml=NEWS.slice(0,4).map(n=>
   '<div class="news"><b style="color:#0052D9;font-size:12.5px">'+esc(n.title)+'</b><span style="color:var(--sub);font-size:10.5px;margin-left:8px">'+esc(n.time)+'</span>'
   +'<div style="margin-top:2px;font-size:12px;color:#4E5969">'+esc(n.body)+'</div></div>'
 ).join('');
