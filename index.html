@@ -44,6 +44,11 @@ h1{font-size:22px} .date{color:var(--sub);font-size:13px;margin-bottom:14px}
 .tag.ab{background:#EAECEF;color:#9097A3;border:1px solid #D0D5DD;text-decoration:line-through}
 .abcard{opacity:.62;filter:grayscale(.35)} .abcard:hover{opacity:1;filter:none}
 .nm{font-weight:600;flex:1;font-size:14px;min-width:120px} .nx{color:var(--sub);font-size:12.5px}
+.qa{display:flex;gap:6px;flex-wrap:wrap;align-items:center;padding:4px 8px;background:linear-gradient(135deg,#F5F8FF,#FFFBF0);border:1px solid #E0E8F5;border-radius:8px;max-width:480px}
+.qa-item{font-size:11.5px;color:#0052D9;padding:3px 8px;border-radius:6px;background:#fff;border:1px solid #C5DAFF;cursor:pointer;white-space:nowrap;transition:.15s}
+.qa-item:hover{background:#EAF2FF;border-color:#0052D9;transform:translateY(-1px)}
+.qa-item.hit{background:#0A9D54;color:#fff;border-color:#0A9D54;animation:qaPulse .6s}
+@keyframes qaPulse{0%{transform:scale(1)}50%{transform:scale(1.08)}100%{transform:scale(1)}}
 .arw{color:var(--sub);transition:.2s;font-size:11px} .card.open .arw{transform:rotate(90deg)}
 .body{display:none;padding:4px 15px 15px;border-top:1px solid var(--line)} .card.open .body{display:block}
 .row{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
@@ -273,6 +278,29 @@ function suggest(c){
   return {act,why:why.join('；')};
 }
 
+// ===== 头部右侧快捷动作 chip（图2红框） =====
+function genQA(sg){
+  const a1='<span class="qa-item" title="采纳：换时段重拨" onclick="applyQA(this,event,\'换时段重拨（明天 14-16 点最佳）\')">▶ 换时段重拨</span>';
+  const a2='<span class="qa-item" title="采纳：友商成本对比" onclick="applyQA(this,event,\'发送腾讯云 vs 友商推理算力对比·约15min线上会\')">▶ 友商成本对比</span>';
+  const a3='<span class="qa-item" title="采纳：案例养客" onclick="applyQA(this,event,\'推送1篇同体量公司案例养客\')">▶ 案例养客</span>';
+  return [a1,a2,a3];
+}
+function applyQA(el,e,txt){
+  e.stopPropagation();
+  if(!isLogged()){pending=()=>applyQA(el,{stopPropagation:()=>{}},txt);openModal();return;}
+  const cardEl=el.closest('.card');
+  const id=cardEl.id.replace('card_','');
+  const c=DATA.find(x=>String(x.id)===String(id));
+  if(!c)return;
+  c.next=txt;
+  save();
+  // 视觉反馈
+  el.classList.add('hit');
+  setTimeout(()=>el.classList.remove('hit'),600);
+  render();
+  toast();
+}
+
 // ===== 核心指标看板（已挪到 客户管理 Tab 顶部）=====
 function renderDashboard(){
   const el=document.getElementById('dashboard');if(!el)return;
@@ -382,8 +410,10 @@ function card(c,ed){
 
   w.innerHTML=
     '<div class="chd" onclick="if(event.target.tagName!==\'SELECT\'&&event.target.tagName!==\'INPUT\')this.parentElement.classList.toggle(\'open\')">'
-    +'<span class="badge" style="background:#'+ST[c.stage].color+'">'+ST[c.stage].emoji+' '+ST[c.stage].name+'</span>'+tags
-    +'<span class="nm">'+esc(c.name)+'</span><span class="nx">▶ '+esc(c.next)+'</span><span class="arw">▶</span></div>'
+    +'<span class="badge" style="background:#'+ST[c.stage].color+'">'+ST[c.stage].emoji+' '+ST[c.stage].name+'</span>'
+    +'<span class="nm">'+esc(c.name)+'</span>'+tags
+    +'<span class="qa" onclick="event.stopPropagation()">'+genQA(sg).join('')+'</span>'
+    +'<span class="nx">▶ '+esc(c.next)+'</span><span class="arw">▶</span></div>'
 
     +'<div class="body">'
 
