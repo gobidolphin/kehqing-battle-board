@@ -61,9 +61,13 @@ select:focus,input:focus,textarea:focus{outline:none;border-color:var(--brand)} 
 .lp{margin:10px 0} .lp .lh{font-weight:600;font-size:13.5px;color:var(--brand);margin-bottom:6px} .lp .li{font-size:13px;color:#4E5969;padding:3px 0 3px 14px;position:relative} .lp .li:before{content:'▪';position:absolute;left:0;color:#C5DAFF}
 .lp a{color:var(--brand);text-decoration:none;border-bottom:1px dashed #C5DAFF}
 .dash h2{font-size:14px;color:var(--brand);margin-bottom:12px}
-.kpis{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px}
-.kpi{flex:1;min-width:90px;background:linear-gradient(135deg,#F5F8FF,#EEF2FF);border:1px solid #E0E8F5;border-radius:10px;padding:12px 14px;text-align:center}
-.kpi .v{font-size:26px;font-weight:700;color:var(--brand);line-height:1.1} .kpi .l{font-size:12px;color:#86909C;margin-top:4px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:0}
+.kpi{background:linear-gradient(135deg,#F5F8FF,#EEF2FF);border:1px solid #E0E8F5;border-radius:10px;padding:13px 10px;text-align:center;transition:.15s}
+.kpi:hover{border-color:#C5DAFF;box-shadow:0 2px 8px rgba(0,82,217,.08);transform:translateY(-1px)}
+.kpi .v{font-size:24px;font-weight:700;color:var(--brand);line-height:1.15}
+.kpi .l{font-size:12px;color:#1D2129;margin-top:5px;font-weight:500}
+.kpi .s{font-size:11px;color:#86909C;margin-top:2px}
+@media(max-width:900px){.kpis{grid-template-columns:repeat(2,1fr)}}
 .saved{position:fixed;bottom:20px;right:20px;background:#1D2129;color:#fff;padding:8px 16px;border-radius:8px;font-size:13px;opacity:0;transition:.3s;pointer-events:none} .saved.show{opacity:.92}
 .tip{font-size:12px;color:var(--sub);background:#FFF7E6;border:1px solid #FFE1A8;border-radius:8px;padding:9px 11px;margin-top:8px}
 .modal{position:fixed;inset:0;background:rgba(0,0,0,.4);display:none;align-items:center;justify-content:center;z-index:99} .modal.show{display:flex}
@@ -91,6 +95,7 @@ select:focus,input:focus,textarea:focus{outline:none;border-color:var(--brand)} 
 <!-- ===== Tab 1: 客户管理（默认） ===== -->
 <div class="tab-content active" id="tab-clients">
   <div class="date" id="today"></div>
+  <div class="panel" id="dashboard"></div>
 
   <div class="panel ing">
     <h2>🤖 AI 日报识别器（粘贴日报/陌拜记录，自动匹配已有客户；识别到新客户会自动建档）</h2>
@@ -106,9 +111,8 @@ select:focus,input:focus,textarea:focus{outline:none;border-color:var(--brand)} 
   <div id="list"></div>
 </div>
 
-<!-- ===== Tab 2: 仪表盘 ===== -->
+<!-- ===== Tab 2: 今日待办 ===== -->
 <div class="tab-content" id="tab-dash">
-  <div class="panel" id="dashboard"></div>
   <div class="panel"><h2>🎯 今日该催谁（阶段分≥4）</h2><div class="todo" id="todo"></div></div>
   <div class="panel"><div class="tip">👀 <b>访客可查看</b>，编辑需登录（密码，登录后 7 天内有效）。改动实时存本机浏览器。</div></div>
 </div>
@@ -173,7 +177,7 @@ function switchTab(tab){
   currentTab=tab;
   document.querySelectorAll('.navtab').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));
   document.querySelectorAll('.tab-content').forEach(d=>d.classList.toggle('active',d.id==='tab-'+tab));
-  if(tab==='dash'){renderDashboard();renderTodo();}
+  if(tab==='dash'){renderTodo();}
   if(tab==='tools')renderTools();
   if(tab==='map'){} // map iframe already loaded
 }
@@ -257,24 +261,47 @@ function suggest(c){
   return {act,why:why.join('；')};
 }
 
-// ===== 仪表盘 =====
+// ===== 核心指标看板（已挪到 客户管理 Tab 顶部）=====
 function renderDashboard(){
   const el=document.getElementById('dashboard');if(!el)return;
-  const total=DATA.length;
-  const hot=DATA.filter(c=>c.stage>=4).length;
-  const dead=DATA.filter(c=>c.stage==0).length;
-  const live=total-dead;
-  const maibai=DATA.filter(c=>c.is_maibai).length;
-  const panshi=DATA.filter(c=>c.is_panshi).length;
-  let kpis='<div class="kpis">'
-    +'<div class="kpi"><div class="v">'+total+'</div><div class="l">客户总数</div></div>'
-    +'<div class="kpi"><div class="v" style="color:#E8443C">'+hot+'</div><div class="l">🔥热客户(≥建联)</div></div>'
-    +'<div class="kpi"><div class="v" style="color:#0A9D54">'+live+'</div><div class="l">存活跟进中</div></div>'
-    +'<div class="kpi"><div class="v" style="color:#9097A3">'+dead+'</div><div class="l">放弃/排除</div></div>'
-    +'<div class="kpi"><div class="v" style="color:#F0700A">'+maibai+'</div><div class="l">🟠陌拜过</div></div>'
-    +'<div class="kpi"><div class="v" style="color:#0052D9">'+panshi+'</div><div class="l">🟢磐石name</div></div>'
+  const inList=DATA.filter(c=>c.in_list!==false);
+  const selfS=DATA.filter(c=>c.in_list===false);
+  // 1) 建联率（名单内/自拓）— stage>=2
+  const jl_in=inList.filter(c=>c.stage>=2).length;
+  const jl_se=selfS.filter(c=>c.stage>=2).length;
+  const jl_in_pct=inList.length?Math.round(jl_in/inList.length*100):0;
+  const jl_se_pct=selfS.length?Math.round(jl_se/selfS.length*100):0;
+  // 2) 摸排率（名单内）— stage>=3
+  const mp_in=inList.filter(c=>c.stage>=3).length;
+  const mp_in_pct=inList.length?Math.round(mp_in/inList.length*100):0;
+  // 3) 商机进展（名单内）— stage>=4
+  const sj_in=inList.filter(c=>c.stage>=4).length;
+  const sj_in_pct=inList.length?Math.round(sj_in/inList.length*100):0;
+  // 4) 陌拜成功率 — 陌拜过且阶段>=3
+  const mbT=DATA.filter(c=>c.is_maibai||c.is_visited).length;
+  const mbS=DATA.filter(c=>(c.is_maibai||c.is_visited)&&c.stage>=3).length;
+  const mb_pct=mbT?Math.round(mbS/mbT*100):0;
+  // 5) 累计摸排公司数
+  const mpAll=DATA.filter(c=>c.stage>=3).length;
+  // 6) ITS 5.1以上公司数
+  const itsHi=DATA.filter(c=>(+c.its||0)>=5.1).length;
+  // 7) 有商机客户数（deal>0）
+  const hasDeal=DATA.filter(c=>(+c.deal||0)>0).length;
+  // 8) 商机总金额（万/月）
+  const totalDeal=DATA.reduce((s,c)=>s+(+c.deal||0),0);
+  const kpis=
+    '<div class="kpis">'
+    +'<div class="kpi"><div class="v" style="color:#0052D9">'+jl_in_pct+'%</div><div class="l">📞 建联率 · 名单内</div><div class="s">'+jl_in+' / '+inList.length+' 家</div></div>'
+    +'<div class="kpi"><div class="v" style="color:#7B61E1">'+jl_se_pct+'%</div><div class="l">📞 建联率 · 自拓</div><div class="s">'+jl_se+' / '+selfS.length+' 家</div></div>'
+    +'<div class="kpi"><div class="v" style="color:#0A9D54">'+mp_in_pct+'%</div><div class="l">🔍 摸排率 · 名单内</div><div class="s">'+mp_in+' / '+inList.length+' 家</div></div>'
+    +'<div class="kpi"><div class="v" style="color:#F0700A">'+sj_in_pct+'%</div><div class="l">🤝 商机进展 · 名单内</div><div class="s">'+sj_in+' / '+inList.length+' 家</div></div>'
+    +'<div class="kpi"><div class="v" style="color:#E8443C">'+mb_pct+'%</div><div class="l">🚶 陌拜成功率</div><div class="s">'+mbS+' / '+mbT+' 家</div></div>'
+    +'<div class="kpi"><div class="v" style="color:#1D2129">'+mpAll+'</div><div class="l">🔍 累计摸排公司数</div><div class="s">阶段≥3</div></div>'
+    +'<div class="kpi"><div class="v" style="color:#B57300">'+itsHi+'</div><div class="l">⭐ ITS 5.1以上</div><div class="s">家</div></div>'
+    +'<div class="kpi"><div class="v" style="color:#E8443C">'+hasDeal+'</div><div class="l">💰 有商机客户数</div><div class="s">家</div></div>'
+    +'<div class="kpi" style="grid-column:span 2"><div class="v" style="color:#0A9D54">¥ '+totalDeal+'</div><div class="l">💵 商机总金额</div><div class="s">万/月（仅含已录入 deal 的客户）</div></div>'
     +'</div>';
-  el.innerHTML='<div class="dash"><h2>📊 数据概览（自动统计当前所有客户）</h2>'+kpis+'</div>';
+  el.innerHTML='<div class="dash"><h2>📊 数据看板（自动统计当前所有客户）</h2>'+kpis+'</div>';
 }
 
 function renderTodo(){
