@@ -189,7 +189,7 @@ select:focus,input:focus,textarea:focus{outline:none;border-color:var(--brand);b
       <div class="panel"><h2>设置</h2><div style="font-size:13px;color:var(--sub)">
         <p>密码：091313</p>
         <p>数据存储在浏览器 localStorage</p>
-        <p>版本：v26（深海蓝+香槟金高级配色）</p>
+        <p>版本：v27（AI 识别器新增日期识别：今天/8月4日/08/04/0804）</p>
       </div></div>
     </div>
   </div>
@@ -228,7 +228,7 @@ select:focus,input:focus,textarea:focus{outline:none;border-color:var(--brand);b
       <div class="panel"><h2>设置</h2><div style="font-size:13px;color:var(--sub)">
         <p>密码：091313</p>
         <p>数据存储在浏览器 localStorage</p>
-        <p>版本：v26（深海蓝+香槟金高级配色）</p>
+        <p>版本：v27（AI 识别器新增日期识别：今天/8月4日/08/04/0804）</p>
       </div></div>
     </div>
   </div>
@@ -503,7 +503,7 @@ function card(c,ed){
     // --- AI 文字识别器（每卡片内嵌） ---
     +'<div class="ai">'
       +'<div class="h">AI 文字识别器 · 粘贴日报/陌拜记录，自动填入下方字段</div>'
-      +'<textarea class="ai-input" id="aiIn_'+c.id+'" placeholder="例：今天陌拜了明含智道，CTO张明说下周一约15min线上会聊下用云成本对比，已加微信" onclick="event.stopPropagation()"></textarea>'
+      +'<textarea class="ai-input" id="aiIn_'+c.id+'" placeholder="例：0804 陌拜了明含智道，CTO张明说下周一约15min线上会聊下用云成本对比，已加微信。日期支持：今天 / 8月4日 / 08/04 / 0804" onclick="event.stopPropagation()"></textarea>'
       +'<div class="ai-actions">'
         +'<button onclick="aiParse(\''+c.id+'\',event)">识别</button>'
         +'<button class="primary" id="aiBtn_'+c.id+'" disabled onclick="aiApply(\''+c.id+'\',event)">确认填入</button>'
@@ -641,6 +641,34 @@ function aiParse(cid,e){
   if(!txt.trim()){prevEl.outerHTML='<div class="ai-empty" id="aiPrev_'+cid+'">（请先粘贴日报内容）</div>';btn.disabled=true;return;}
   const fills=[];
 
+  // 0) 识别日期（用于最近更新 + 跟进记录前缀）
+  //    支持：今天/昨天/前天、M月D日/M月D号、MM/DD、4 位简写 0804 → 8月4日
+  const _now=new Date();
+  const _today=_now.toISOString().slice(0,10);
+  const _year=_now.getFullYear();
+  let detDate='',detDateReason='';
+  if(/今天|今早|今午|刚刚|刚才/.test(txt)){
+    detDate=_today;detDateReason='文字含"今天"';
+  }else if(/昨天/.test(txt)){
+    const _d=new Date(_now);_d.setDate(_d.getDate()-1);
+    detDate=_d.toISOString().slice(0,10);detDateReason='文字含"昨天"';
+  }else if(/前天/.test(txt)){
+    const _d=new Date(_now);_d.setDate(_d.getDate()-2);
+    detDate=_d.toISOString().slice(0,10);detDateReason='文字含"前天"';
+  }else{
+    let _dm=txt.match(/(\d{1,2})\s*月\s*(\d{1,2})\s*[日号]/);
+    if(!_dm)_dm=txt.match(/(?<![\d.])(\d{1,2})\/(\d{1,2})(?![\d.])/);
+    if(!_dm)_dm=txt.match(/(?<!\d)(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])(?!\d)/);
+    if(_dm){
+      const _mm=+_dm[1],_dd=+_dm[2];
+      if(_mm>=1&&_mm<=12&&_dd>=1&&_dd<=31){
+        let _cand=_year+'-'+String(_mm).padStart(2,'0')+'-'+String(_dd).padStart(2,'0');
+        if(_cand>_today)_cand=(_year-1)+'-'+String(_mm).padStart(2,'0')+'-'+String(_dd).padStart(2,'0');
+        detDate=_cand;detDateReason='识别到 '+_dm[0]+' → '+_mm+'月'+_dd+'日';
+      }
+    }
+  }
+
   // 1) 阶段变化
   let newStage=null,stageReason='';
   if(/婉拒|不需要|拒绝|不做了|解散|不对口|没需求|已放弃|不接/.test(txt)){newStage=0;stageReason='文字含拒绝/放弃信号';}
@@ -696,9 +724,10 @@ function aiParse(cid,e){
   }
 
   // 6) 跟进记录（追加）
-  const dateM=txt.match(/[【\[](0?[1-9]|1[0-2])[\.月\-](0?[1-9]|[12]\d|3[01])[日号]?[\]】]?/);
-  const newLog=(dateM?dateM[0]:'['+new Date().toISOString().slice(5,10).replace('-','/')+']')+' '+txt.replace(dateM?dateM[0]:'','').trim();
-  fills.push({k:'跟进记录',old:'(追加)',new:newLog.slice(0,40)+(newLog.length>40?'…':''),why:'追加到日志',cls:'add'});
+  const _logDate=detDate||_today;
+  const _logPrefix='['+_logDate.slice(5,10).replace('-','/')+']';
+  const newLog=_logPrefix+' '+txt.trim();
+  fills.push({k:'跟进记录',old:'(追加)',new:newLog.slice(0,40)+(newLog.length>40?'…':''),why:detDate?'按识别日期 '+detDate.slice(5):'按今天',cls:'add'});
 
   // 7) 商机数据关键词
   if(/万.{0,3}(?:月|年|预算|开支|费用|云)/.test(txt)){
@@ -706,6 +735,11 @@ function aiParse(cid,e){
     if(m&&(+m[1]!==+c.deal)){
       fills.push({k:'商机金额',old:c.deal||0+'万',new:m[1]+'万',why:'文字含"X万/月"',cls:'add'});
     }
+  }
+
+  // 8) 最近更新日期
+  if(detDate&&detDate!==c.date){
+    fills.push({k:'最近更新',old:c.date||'空',new:detDate,why:detDateReason,cls:'add'});
   }
 
   aiPending[cid]=fills;
@@ -737,6 +771,7 @@ function aiApply(cid,e){
     if(f.k==='联系方式')c.contact_info=f.new;
     if(f.k==='跟进记录'){c.log=(c.log?c.log+'\n':'')+f.new.replace(/…$/,'');}
     if(f.k==='商机金额'){const n=f.new.replace('万','');c.deal=+n;}
+    if(f.k==='最近更新')c.date=f.new;
   });
   aiPending[cid]=null;
   save();render();
