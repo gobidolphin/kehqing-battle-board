@@ -9,17 +9,23 @@ h1{font-size:22px} .date{color:var(--sub);font-size:13px;margin-bottom:14px}
 .bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;align-items:center}
 .btn{border:1px solid var(--brand);background:var(--brand);color:#fff;border-radius:8px;padding:7px 14px;font-size:13px;cursor:pointer}
 .btn.ghost{background:#fff;color:var(--brand)} .btn.gray{background:#fff;color:var(--sub);border-color:var(--line)}
-.btn.mapBtn{background:linear-gradient(135deg,#0052D9,#266FE8);color:#fff;border:none;padding:8px 18px;font-size:14px;font-weight:600;box-shadow:0 2px 8px rgba(0,82,217,.25)}
-.btn.mapBtn:hover{box-shadow:0 4px 12px rgba(0,82,217,.35);transform:translateY(-1px)}
-.lock{margin-left:auto;font-size:12.5px;color:var(--sub)} .lock b{color:#E8443C}
+.lock{margin-left:auto;font-size:12.5px;color:var(--sub);white-space:nowrap} .lock b{color:#E8443C}
 .panel{background:var(--card);border-radius:14px;padding:15px 17px;margin-bottom:14px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .panel h2{font-size:14px;color:var(--brand);margin-bottom:9px}
 
-/* ===== 左右双栏布局 ===== */
+/* ===== 顶部导航 ===== */
+.topnav{display:flex;gap:4px;background:#fff;border-radius:12px;padding:5px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.04);align-items:center}
+.navtab{flex:none;padding:9px 20px;border-radius:9px;font-size:14px;color:var(--sub);cursor:pointer;border:none;background:none;font-family:inherit;font-weight:500;transition:all .15s}
+.navtab:hover{background:#F0F2F5;color:var(--text)}
+.navtab.active{background:var(--brand);color:#fff;font-weight:600}
+.navsep{width:1px;height:20px;background:var(--line);margin:0 8px}
+.tab-content{display:none} .tab-content.active{display:block}
+
+/* ===== 左右双栏 ===== */
 .layout{display:flex;gap:16px;align-items:flex-start}
 .main{flex:1;min-width:0}
 .side{width:300px;flex-shrink:0;position:sticky;top:18px}
-.side .panel{margin-bottom:0}
+.side .panel{margin-bottom:14px}
 @media(max-width:900px){.layout{flex-direction:column}.side{width:100%;position:static}}
 .news{font-size:12.5px;color:#4E5969;padding:4px 0;border-bottom:1px dashed var(--line)} .news:last-child{border:none}
 .ing textarea{width:100%;border:1px solid var(--line);border-radius:8px;padding:10px;font-size:13px;min-height:70px;font-family:inherit}
@@ -58,56 +64,89 @@ select:focus,input:focus,textarea:focus{outline:none;border-color:var(--brand)} 
 .kpis{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px}
 .kpi{flex:1;min-width:90px;background:linear-gradient(135deg,#F5F8FF,#EEF2FF);border:1px solid #E0E8F5;border-radius:10px;padding:12px 14px;text-align:center}
 .kpi .v{font-size:26px;font-weight:700;color:var(--brand);line-height:1.1} .kpi .l{font-size:12px;color:#86909C;margin-top:4px}
-.bars{margin-top:6px} .barrow{display:flex;align-items:center;gap:8px;margin:5px 0;font-size:12.5px}
-.barrow .nm{width:78px;text-align:right;color:#4E5969;flex-shrink:0} .barrow .track{flex:1;background:#F0F2F5;border-radius:6px;height:18px;overflow:hidden} .barrow .fill{height:100%;border-radius:6px;transition:width .4s} .barrow .ct{width:28px;color:#86909C;flex-shrink:0}
 .saved{position:fixed;bottom:20px;right:20px;background:#1D2129;color:#fff;padding:8px 16px;border-radius:8px;font-size:13px;opacity:0;transition:.3s;pointer-events:none} .saved.show{opacity:.92}
 .tip{font-size:12px;color:var(--sub);background:#FFF7E6;border:1px solid #FFE1A8;border-radius:8px;padding:9px 11px;margin-top:8px}
 .modal{position:fixed;inset:0;background:rgba(0,0,0,.4);display:none;align-items:center;justify-content:center;z-index:99} .modal.show{display:flex}
 .mbox{background:#fff;border-radius:12px;padding:22px;width:300px;text-align:center} .mbox h3{font-size:15px;margin-bottom:12px} .mbox input{margin-bottom:12px}
+/* ===== 卡片字段分组 ===== */
+.section{border:1px solid var(--line);border-radius:10px;padding:10px 13px;margin-top:12px}
+.sect-hd{font-size:12px;color:var(--brand);font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:4px}
+.sect-hd .st{font-size:11px;font-weight:400;color:var(--sub);margin-left:6px}
+/* 下拉选择器 compact */
+.field.sm{flex:0 0 auto;min-width:70px}
+/* 地图容器 */
+.mapframe{width:100%;height:620px;border:none;border-radius:12px;background:#E8ECF0}
 </style></head><body><div class="wrap">
 <h1>🍊 客情作战台</h1>
-<div class="date" id="today"></div>
-<div class="bar">
-  <button class="btn" onclick="needEdit(addCompany)">+ 新增客户</button>
-  <a class="btn mapBtn" href="map.html" style="text-decoration:none">🗺️ 足迹地图</a>
-  <button class="btn ghost" onclick="exportData()">导出备份</button>
-  <a class="btn ghost" href="https://docs.qq.com/sheet/DV1ZVcmpNTXFRa2pG?_fid=WVUrjMMqQkjF" target="_blank" style="text-decoration:none">📊 在线Excel</a>
-  <button class="btn ghost" onclick="toggleView('schedule')">📅 下周日程</button>
-  <button class="btn ghost" onclick="toggleView('learn')">📚 材料/学习计划</button>
-  <button class="btn gray" onclick="needEdit(()=>{if(confirm('恢复到发布快照？本机修改将丢失')){localStorage.removeItem(KEY);location.reload();}})">恢复快照</button>
+
+<!-- ===== 顶部导航 ===== -->
+<nav class="topnav">
+  <button class="navtab active" data-tab="clients" onclick="switchTab('clients')">📋 客户管理</button>
+  <button class="navtab" data-tab="dash" onclick="switchTab('dash')">📊 仪表盘</button>
+  <button class="navtab" data-tab="map" onclick="switchTab('map')">🗺️ 足迹地图</button>
+  <button class="navtab" data-tab="tools" onclick="switchTab('tools')">⚙️ 工具箱</button>
   <span class="lock" id="lock"></span>
+</nav>
+
+<!-- ===== Tab 1: 客户管理（默认） ===== -->
+<div class="tab-content active" id="tab-clients">
+  <div class="date" id="today"></div>
+
+  <div class="panel ing">
+    <h2>🤖 AI 日报识别器（粘贴日报/陌拜记录，自动匹配已有客户；识别到新客户会自动建档）</h2>
+    <textarea id="reportBox" placeholder="把你的日报或陌拜记录粘进来，例如：&#10;【0730】飞如许 下周拜访，CTO给了新地址&#10;【0731】XX智能科技 陌拜加了微信，在用阿里云（这种新公司会自动建一条新追踪）&#10;然后点『识别并更新』"></textarea>
+    <div class="row"><span class="pReport" id="parseResult"></span><button class="btn" onclick="needEdit(parseReport)">识别并更新</button></div>
+  </div>
+
+  <div class="filters" id="filters"></div>
+  <div style="display:flex;gap:8px;margin-bottom:12px;align-items:center">
+    <input id="qInput" placeholder="🔍 搜索公司名…" style="flex:1;border:1px solid var(--line);border-radius:20px;padding:7px 14px;font-size:13px;font-family:inherit;background:#fff;outline:none" oninput="doSearch(this.value)">
+    <span id="qCount" style="font-size:12px;color:var(--sub);white-space:nowrap"></span>
+  </div>
+  <div id="list"></div>
 </div>
 
-<div class="panel" id="planPanel" style="display:none"></div>
-
-<div class="layout">
-<!-- ===== 左侧主区：看板 → AI → 公司列表 ===== -->
-<div class="main">
-<div class="panel" id="dashboard"></div>
-
-<div class="panel ing">
-<h2>🤖 AI 日报识别器（粘贴日报/陌拜记录，自动匹配已有客户；识别到新客户会自动建档）</h2>
-<textarea id="reportBox" placeholder="把你的日报或陌拜记录粘进来，例如：&#10;【0730】飞如许 下周拜访，CTO给了新地址&#10;【0731】XX智能科技 陌拜加了微信，在用阿里云（这种新公司会自动建一条新追踪）&#10;然后点『识别并更新』"></textarea>
-<div class="row"><span class="pReport" id="parseResult"></span><button class="btn" onclick="needEdit(parseReport)">识别并更新</button></div>
+<!-- ===== Tab 2: 仪表盘 ===== -->
+<div class="tab-content" id="tab-dash">
+  <div class="panel" id="dashboard"></div>
+  <div class="panel"><h2>🎯 今日该催谁（阶段分≥4）</h2><div class="todo" id="todo"></div></div>
+  <div class="panel"><div class="tip">👀 <b>访客可查看</b>，编辑需登录（密码，登录后 7 天内有效）。改动实时存本机浏览器。</div></div>
 </div>
 
-<div class="filters" id="filters"></div>
-<div style="display:flex;gap:8px;margin-bottom:12px;align-items:center">
-  <input id="qInput" placeholder="🔍 搜索公司名…" style="flex:1;border:1px solid var(--line);border-radius:20px;padding:7px 14px;font-size:13px;font-family:inherit;background:#fff;outline:none" oninput="doSearch(this.value)">
-  <span id="qCount" style="font-size:12px;color:var(--sub);white-space:nowrap"></span>
+<!-- ===== Tab 3: 足迹地图 ===== -->
+<div class="tab-content" id="tab-map">
+  <div class="panel" style="padding:6px">
+    <iframe class="mapframe" src="map.html" loading="lazy"></iframe>
+  </div>
+  <div class="tip" style="margin-top:12px">🗺️ 计划升级为 Leaflet SVG 互动地图（按城市聚合、hover 显示公司卡片、颜色区分阶段）。当前为高德 iframe 版本。</div>
 </div>
-<div id="list"></div>
-</div><!-- /main -->
 
-<!-- ===== 右侧边栏：联网热点 ===== -->
-<div class="side">
-<div class="panel" style="margin-bottom:14px"><h2>📰 联网热点（AI建议与话术的依据）</h2><div id="news"></div></div>
-<div class="panel"><h2>🎯 今日该催谁（阶段分≥4）</h2><div class="todo" id="todo"></div></div>
-</div><!-- /side -->
-</div><!-- /layout -->
-
-<div class="panel" style="margin-top:14px"><div class="tip">👀 <b>访客可查看</b>，编辑需登录（密码，登录后 7 天内有效）。改动实时存本机浏览器。发布链接给导师同事，他们看到的是发布时的快照。</div></div>
+<!-- ===== Tab 4: 工具箱 ===== -->
+<div class="tab-content" id="tab-tools">
+  <div class="layout">
+    <div class="main">
+      <div class="panel"><h2>📥 导入导出</h2>
+        <div class="bar" style="margin-bottom:0">
+          <button class="btn" onclick="needEdit(addCompany)">+ 新增客户</button>
+          <button class="btn ghost" onclick="exportData()">导出 JSON 备份</button>
+          <a class="btn ghost" href="https://docs.qq.com/sheet/DV1ZVcmpNTXFRa2pG?_fid=WVUrjMMqQkjF" target="_blank" style="text-decoration:none">📊 在线 Excel</a>
+          <button class="btn gray" onclick="needEdit(()=>{if(confirm('恢复到发布快照？本机修改将丢失')){localStorage.removeItem(KEY);location.reload();}})">恢复快照</button>
+        </div>
+      </div>
+      <div class="panel"><h2>📅 下周日���（按优先级自动排）</h2><div id="dynSchedule"></div></div>
+      <div class="panel"><h2>📚 材料准备 + 学习计划（据客户需求生成）</h2><div id="dynLearn"></div></div>
+    </div>
+    <div class="side">
+      <div class="panel"><h2>📰 联网热点（AI建议与话术的依据）</h2><div id="news"></div></div>
+      <div class="panel"><h2>⚙️ 设置</h2><div style="font-size:13px;color:var(--sub)">
+        <p>密码：091313</p>
+        <p>数据存储在浏览器 localStorage</p>
+        <p>版本：v19（导航栏 + 字段分组）</p>
+      </div></div>
+    </div>
+  </div>
 </div>
+
 <div class="saved" id="saved">已保存 ✓</div>
 <div class="modal" id="modal"><div class="mbox"><h3>🔒 输入编辑密码</h3><input type="password" id="pwd" placeholder="密码"><br><button class="btn" onclick="tryLogin()">登录</button> <button class="btn gray" onclick="closeModal()">取消</button><div id="pwderr" style="color:#E8443C;font-size:12px;margin-top:8px"></div></div></div>
 
@@ -118,82 +157,87 @@ let DATA=load(), pending=null;
 
 function load(){try{const s=localStorage.getItem(KEY);if(s)return JSON.parse(s);}catch(e){}return JSON.parse(JSON.stringify(SEED));}
 function save(){localStorage.setItem(KEY,JSON.stringify(DATA));toast();}
-// 地图(或其他标签页)改动后,实时同步本页
 window.addEventListener('storage',e=>{if(e.key===KEY&&e.newValue){try{DATA=JSON.parse(e.newValue);render();}catch(_){}}});
 function toast(){const t=document.getElementById('saved');t.classList.add('show');clearTimeout(window._tt);window._tt=setTimeout(()=>t.classList.remove('show'),1200);}
 function isLogged(){const ts=+localStorage.getItem(LK)||0;return Date.now()-ts<WEEK;}
-function refreshLock(){const el=document.getElementById('lock');if(isLogged()){const left=Math.ceil((WEEK-(Date.now()-(+localStorage.getItem(LK))))/86400000);el.innerHTML='🔓 已登录，可编辑（剩'+left+'天） <a href="#" onclick="logout();return false" style="color:#86909C">退出</a>';}else{el.innerHTML='🔒 <b>只读</b>模式，<a href="#" onclick="openModal();return false" style="color:#0052D9">登录编辑</a>';}}
+function refreshLock(){const el=document.getElementById('lock');if(isLogged()){const left=Math.ceil((WEEK-(Date.now()-(+localStorage.getItem(LK))))/86400000);el.innerHTML='🔓 已登录（剩'+left+'天） <a href="#" onclick="logout();return false" style="color:#86909C">退出</a>';}else{el.innerHTML='🔒 <b>只读</b> <a href="#" onclick="openModal();return false" style="color:#0052D9">登录</a>';}}
 function openModal(){document.getElementById('modal').classList.add('show');document.getElementById('pwd').focus();}
 function closeModal(){document.getElementById('modal').classList.remove('show');document.getElementById('pwderr').textContent='';pending=null;}
 function tryLogin(){if(document.getElementById('pwd').value===PWD){localStorage.setItem(LK,Date.now());closeModal();refreshLock();render();const f=pending;pending=null;if(f)f();}else{document.getElementById('pwderr').textContent='密码错误';}}
 function logout(){localStorage.removeItem(LK);refreshLock();render();}
 function needEdit(fn){if(isLogged()){fn();}else{pending=fn;openModal();}}
 
-document.getElementById('today').textContent='共 '+DATA.length+' 家（名单内 '+(DATA.filter(c=>c.in_list!==false).length)+' + 自拓 '+(DATA.filter(c=>c.in_list===false).length)+'）· 点击卡片展开 · 陌拜🟠 磐石🟢';
+// ===== Tab 切换 =====
+let currentTab='clients';
+function switchTab(tab){
+  currentTab=tab;
+  document.querySelectorAll('.navtab').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));
+  document.querySelectorAll('.tab-content').forEach(d=>d.classList.toggle('active',d.id==='tab-'+tab));
+  if(tab==='dash'){renderDashboard();renderTodo();}
+  if(tab==='tools')renderTools();
+  if(tab==='map'){} // map iframe already loaded
+}
+
+// ===== 初始化 =====
+document.getElementById('today').textContent='共 '+DATA.length+' 家（名单内 '+(DATA.filter(c=>c.in_list!==false).length)+' + 自拓 '+(DATA.filter(c=>c.in_list===false).length)+'）· 点击卡片展开';
 document.getElementById('news').innerHTML=NEWS.map(n=>'<div class="news">• <a href="'+n.u+'" target="_blank" style="color:#4E5969;text-decoration:none;border-bottom:1px dashed #C5DAFF">'+n.t+'</a></div>').join('');
 document.getElementById('pwd').addEventListener('keydown',e=>{if(e.key==='Enter')tryLogin();});
 
+// ===== 过滤器 =====
 let cur='all', q='';
-const filters=[['all','全部'],['inlist','📋 名单内(30)'],['selfs','🆕 自拓'],['hot','热(≥4)'],['maibai','陌拜过'],['waimai','外卖员侦查'],['panshi','磐石name'],['live','待跟进'],['ab','放弃']];
+const filters=[['all','全部'],['inlist','📋 名单内'],['selfs','🆕 自拓'],['hot','热(≥4)'],['maibai','陌拜过'],['panshi','磐石name'],['live','待跟进'],['ab','放弃']];
 const fEl=document.getElementById('filters');
-filters.forEach(([k,t])=>{const b=document.createElement('button');b.className='fbtn'+(k=='all'?' on':'');b.textContent=t;b.onclick=()=>{cur=k;[...fEl.children].forEach(x=>x.classList.remove('on'));b.classList.add('on');render();};fEl.appendChild(b);});
-function pass(c){if(cur=='all')return true;if(cur=='inlist')return c.in_list!==false;if(cur=='selfs')return c.in_list===false;if(cur=='hot')return c.stage>=4;if(cur=='maibai')return c.is_maibai;if(cur=='panshi')return c.is_panshi;if(cur=='live')return c.stage==2||c.stage==3;if(cur=='waimai')return c.is_waimai;if(cur=='ab')return c.stage==0;return true;}
+function buildFilters(){
+  fEl.innerHTML='';
+  const inC=DATA.filter(c=>c.in_list!==false).length, sc=DATA.filter(c=>c.in_list===false).length;
+  filters.forEach(([k,t])=>{
+    let txt=t;
+    if(k==='inlist')txt='📋 名单内('+inC+')';
+    if(k==='selfs')txt='🆕 自拓('+sc+')';
+    const b=document.createElement('button');b.className='fbtn'+(k==cur?' on':'');
+    b.textContent=txt;b.onclick=()=>{cur=k;buildFilters();renderClients();};
+    fEl.appendChild(b);
+  });
+}
+function pass(c){if(cur=='all')return true;if(cur=='inlist')return c.in_list!==false;if(cur=='selfs')return c.in_list===false;if(cur=='hot')return c.stage>=4;if(cur=='maibai')return c.is_maibai;if(cur=='panshi')return c.is_panshi;if(cur=='live')return c.stage==2||c.stage==3;if(cur=='ab')return c.stage==0;return true;}
 function matchQ(c){if(!q)return true;const t=(c.name+' '+(c.alias||[]).join(' ')).toLowerCase();return t.includes(q.toLowerCase());}
-function doSearch(v){q=v.trim();render();}
+function doSearch(v){q=v.trim();renderClients();}
 function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 function hasScale(c){return (parseFloat(c.it_scale)||0)>0||(c.scale&&c.scale!=='未知'&&c.scale!=='待摸排');}
 function cid(id){return String(id).replace(/[^a-zA-Z0-9]/g,'_');}
 function reorder(){DATA.sort((a,b)=>b.stage-a.stage||String(a.id).localeCompare(String(b.id)));}
 
-// ===== 跟进记录 → 可发送话术（动态生成） =====
+// ===== 跟进记录 → 可发送话术 =====
 function genTalk(c){
-  const log=(c.log||''), s=c.stage, nm=c.name.replace(/（北京）|\\(北京\\)|有限公司|科技|股份|信息|技术|网络|文化/g,'').trim();
-  // 婉拒/不需要/放弃
+  const log=(c.log||''), s=c.stage;
   if(/婉拒|不需要|拒绝|不做了|解散|不对口|没需求|说不需要/.test(log)&&s<=0)
     return '了解，感谢您的时间。如果未来有云基础设施或AI推理方面的需求，随时联系我。祝顺利！';
-  // 打错了/电话但是没加到微信
   if(/打错/.test(log)&&!/加了.*微信|加微/.test(log))
-    return '您好，我是腾讯云的许林，之前拨打贵司电话可能没找到正确的技术负责人。想了解一下贵司在AI/云计算方面的现状和需求，方便加个微信简单聊两句吗？';
-  // 电话接通但没加到微信（需要找技术负责人）
+    return '您好，我是腾讯云的旭林，之前拨打贵司电话可能没找到正确的技术负责人。想了解一下贵司在AI/云计算方面的现状和需求，方便加个微信简单聊两句吗？';
   if(/电话接通|接通但/.test(log)&&!/加了.*微信|加微/.test(log))
-    return 'X总您好，我是腾讯云的许林，主要服务AI创业公司的云基础设施和推理算力方案。腾讯云GPU最近降价50%，想和您约个10分钟电话了解一下贵司目前的技术架构和需求？';
-  // 已加微信 + 暂无需求
+    return 'X总您好，我是腾讯云的旭林，主要服务AI创业公司的云基础设施和推理算力方案。腾讯云GPU最近降价50%，想和您约个10分钟电话了解一下贵司目前的技术架构和需求？';
   if(/(?:暂无|暂时|目前).*(?:需求|明确|想法)/.test(log))
     return 'X总您好，最近腾讯云GPU推理降价50%，混元/DeepSeek全系列都有优惠。我这边有一份同体量AI公司的云成本优化案例，方便时可以参考一下。不打扰您，有需要随时找我。';
-  // 已加微信 + 有需求/在探讨
   if(/(?:加了.*微信|已加微信|加微)/.test(log)&&/(?:需求|兴趣|价格|对比|方案|约.*会|拜访|POC|试用|探讨)/.test(log)){
     if(/DeepSeek|Zhipu|推理|GPU|算力/.test(log))
       return 'X总您好，上次聊到贵司在用'+((/DeepSeek/.test(log)?'DeepSeek':/Zhipu/.test(log)?'Zhipu':'AI大模型'))+'做推理，我整理了腾讯云GPU推理方案的详细对比：同等算力下成本可降低40-50%，且支持vLLM/TGI一键部署。方便约个15分钟线上会，我给您做个演示？';
-    if(/数据.*中台|数据安全|数智化/.test(log))
-      return 'X总您好，上次探讨的数智化转型和数据中台方案，我这边有腾讯云全套数据安全+数据中台案例。您看下周哪天方便，来腾讯滨海大厦实地参观一下？';
-    if(/向量/.test(log))
-      return 'X总您好，上次提到的向量数据库方案，腾讯云向量数据库（Tencent Cloud VectorDB）支持10亿级向量毫秒检索，已服务多家AI公司。我把技术白皮书发您，方便约个会演示一下？';
     if(/AWS|阿里云|火山|华为云|谷歌云|迁移/.test(log))
       return 'X总您好，关于从现用云迁移到腾讯云，我做了友商成本对比：GPU实例腾讯云比阿里云/AWS便宜30-50%，迁移路径有成熟DTS工具。方便约个线上会我把对比表发您过目？';
     return 'X总您好，上次聊得很愉快。我把腾讯云针对AI公司的全套方案整理好了，包括GPU推理、模型部署、向量数据库。您看本周哪天方便，约15分钟线上会我给您完整演示？';
   }
-  // 已见面/已拜访 + 有需求（即使没明确提微信）
   if(/(?:见面|拜访|参访|回访)/.test(log)&&/(?:需求|兴趣|价格|对比|方案|约.*会|POC|试用|探讨|感兴趣)/.test(log)){
     if(/DeepSeek|Zhipu|推理|GPU|算力/.test(log))
       return 'X总您好，上次见面聊到贵司在用'+((/DeepSeek/.test(log)?'DeepSeek':/Zhipu/.test(log)?'Zhipu':'AI大模型'))+'做推理，我整理了腾讯云GPU推理方案的详细对比：同等算力下成本可降低40-50%，且支持vLLM/TGI一键部署。方便约个15分钟线上会，我给您做个演示？';
-    if(/数据.*中台|数据安全|数智化/.test(log))
-      return 'X总您好，上次探讨的数智化转型和数据中台方案，我这边有腾讯云全套数据安全+数据中台案例。您看下周哪天方便，来腾讯滨海大厦实地参观一下？';
-    if(/向量/.test(log))
-      return 'X总您好，上次提到的向量数据库方案，腾讯云向量数据库（Tencent Cloud VectorDB）支持10亿级向量毫秒检索，已服务多家AI公司。我把技术白皮书发您，方便约个会演示一下？';
-    if(/AWS|阿里云|火山|华为云|谷歌云|迁移/.test(log))
-      return 'X总您好，关于从现用云迁移到腾讯云，我做了友商成本对比：GPU实例腾讯云比阿里云/AWS便宜30-50%，迁移路径有成熟DTS工具。方便约个线上会我把对比表发您过目？';
-    return 'X总您好，上次聊得很愉快。我把腾讯云针对AI公司的全套方案整理好了，包括GPU推理、模型部署、向量数据库。您看本周哪天方便，约15分钟线上会我给您完整演示？';
+    return 'X总您好，上次聊得很愉快。我把腾讯云针对AI公司的全套方案整理好了，方便约15分钟线上会我给您完整演示？';
   }
-  // 已建联但无明确需求（养客）
   if(s>=4)
     return 'X总您好，最近有几个客户案例和贵司业务很像，用腾讯云GPU推理成本降低40%+。我把案例发您参考，看看是否有借鉴意义？';
-  // 未接通/陌拜/无有效沟通
   if(/无有效|陌拜/.test(log)||s<=2)
-    return '您好，我是腾讯云的许林，专注服务AI创业公司。我们GPU推理降价50%，混元/DeepSeek全系列比友商便宜30-50%。想了解一下贵司目前在用哪家云，AI推理方面有没有成本优化的需求？方便加个微信聊两句吗？';
-  return '您好，我是腾讯云的许林。我们GPU推理降价50%，想了解一下贵司在AI/云基础设施方面的需求，方便加个微信简单聊两句吗？';
+    return '您好，我是腾讯云的旭林，专注服务AI创业公司。我们GPU推理降价50%，混元/DeepSeek全系列比友商便宜30-50%。想了解一下贵司目前在用哪家云，AI推理方面有没有成本优化的需求？方便加个微信聊两句吗？';
+  return '您好，我是腾讯云的旭林。我们GPU推理降价50%，想了解一下贵司在AI/云基础设施方面的需求，方便加个微信简单聊两句吗？';
 }
 
-// ===== AI 下一步建议引擎(页面内规则) =====
+// ===== AI 下一步建议引擎 =====
 function suggest(c){
   const log=(c.log||'')+' '+(c.next||''), s=c.stage;
   let act='', why=[];
@@ -203,7 +247,6 @@ function suggest(c){
   else if(s==2){act='周三/周四 14:00-16:00 换时段重拨，备 30 秒强话术';why.push('留言/未接，属可再战，换时段命中率更高');}
   else if(s==1){act='最后一次换号/换时段尝试，无果则降级排除';why.push('纯未接通，按排除法控制精力投入');}
   else{act='暂不主动触达，季度轻回访一次即可';why.push('已死/不对口，节省精力');}
-  // 新闻+关键词叠加
   if(/DeepSeek|Zhipu|推理|GPU|算力|AWS|阿里云|火山|华为云|Claude/i.test(log)){
     act='【优先】'+act+'；主打腾讯云 GPU 0.8折 + 推理降价50%，做友商成本对比';
     why.push('命中在用外部云/开源模型 → 对接当前腾讯云降价热点，成本是最强钩子');
@@ -214,6 +257,7 @@ function suggest(c){
   return {act,why:why.join('；')};
 }
 
+// ===== 仪表盘 =====
 function renderDashboard(){
   const el=document.getElementById('dashboard');if(!el)return;
   const total=DATA.length;
@@ -222,10 +266,6 @@ function renderDashboard(){
   const live=total-dead;
   const maibai=DATA.filter(c=>c.is_maibai).length;
   const panshi=DATA.filter(c=>c.is_panshi).length;
-  // 各阶段计数
-  const byStage={};Object.keys(ST).forEach(k=>byStage[k]=0);
-  DATA.forEach(c=>byStage[c.stage]=(byStage[c.stage]||0)+1);
-  const maxc=Math.max(1,...Object.values(byStage));
   let kpis='<div class="kpis">'
     +'<div class="kpi"><div class="v">'+total+'</div><div class="l">客户总数</div></div>'
     +'<div class="kpi"><div class="v" style="color:#E8443C">'+hot+'</div><div class="l">🔥热客户(≥建联)</div></div>'
@@ -243,16 +283,23 @@ function renderTodo(){
   if(!hot.length){el.innerHTML='<span style="color:#86909C;font-size:13px">暂无阶段分≥4的热客户</span>';return;}
   hot.forEach(c=>{const d=document.createElement('div');d.className='t';
     d.innerHTML='<b>'+ST[c.stage].emoji+' '+c.name.replace(/（北京）|\(北京\)/g,'')+'</b><div class="act">▶ '+esc(c.next)+'</div>';
-    d.onclick=()=>{const el=document.getElementById('card_'+cid(c.id));if(el){el.classList.add('open');el.scrollIntoView({behavior:'smooth',block:'center'});}};el.appendChild(d);});
+    d.onclick=()=>{switchTab('clients');setTimeout(()=>{const el=document.getElementById('card_'+cid(c.id));if(el){el.classList.add('open');el.scrollIntoView({behavior:'smooth',block:'center'});}},100);};
+    el.appendChild(d);});
 }
 
-function render(){
-  reorder();renderTodo();refreshLock();renderDashboard();
+// ===== 工具箱内容 =====
+function renderTools(){
+  document.getElementById('dynSchedule').innerHTML=genSchedule();
+  document.getElementById('dynLearn').innerHTML=genLearnPlan();
+}
+
+// ===== 客户列表（卡片渲染） =====
+function renderClients(){
+  reorder();buildFilters();
   const ed=isLogged();
   const list=document.getElementById('list');list.innerHTML='';
   const groups={};
   const filtered=DATA.filter(c=>pass(c)&&matchQ(c));
-  // 按阶段分组; 'all' 模式下 名单内 在前, 自拓 在后,并加分组标题
   const isAllMode=(cur==='all');
   const inListArr=filtered.filter(c=>c.in_list!==false);
   const selfSourcedArr=filtered.filter(c=>c.in_list===false);
@@ -260,15 +307,12 @@ function render(){
   if(isAllMode){
     buildGroups(inListArr);
     if(selfSourcedArr.length){
-      const sep=document.createElement('div');
-      sep.className='group';
-      sep.innerHTML='<div class="ghd" style="background:#FFF7E6;border-left:3px solid #F0700A;padding-left:8px">━━ 🆕 自拓客户 (名单外,自己录入) <span class="n">'+selfSourcedArr.length+'</span></div>';
+      const sep=document.createElement('div');sep.className='group';
+      sep.innerHTML='<div class="ghd" style="background:#FFF7E6;border-left:3px solid #F0700A;padding-left:8px">━━ 🆕 自拓客户（名单外，自己录入）<span class="n">'+selfSourcedArr.length+'</span></div>';
       list.appendChild(sep);
       buildGroups(selfSourcedArr);
     }
-  }else{
-    buildGroups(filtered);
-  }
+  }else{ buildGroups(filtered); }
   const totalShown=filtered.length;
   const qc=document.getElementById('qCount');if(qc)qc.textContent=q?'筛选 '+totalShown+' / '+DATA.length+' 家':'';
   Object.keys(groups).sort((a,b)=>b-a).forEach(s=>{
@@ -278,54 +322,97 @@ function render(){
   });
   save();
 }
+
+function render(){
+  refreshLock();renderDashboard();renderTodo();renderClients();
+  if(currentTab==='tools')renderTools();
+}
+
 function stageOptions(sel){return Object.keys(ST).sort((a,b)=>b-a).map(k=>'<option value="'+k+'"'+(k==sel?' selected':'')+'>'+ST[k].emoji+' '+k+' '+ST[k].name+'</option>').join('');}
 
+// ===== 卡片（字段已分组为5个 Section） =====
 function card(c,ed){
   const w=document.createElement('div');w.className='card'+(c.stage==0?' abcard':'');w.id='card_'+cid(c.id);w.style.borderLeftColor='#'+ST[c.stage].color;
   const D=ed?'':'disabled';
   const play=c.play&&PLAY[c.play]?PLAY[c.play]:null;
   const sg=suggest(c);
-  let tags='';if(c.is_maibai)tags+='<span class="tag mb">陌拜</span>';if(c.is_panshi)tags+='<span class="tag ps">磐石name</span>';if(c.is_waimai)tags+='<span class="tag wm">🛵外卖员</span>';
-  const sVal=(c.scale&&c.scale!=='未知')?c.scale:'待摸排';
-  const cVal=(c.cloud&&c.cloud!=='未知')?c.cloud:'待摸排';
-  tags+='<span class="tag" style="background:#EAF2FF;color:#0052D9;border:1px solid #C5DAFF;font-weight:500">📊 '+esc(sVal)+'</span>';
-  tags+='<span class="tag" style="background:#F5F0FF;color:#7B61E1;border:1px solid #DDD3FC;font-weight:500">☁️ '+esc(cVal)+'</span>';
+  let tags='';if(c.is_maibai)tags+='<span class="tag mb">陌拜</span>';if(c.is_panshi)tags+='<span class="tag ps">磐石</span>';if(c.is_waimai)tags+='<span class="tag wm">外卖员</span>';
+  const sVal=(c.scale&&c.scale!=='未知'&&c.scale!=='待摸排')?c.scale:'待摸排';
+  const cVal=(c.cloud&&c.cloud!=='未知'&&c.cloud!=='待摸排')?c.cloud:'待摸排';
+  tags+='<span class="tag" style="background:#EAF2FF;color:#0052D9;border:1px solid #C5DAFF">📊 '+esc(sVal)+'</span>';
+  tags+='<span class="tag" style="background:#F5F0FF;color:#7B61E1;border:1px solid #DDD3FC">☁️ '+esc(cVal)+'</span>';
   const talk=c.talk_text||genTalk(c);
-  let talkHtml='<div class="field" style="flex-basis:100%"><div class="lbl">💬 可发送话术（根据跟进记录自动生成）</div><div class="talk"><button class="copy" onclick="cpTalk(this,event)">复制</button><textarea '+D+' onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'talk_text\',this.value)">'+esc(talk)+'</textarea></div>';
+  let talkHtml='<div class="talk"><button class="copy" onclick="cpTalk(this,event)">复制</button><textarea '+D+' onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'talk_text\',this.value)">'+esc(talk)+'</textarea></div>';
   if(play){
     talkHtml+='<div class="lbl" style="margin-top:8px">📎 客户材料（点开下载后发客户）</div>'+play.materials.map(m=>'<a class="mat" href="'+m.u+'" target="_blank">📎 '+m.t+'</a>').join('');
   }
-  talkHtml+='</div>';
-  w.innerHTML='<div class="chd" onclick="if(event.target.tagName!==\'SELECT\'&&event.target.tagName!==\'INPUT\')this.parentElement.classList.toggle(\'open\')">'
+
+  w.innerHTML=
+    '<div class="chd" onclick="if(event.target.tagName!==\'SELECT\'&&event.target.tagName!==\'INPUT\')this.parentElement.classList.toggle(\'open\')">'
     +'<span class="badge" style="background:#'+ST[c.stage].color+'">'+ST[c.stage].emoji+' '+ST[c.stage].name+'</span>'+tags
     +'<span class="nm">'+esc(c.name)+'</span><span class="nx">▶ '+esc(c.next)+'</span><span class="arw">▶</span></div>'
+
     +'<div class="body">'
+
+    // --- AI 建议 ---
     +'<div class="ai"><div class="h">🤖 AI 建议的下一步动作</div><div class="c">'+sg.act+'</div><div class="why">依据：'+sg.why+'</div>'
       +(ed?'<button onclick="applySuggest(\''+c.id+'\',event)">采纳为下一步</button>':'')+'</div>'
-    +'<div class="row"><div class="field" style="max-width:180px"><div class="lbl">阶段（改后自动重排）</div><select '+D+' onclick="event.stopPropagation()" onchange="changeStage(\''+c.id+'\',this.value)">'+stageOptions(c.stage)+'</select></div>'
-      +'<div class="field" style="max-width:150px"><div class="lbl">最近更新</div><input '+D+' value="'+esc(c.date)+'" onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'date\',this.value)"></div>'
-      +'<div class="field" style="max-width:200px"><div class="lbl">电话</div><input '+D+' value="'+esc(c.phone)+'" onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'phone\',this.value)"></div></div>'
-    +'<div class="row"><div class="field" style="max-width:200px"><div class="lbl">👤 已建联关键人(姓名/职务)</div><input '+D+' value="'+esc(c.contact_name||'')+'" onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'contact_name\',this.value)"></div>'
-      +'<div class="field" style="max-width:200px"><div class="lbl">📞 关键人联系方式(手机/微信)</div><input '+D+' value="'+esc(c.contact_info||'')+'" onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'contact_info\',this.value)"></div>'
-      +'<div class="field" style="max-width:120px"><div class="lbl">🚶 已拜访</div><select '+D+' onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'is_visited\',this.value==\'1\')"><option value="0"'+(!(c.is_visited)?' selected':'')+'>否</option><option value="1"'+(c.is_visited?' selected':'')+'>是</option></select></div>'
-      +'<div class="field" style="max-width:150px"><div class="lbl">📅 拜访时间</div><input '+D+' value="'+esc(c.visit_date||'')+'" onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'visit_date\',this.value)"></div></div>'
-    +'<div class="row"><div class="field" style="max-width:110px"><div class="lbl">陌拜</div><select '+D+' onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'is_maibai\',this.value==\'1\')"><option value="0"'+(!c.is_maibai?' selected':'')+'>否</option><option value="1"'+(c.is_maibai?' selected':'')+'>是</option></select></div>'
-      +'<div class="field" style="max-width:130px"><div class="lbl">磐石name</div><select '+D+' onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'is_panshi\',this.value==\'1\')"><option value="0"'+(!c.is_panshi?' selected':'')+'>否</option><option value="1"'+(c.is_panshi?' selected':'')+'>是</option></select></div>'
-      +'<div class="field" style="max-width:130px"><div class="lbl">外卖员侦查</div><select '+D+' onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'is_waimai\',this.value==\'1\')"><option value="0"'+(!c.is_waimai?' selected':'')+'>否</option><option value="1"'+(c.is_waimai?' selected':'')+'>是</option></select></div>'
-      +'<div class="row"><div class="field" style="max-width:130px"><div class="lbl">IT规模(万/月)</div><input type="number" step="0.01" '+D+' value="'+esc(c.it_scale||0)+'" onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'it_scale\',this.value)"></div>'
-      +'<div class="field" style="max-width:120px"><div class="lbl">IT摸排完成</div><select '+D+' onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'it_profiled\',this.value==\'1\')"><option value="0"'+(!c.it_profiled?' selected':'')+'>否</option><option value="1"'+(c.it_profiled?' selected':'')+'>是</option></select></div>'
-      +'<div class="field" style="max-width:100px"><div class="lbl">名单内</div><select '+D+' onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'in_list\',this.value==\'1\')"><option value="0"'+(!c.in_list?' selected':'')+'>否</option><option value="1"'+(c.in_list?' selected':'')+'>是</option></select></div>'
-      +'<div class="field" style="max-width:110px"><div class="lbl">ITS等级</div><input type="number" step="0.1" '+D+' value="'+esc(c.its||0)+'" onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'its\',this.value)"></div>'
-      +'<div class="field" style="max-width:120px"><div class="lbl">重点跟进</div><select '+D+' onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'key_follow\',this.value==\'1\')"><option value="0"'+(!c.key_follow?' selected':'')+'>否</option><option value="1"'+(c.key_follow?' selected':'')+'>是</option></select></div>'
-      +'<div class="field" style="max-width:130px"><div class="lbl">商机金额(万/月)</div><input type="number" step="0.01" '+D+' value="'+esc(c.deal||0)+'" onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'deal\',this.value)"></div></div>'
-      +'<div class="field"><div class="lbl">优先动作（下一步）</div><input '+D+' value="'+esc(c.next)+'" onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'next\',this.value)"></div></div>'
-    +'<div class="row"><div class="field"><div class="lbl">跟进记录</div><textarea '+D+' onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'log\',this.value)">'+esc(c.log)+'</textarea></div></div>'
-    +'<div class="row"><div class="field"><div class="lbl">核心产品/服务/能力</div><input '+D+' value="'+esc(c.prod)+'" onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'prod\',this.value)"></div>'
-      +'<div class="field"><div class="lbl">主要盈利模式</div><input '+D+' value="'+esc(c.profit)+'" onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'profit\',this.value)"></div></div>'
-    +'<div class="row"><div class="field"><div class="lbl">云厂现状</div><input '+D+' value="'+esc(c.cloud)+'" onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'cloud\',this.value)"></div>'
-      +'<div class="field"><div class="lbl">体量</div><input '+D+' value="'+esc(c.scale)+'" onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'scale\',this.value)"></div></div>'
-    +'<div class="row">'+talkHtml+'</div>'
-    +'<div class="row" style="margin-top:12px"><button class="btn" onclick="genPrompt(\''+c.id+'\',event)">🤖 一键生成方案Prompt（复制给knot机器人）</button></div>'
+
+    // --- 基本操作 ---
+    +'<div class="row">'
+      +'<div class="field" style="max-width:140px"><div class="lbl">阶段</div><select '+D+' onclick="event.stopPropagation()" onchange="changeStage(\''+c.id+'\',this.value)">'+stageOptions(c.stage)+'</select></div>'
+      +'<div class="field" style="max-width:130px"><div class="lbl">最近更新</div><input '+D+' value="'+esc(c.date)+'" onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'date\',this.value)"></div>'
+      +'<div class="field"><div class="lbl">电话</div><input '+D+' value="'+esc(c.phone)+'" onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'phone\',this.value)"></div>'
+    +'</div>'
+
+    // --- Section 1: 客户档案 ---
+    +'<div class="section"><div class="sect-hd">📋 客户档案<span class="st">产品 · 盈利 · 云厂 · 体量</span></div>'
+      +'<div class="row">'
+        +'<div class="field"><div class="lbl">核心产品/服务/能力</div><input '+D+' value="'+esc(c.prod)+'" onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'prod\',this.value)"></div>'
+        +'<div class="field"><div class="lbl">主要盈利模式</div><input '+D+' value="'+esc(c.profit)+'" onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'profit\',this.value)"></div>'
+      +'</div>'
+      +'<div class="row">'
+        +'<div class="field"><div class="lbl">云厂现状</div><input '+D+' value="'+esc(c.cloud)+'" onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'cloud\',this.value)"></div>'
+        +'<div class="field"><div class="lbl">体量</div><input '+D+' value="'+esc(c.scale)+'" onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'scale\',this.value)"></div>'
+      +'</div></div>'
+
+    // --- Section 2: 触达状态 ---
+    +'<div class="section"><div class="sect-hd">📞 触达状态<span class="st">陌拜 · 磐石 · 外卖员 · 关键人 · 拜访</span></div>'
+      +'<div class="row">'
+        +'<div class="field sm"><div class="lbl">陌拜</div><select '+D+' onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'is_maibai\',this.value==\'1\')"><option value="0"'+(!c.is_maibai?' selected':'')+'>否</option><option value="1"'+(c.is_maibai?' selected':'')+'>是</option></select></div>'
+        +'<div class="field sm"><div class="lbl">磐石name</div><select '+D+' onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'is_panshi\',this.value==\'1\')"><option value="0"'+(!c.is_panshi?' selected':'')+'>否</option><option value="1"'+(c.is_panshi?' selected':'')+'>是</option></select></div>'
+        +'<div class="field sm"><div class="lbl">外卖员</div><select '+D+' onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'is_waimai\',this.value==\'1\')"><option value="0"'+(!c.is_waimai?' selected':'')+'>否</option><option value="1"'+(c.is_waimai?' selected':'')+'>是</option></select></div>'
+        +'<div class="field sm"><div class="lbl">已拜访</div><select '+D+' onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'is_visited\',this.value==\'1\')"><option value="0"'+(!(c.is_visited)?' selected':'')+'>否</option><option value="1"'+(c.is_visited?' selected':'')+'>是</option></select></div>'
+        +'<div class="field" style="max-width:140px"><div class="lbl">拜访时间</div><input '+D+' value="'+esc(c.visit_date||'')+'" onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'visit_date\',this.value)"></div>'
+      +'</div>'
+      +'<div class="row">'
+        +'<div class="field"><div class="lbl">👤 已建联关键人(姓名/职务)</div><input '+D+' value="'+esc(c.contact_name||'')+'" onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'contact_name\',this.value)"></div>'
+        +'<div class="field"><div class="lbl">📞 关键人联系方式</div><input '+D+' value="'+esc(c.contact_info||'')+'" onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'contact_info\',this.value)"></div>'
+      +'</div></div>'
+
+    // --- Section 3: 商机数据 ---
+    +'<div class="section"><div class="sect-hd">💰 商机数据<span class="st">IT规模 · ITS · 金额 · 名单 · 重点</span></div>'
+      +'<div class="row">'
+        +'<div class="field" style="max-width:120px"><div class="lbl">IT规模(万/月)</div><input type="number" step="0.01" '+D+' value="'+esc(c.it_scale||0)+'" onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'it_scale\',this.value)"></div>'
+        +'<div class="field" style="max-width:90px"><div class="lbl">ITS等级</div><input type="number" step="0.1" '+D+' value="'+esc(c.its||0)+'" onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'its\',this.value)"></div>'
+        +'<div class="field" style="max-width:120px"><div class="lbl">商机金额(万)</div><input type="number" step="0.01" '+D+' value="'+esc(c.deal||0)+'" onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'deal\',this.value)"></div>'
+        +'<div class="field sm"><div class="lbl">名单内</div><select '+D+' onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'in_list\',this.value==\'1\')"><option value="0"'+(!c.in_list?' selected':'')+'>否</option><option value="1"'+(c.in_list?' selected':'')+'>是</option></select></div>'
+        +'<div class="field sm"><div class="lbl">重点跟进</div><select '+D+' onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'key_follow\',this.value==\'1\')"><option value="0"'+(!c.key_follow?' selected':'')+'>否</option><option value="1"'+(c.key_follow?' selected':'')+'>是</option></select></div>'
+        +'<div class="field sm"><div class="lbl">IT摸排</div><select '+D+' onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'it_profiled\',this.value==\'1\')"><option value="0"'+(!c.it_profiled?' selected':'')+'>否</option><option value="1"'+(c.it_profiled?' selected':'')+'>是</option></select></div>'
+      +'</div></div>'
+
+    // --- Section 4: 跟进记录 ---
+    +'<div class="section"><div class="sect-hd">📝 跟进记录<span class="st">日志 · 下一步</span></div>'
+      +'<div class="row"><div class="field"><div class="lbl">优先动作（下一步）</div><input '+D+' value="'+esc(c.next)+'" onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'next\',this.value)"></div></div>'
+      +'<div class="row"><div class="field"><textarea '+D+' onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'log\',this.value)">'+esc(c.log)+'</textarea></div></div>'
+    +'</div>'
+
+    // --- Section 5: 话术与材料 ---
+    +'<div class="section"><div class="sect-hd">💬 话术与材料<span class="st">根据跟进记录自动生成</span></div>'
+      +'<div class="row">'+talkHtml+'</div>'
+      +'<div class="row" style="margin-top:8px"><button class="btn" onclick="genPrompt(\''+c.id+'\',event)">🤖 一键生成方案Prompt（复制给knot机器人）</button></div>'
+    +'</div>'
+
     +(ed?'<span class="del" onclick="delC(\''+c.id+'\',event)">删除此客户</span>':'')
     +'</div>';
   return w;
@@ -342,7 +429,7 @@ function exportData(){const blob=new Blob([JSON.stringify(DATA,null,2)],{type:'a
 function genPrompt(id,e){
   e.stopPropagation();
   const c=DATA.find(x=>String(x.id)==String(id));if(!c)return;
-  const p='你是腾讯云解决方案专家。请基于 iWiki 和云知（腾讯云知识库）的能力，为下面这家客户生成一份「腾讯云上云/AI落地方案建议」。要求：结合客户实际业务、盈利模式、现有云厂和体量，给出①最匹配的腾讯云产品组合 ②迁移/落地路径 ③相比现有方案的成本与价值优势 ④一句可直接发客户的价值主张。\\n\\n【客户信息】\\n公司：'+c.name+'\\n核心产品/服务/能力：'+(c.prod||'待补充')+'\\n主要盈利模式：'+(c.profit||'待补充')+'\\n云厂现状：'+(c.cloud||'待补充')+'\\n体量：'+(c.scale||'待补充')+'\\n当前阶段：'+ST[c.stage].name+'\\n跟进记录：'+(c.log||'无')+'\\n下一步：'+(c.next||'无')+'\\n\\n请用中文输出，结构清晰，可直接用于客户沟通。';
+  const p='你是腾讯云解决方案专家。请基于 iWiki 和云知（腾讯云知识库）的能力，为下面这家客户生成一份「腾讯云上云/AI落地方案建议」。要求：结合客户实际业务、盈利模式、现有云厂和体量，给出①最匹配的腾讯云产品组合 ②迁移/落地路径 ③相比现有方案的成本与价值优势 ④一句可直接发客户的价值主张。\\n\\n【客户信息】\\n公司：'+c.name+'\\n核心产品/服务/能力：'+(c.prod||'待补充')+'\\n主要盈利模式：'+(c.profit||'待补充')+'\\n云厂现状：'+(c.cloud||'待补充')+'\\n体量：'+(c.scale||'待补充')+'\\n当前阶段：'+ST[c.stage].name+'\\n跟进记录��'+(c.log||'无')+'\\n下一步：'+(c.next||'无')+'\\n\\n请用中文输出，结构清晰，可直接用于客户沟通。';
   navigator.clipboard.writeText(p).then(()=>{
     const btn=e.target;const o=btn.textContent;btn.textContent='✅ 已复制！粘贴给knot机器人即可';setTimeout(()=>btn.textContent=o,2500);
   });
@@ -359,7 +446,6 @@ function parseReport(){
       const keys=[c.name,...(c.alias||[])];
       for(const k of keys){const kk=k.replace(/（北京）|\(北京\)|北京|有限公司|科技|股份|信息|技术|网络|文化/g,'');if(kk.length>=2&&line.includes(kk)){best=c;break;}}
     });
-    // 匹配不到已有公司 → 尝试提取公司名并新建
     if(!best){
       const nm=extractCompany(line);
       if(nm){
@@ -373,7 +459,6 @@ function parseReport(){
     if(best){
       const dm=line.match(/【?(\d{4})】?/);const dt=dm?('2026-'+dm[1].slice(0,2)+'-'+dm[1].slice(2)):best.date;
       best.log=(best.log?best.log+'\n':'')+line;best.date=dt;
-      // 阶段线索
       if(/加了?微信|加微|加到.*微信/.test(line)&&best.stage<4)best.stage=4;
       if(/有兴趣|价格|对比|方案|约.*会|拜访|POC|试用/.test(line)&&best.stage<5)best.stage=5;
       if(/婉拒|不需要|拒绝|不做了|解散|不对口|没需求/.test(line))best.stage=0;
@@ -391,44 +476,34 @@ function parseReport(){
   document.getElementById('parseResult').textContent=msg;
   document.getElementById('reportBox').value='';
 }
-// 从一行日报里提取公司名(中文公司名通常以 公司/科技/网络/技术/信息/传媒/文化/集团 等结尾,或含AI品牌名)
 function extractCompany(line){
-  // 1) 完整公司名(以 有限公司/股份有限公司/有限责任公司 结尾) — 优先,避免把"科技"当后缀截断全名
   let m=line.match(/([\u4e00-\u9fa5A-Za-z0-9.·]{2,20}?(?:股份有限公司|有限责任公司|有限公司))/);
   if(m)return m[1];
-  // 2) 品牌式公司名(以 科技/网络/技术/信息/传媒/文化/集团 等结尾)
   m=line.match(/([\u4e00-\u9fa5A-Za-z0-9.·]{2,20}?(?:科技|网络|技术|信息|传媒|文化|集团|工作室|研究院|实验室))/);
   if(m)return m[1];
-  // 3) 英文/混合品牌名(如 NeuxMind.AI、XXX.AI)
   m=line.match(/([A-Za-z][A-Za-z0-9]{2,}(?:\.[A-Za-z]{2,})?(?:\.AI|\.ai)?)/);
   if(m&&m[1].length>=3&&!/^\d{4}$/.test(m[1]))return m[1];
   return null;
 }
 
 // ===== 下周日程 + 材料/学习计划 =====
-let curView=null;
-function toggleView(v){const p=document.getElementById('planPanel');if(curView===v){p.style.display='none';curView=null;return;}curView=v;p.style.display='block';p.innerHTML=(v==='schedule'?genSchedule():genLearnPlan());p.scrollIntoView({behavior:'smooth',block:'start'});}
-
 function genSchedule(){
-  // 按阶段+待办排优先级,分配到周一~周五
   const live=DATA.filter(c=>c.stage>0).sort((a,b)=>b.stage-a.stage);
   const days=['周一','周二','周三','周四','周五'];
   const buckets=[[],[],[],[],[]];
-  // 热客户(≥4)优先塞前面的天,每天2-3件
   live.forEach((c,i)=>{buckets[i%5].push(c);});
-  let h='<h2>📅 下周日程（按优先级自动排，热客户在前）</h2>';
+  let h='';
   days.forEach((d,i)=>{
     const items=buckets[i].slice(0,3);if(!items.length)return;
     h+='<div class="day"><div class="dh">'+d+'</div>';
     items.forEach(c=>{const sg=suggest(c);h+='<div class="it"><b>'+ST[c.stage].emoji+' '+c.name.replace(/（北京）|\(北京\)/g,'')+'</b>：'+sg.act.replace(/^【优先】/,'')+'</div>';});
     h+='</div>';
   });
-  h+='<div class="tip">规则：阶段分越高越靠前排；每天聚焦 2-3 家避免铺太开。改了阶段/新增客户后重新点「下周日程」即刷新。</div>';
+  h+='<div class="tip">规则：阶段分越高越靠前排；每天聚焦 2-3 家避免铺太开。</div>';
   return h;
 }
 
 function genLearnPlan(){
-  // 汇总客户需求 → 推导要补的腾讯云产品 + 销售技巧
   const need={gpu:0,inference:0,saas:0,startup:0,migrate:0,visit:0};
   DATA.forEach(c=>{const t=(c.log||'')+(c.next||'');
     if(/GPU|算力|推理|DeepSeek|Zhipu|Claude|大模型/i.test(t))need.inference++;
@@ -437,37 +512,34 @@ function genLearnPlan(){
     if(/起步|初创|刚/.test(t))need.startup++;
     if(c.is_maibai)need.visit++;
   });
-  let h='<h2>📚 材料准备 + 学习计划（据你的客户需求生成）</h2>';
-  // 材料准备
-  h+='<div class="lp"><div class="lh">🎒 优先准备的客户材料（点开可下载后发客户）</div>';
+  let h='';
+  h+='<div class="lp"><div class="lh">🎒 优先准备的客户材料</div>';
   const mats=[
     [need.inference,'推理/GPU 类客户多（'+need.inference+'家）→ 备好','腾讯云大模型AI推理场景方案v1.5','https://lexiangla.com/docs/09707aeb65ec4521b769067954ebdc2e'],
-    [need.migrate,'有友商云要迁移（'+need.migrate+'家）→ 备好','算力网络方案(qGPU省成本)+云上好CP案例','https://lexiangla.com/docs/72e0fb966d07459f833329d6aa9ffa75'],
-    [need.saas,'已建联待深挖（'+need.saas+'家）→ 备好','大模型推理和应用案例集(含阅文)','https://lexiangla.com/docs/b411ac44a5bd43cbad1b6ba32eaf9153'],
+    [need.migrate,'有友商云要迁移（'+need.migrate+'家）→ 备好','算力网络方案+云上好CP案例','https://lexiangla.com/docs/72e0fb966d07459f833329d6aa9ffa75'],
+    [need.saas,'已建联待深挖（'+need.saas+'家）→ 备好','大模型推理和应用案例集','https://lexiangla.com/docs/b411ac44a5bd43cbad1b6ba32eaf9153'],
     [need.startup,'成长期客户 → 备好','知识引擎产品介绍及扶持政策','https://lexiangla.com/docs/2138946c8e024b74b315eedf2e819518'],
   ];
   mats.filter(m=>m[0]>0).forEach(m=>{h+='<div class="li">'+m[1]+' <a href="'+m[3]+'" target="_blank">'+m[2]+'</a></div>';});
   h+='</div>';
-  // 腾讯云产品学习
-  h+='<div class="lp"><div class="lh">☁️ 腾讯云产品学习（补齐当前客户涉及的知识）</div>';
+  h+='<div class="lp"><div class="lh">☁️ 腾讯云产品学习</div>';
   const prod=[];
-  if(need.inference)prod.push('GPU云服务器 / HAI 高性能应用服务：实例选型、vLLM推理部署、0.8折优惠算账（对推理客户）');
-  if(need.inference)prod.push('TokenHub / Token Plan：混元/DeepSeek/GLM 各模型定价与降价点，能张口报价');
-  if(need.migrate)prod.push('友商对比：腾讯云 vs AWS/阿里云/华为云 的成本与迁移路径（对迁移客户）');
+  if(need.inference)prod.push('GPU云服务器 / HAI：实例选型、vLLM推理部署、0.8折优惠算账');
+  if(need.inference)prod.push('TokenHub / Token Plan：混元/DeepSeek/GLM 定价与降价点');
+  if(need.migrate)prod.push('友商对比：腾讯云 vs AWS/阿里云/华为云 成本与迁移路径');
   if(need.saas)prod.push('大模型知识引擎 / AGI 场景方案：SaaS 客户最常问的落地形态');
-  prod.push('IaaS 基础路径：CVM → TKE → PaaS/SaaS（周报里 Aaron 推荐的学习顺序）');
+  prod.push('IaaS 基础路径：CVM → TKE → PaaS/SaaS');
   prod.forEach(p=>h+='<div class="li">'+p+'</div>');
   h+='</div>';
-  // 销售技巧
-  h+='<div class="lp"><div class="lh">🎯 销售技巧学习（结合你的实战短板）</div>';
+  h+='<div class="lp"><div class="lh">🎯 销售技巧</div>';
   const sk=[
-    '陌拜破冰：关键词抓注意力（阿里/腾讯/GPU/大模型）→ 聊开 → 自然挖体量（你已有'+need.visit+'家陌拜经验，固化成话术）',
-    '电话节奏：超40秒放松输出，超1分钟直接问体量（自建机房?月成本?用什么云?国内国外?）',
-    '《大客户销售：谋攻之道》继续推进；《销售巨人》SPIN 提问法——用「未来能看到什么」消除客户决策焦虑',
-    '把「被拒是信号而非终点」内化：前台铁板果断止损，聊开但不掌握体量的转找对的人',
+    '陌拜破冰：关键词抓注意力 → 聊开 → 自然挖体量',
+    '电话节奏：超40秒放松输出，超1分钟直接问体量',
+    '《大客户销售：谋攻之道》继续推进',
+    '被拒是信号而非终点：前台铁板果断止损，聊开的转找对的人',
   ];
   sk.forEach(s=>h+='<div class="li">'+s+'</div>');
-  h+='</div><div class="tip">这份计划随客户数据变化——新增客户或更新需求后重新点「材料/学习计划」即重算。</div>';
+  h+='</div><div class="tip">这份计划随客户数据变化——新客户或更新需求后自动重算。</div>';
   return h;
 }
 
