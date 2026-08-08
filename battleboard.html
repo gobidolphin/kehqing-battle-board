@@ -288,7 +288,7 @@ select:focus,input:focus,textarea:focus{outline:none;border-color:var(--brand);b
         <p>· 客户数据 36 家：30 名单内 + 6 家自拓</p>
         <p>· 数据存储在浏览器 localStorage（按设备隔离）</p>
         <p>· 编辑密码 091313（登录后 7 天内有效）</p>
-        <p>· 版本：v41（修复 syncDomData 中 is_maibai/is_panshi 类型 bug）</p>
+        <p>· 版本：v42（卡片展开改用事件委托，更稳定）</p>
       </div></div>
     </div>
     <div class="side">
@@ -595,6 +595,16 @@ function renderClients(){
   });
 }
 
+// 卡片展开/折叠：事件委托（避免 inline onclick 失效）
+document.addEventListener('click',function(e){
+  var chd=e.target.closest('.chd');
+  if(!chd)return;
+  var tag=e.target.tagName;
+  if(tag==='SELECT'||tag==='INPUT'||tag==='TEXTAREA'||tag==='BUTTON'||tag==='A')return;
+  var card=chd.parentElement;
+  if(card&&card.classList.contains('card'))card.classList.toggle('open');
+});
+
 function render(){
   refreshLock();renderDashboard();renderTodo();renderClients();
   if(currentTab==='tools')renderTools();
@@ -619,7 +629,7 @@ function card(c,ed){
   const itTag='<span class="tag" style="background:'+(itHas?'#F4ECD8':'#F4F5F7')+';color:'+(itHas?'var(--brand)':'#9097A3')+';border:1px solid '+(itHas?'var(--gold-light)':'#E5E7EB')+'">IT '+(itHas?(c.it_scale+' 万/月'):'体量·待填')+'</span>';
 
   w.innerHTML=
-    '<div class="chd" onclick="if(event.target.tagName!==\'SELECT\'&&event.target.tagName!==\'INPUT\'&&event.target.tagName!==\'TEXTAREA\')this.parentElement.classList.toggle(\'open\')">'
+    '<div class="chd">'
     +'<span class="badge" style="background:#'+ST[c.stage].color+'">'+ST[c.stage].name+'</span>'
     +'<span class="nm">'+esc(c.name)+'</span>'
     +(c.is_connected?'<span class="tag" style="background:#E8F0EC;color:var(--green);border:1px solid #B8D4C8">✓ 已建联</span>':'')
