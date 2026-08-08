@@ -288,7 +288,7 @@ select:focus,input:focus,textarea:focus{outline:none;border-color:var(--brand);b
         <p>· 客户数据 36 家：30 名单内 + 6 家自拓</p>
         <p>· 数据存储在浏览器 localStorage（按设备隔离）</p>
         <p>· 编辑密码 091313（登录后 7 天内有效）</p>
-        <p>· 版本：v36（种子签名持久化：UI改动不再丢失数据，只有种子数据更新才重载）</p>
+        <p>· 版本：v37（oninput即时同步 + beforeunload兜底：打字后直接刷新不再丢数据）</p>
       </div></div>
     </div>
     <div class="side">
@@ -341,6 +341,32 @@ function save(){
     alert('保存失败！请检查浏览器是否禁用了本地存储');
   }
 }
+function syncDomData(){
+  // 文本输入框：用户可能在打字未失焦时直接刷新，onchange 尚未触发
+  // 此函数扫描 DOM 中所有带 data-id + data-field 的输入控件，同步值到 DATA
+  document.querySelectorAll('[data-id][data-field]').forEach(function(el){
+    var id=el.getAttribute('data-id');
+    var f=el.getAttribute('data-field');
+    var c=DATA.find(function(x){return String(x.id)===String(id);});
+    if(c){
+      if(el.tagName==='SELECT'){
+        // is_connected select: value is "0"/"1", but field is boolean
+        if(f==='is_connected')c[f]=el.value==='1';
+        else c[f]=parseInt(el.value)||el.value;
+      }else{
+        c[f]=el.value;
+      }
+    }
+  });
+}
+window.addEventListener('beforeunload',function(){
+  syncDomData();
+  // 静默保存（不调用 toast，因为页面即将关闭）
+  try{
+    localStorage.setItem(KEY+'_sig',SEED_SIG);
+    localStorage.setItem(KEY,JSON.stringify(DATA));
+  }catch(e){}
+});
 window.addEventListener('storage',e=>{if(e.key===KEY&&e.newValue){try{DATA=JSON.parse(e.newValue);render();}catch(_){}}});
 function toast(){const t=document.getElementById('saved');t.classList.add('show');clearTimeout(window._tt);window._tt=setTimeout(()=>t.classList.remove('show'),1200);}
 function isLogged(){const ts=+localStorage.getItem(LK)||0;return Date.now()-ts<WEEK;}
@@ -604,29 +630,29 @@ function card(c,ed){
 
     // --- 基本信息行（Excel 8 字段精简版） ---
     +'<div class="row">'
-      +'<div class="field" style="max-width:140px"><div class="lbl">阶段</div><select '+D+' onclick="event.stopPropagation()" onchange="changeStage(\''+c.id+'\',this.value)">'+stageOptions(c.stage)+'</select></div>'
-      +'<div class="field sm"><div class="lbl">是否建联</div><select '+D+' onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'is_connected\',this.value==\'1\')"><option value="0"'+(!(c.is_connected)?' selected':'')+'>否</option><option value="1"'+(c.is_connected?' selected':'')+'>是</option></select></div>'
-      +'<div class="field" style="max-width:150px"><div class="lbl">最近更新</div><input type="date" '+D+' value="'+esc(c.date)+'" onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'date\',this.value)"></div>'
-      +'<div class="field" style="max-width:130px"><div class="lbl">电话</div><input '+D+' value="'+esc(c.phone)+'" onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'phone\',this.value)"></div>'
+      +'<div class="field" style="max-width:140px"><div class="lbl">阶段</div><select '+D+' data-id="'+c.id+'" data-field="stage" onclick="event.stopPropagation()" onchange="changeStage(\''+c.id+'\',this.value)">'+stageOptions(c.stage)+'</select></div>'
+      +'<div class="field sm"><div class="lbl">是否建联</div><select '+D+' data-id="'+c.id+'" data-field="is_connected" onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'is_connected\',this.value==\'1\')"><option value="0"'+(!(c.is_connected)?' selected':'')+'>否</option><option value="1"'+(c.is_connected?' selected':'')+'>是</option></select></div>'
+      +'<div class="field" style="max-width:150px"><div class="lbl">最近更新</div><input type="date" '+D+' data-id="'+c.id+'" data-field="date" value="'+esc(c.date)+'" onclick="event.stopPropagation()" oninput="syncV(\''+c.id+'\',\'date\',this.value)" onchange="upd(\''+c.id+'\',\'date\',this.value)"></div>'
+      +'<div class="field" style="max-width:130px"><div class="lbl">电话</div><input '+D+' data-id="'+c.id+'" data-field="phone" value="'+esc(c.phone)+'" onclick="event.stopPropagation()" oninput="syncV(\''+c.id+'\',\'phone\',this.value)" onchange="upd(\''+c.id+'\',\'phone\',this.value)"></div>'
     +'</div>'
 
     // --- 关键人 + 业务描述（Excel 核心） ---
     +'<div class="row">'
-      +'<div class="field"><div class="lbl">已建联关键人</div><input '+D+' value="'+esc(c.contact_name||'')+'" placeholder="姓名/职务" onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'contact_name\',this.value)"></div>'
-      +'<div class="field"><div class="lbl">关键人联系方式</div><input '+D+' value="'+esc(c.contact_info||'')+'" placeholder="微信/手机" onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'contact_info\',this.value)"></div>'
+      +'<div class="field"><div class="lbl">已建联关键人</div><input '+D+' data-id="'+c.id+'" data-field="contact_name" value="'+esc(c.contact_name||'')+'" placeholder="姓名/职务" onclick="event.stopPropagation()" oninput="syncV(\''+c.id+'\',\'contact_name\',this.value)" onchange="upd(\''+c.id+'\',\'contact_name\',this.value)"></div>'
+      +'<div class="field"><div class="lbl">关键人联系方式</div><input '+D+' data-id="'+c.id+'" data-field="contact_info" value="'+esc(c.contact_info||'')+'" placeholder="微信/手机" onclick="event.stopPropagation()" oninput="syncV(\''+c.id+'\',\'contact_info\',this.value)" onchange="upd(\''+c.id+'\',\'contact_info\',this.value)"></div>'
     +'</div>'
     +'<div class="row">'
-      +'<div class="field"><div class="lbl">业务描述</div><input '+D+' value="'+esc(c.prod||'')+'" placeholder="客户是做什么的" onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'prod\',this.value)"></div>'
+      +'<div class="field"><div class="lbl">业务描述</div><input '+D+' data-id="'+c.id+'" data-field="prod" value="'+esc(c.prod||'')+'" placeholder="客户是做什么的" onclick="event.stopPropagation()" oninput="syncV(\''+c.id+'\',\'prod\',this.value)" onchange="upd(\''+c.id+'\',\'prod\',this.value)"></div>'
     +'</div>'
 
     // --- 进展简述（突出，1 行大字段） ---
     +'<div class="section" style="background:linear-gradient(135deg,#FFFBF0 0%,#FFF6E5 100%);border-left:3px solid var(--gold)"><div class="sect-hd"><span class="sd nx-icon"></span> 进展简述<span class="st">下一步行动 · 来自 Excel</span></div>'
-      +'<div class="row"><div class="field"><textarea '+D+' rows="2" style="border:1.5px solid var(--gold-light);background:#FFFEFA" placeholder="例：0804 已加CTO微信，下周一约15min线上会聊用云成本对比" onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'next\',this.value)">'+esc(c.next||'')+'</textarea></div></div>'
+      +'<div class="row"><div class="field"><textarea '+D+' rows="2" data-id="'+c.id+'" data-field="next" style="border:1.5px solid var(--gold-light);background:#FFFEFA" placeholder="例：0804 已加CTO微信，下周一约15min线上会聊用云成本对比" onclick="event.stopPropagation()" oninput="syncV(\''+c.id+'\',\'next\',this.value)" onchange="upd(\''+c.id+'\',\'next\',this.value)">'+esc(c.next||'')+'</textarea></div></div>'
     +'</div>'
 
     // --- 跟进记录（历史日志） ---
     +'<div class="section"><div class="sect-hd"><span class="sd log-icon"></span> 跟进记录<span class="st">历史 · 触达明细</span></div>'
-      +'<div class="row"><div class="field"><textarea '+D+' rows="3" onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'log\',this.value)">'+esc(c.log||'')+'</textarea></div></div>'
+      +'<div class="row"><div class="field"><textarea '+D+' rows="3" data-id="'+c.id+'" data-field="log" onclick="event.stopPropagation()" oninput="syncV(\''+c.id+'\',\'log\',this.value)" onchange="upd(\''+c.id+'\',\'log\',this.value)">'+esc(c.log||'')+'</textarea></div></div>'
     +'</div>'
 
     // --- AI Knot Prompt 生成（保留） ---
@@ -637,11 +663,12 @@ function card(c,ed){
   return w;
 }
 
+function syncV(id,f,v){const c=DATA.find(x=>String(x.id)==String(id));if(c)c[f]=v;}
 function upd(id,f,v){const c=DATA.find(x=>String(x.id)==String(id));if(c){c[f]=v;render();}}
 function changeStage(id,v){const c=DATA.find(x=>String(x.id)==String(id));if(c){c.stage=parseInt(v);render();}}
 function applySuggest(id,e){e.stopPropagation();const c=DATA.find(x=>String(x.id)==String(id));if(c){c.next=suggest(c).act;render();}}
 function delC(id,e){e.stopPropagation();if(confirm('确定删除该客户？')){DATA=DATA.filter(x=>String(x.id)!=String(id));render();}}
-function addCompany(){const name=prompt('新客户公司名？');if(!name)return;DATA.push({id:'new_'+Date.now(),name,stage:2,phone:'',addr:'',tier:'自拓',log:'',next:'首次拨打',date:new Date().toISOString().slice(0,10),play:null,is_maibai:false,is_panshi:false,alias:[],it_scale:0,it_profiled:false,in_list:false,its:0,key_follow:false,deal:0,contact_name:'',contact_info:'',is_visited:false,visit_date:''});render();}
+function addCompany(){const name=prompt('新客户公司名？');if(!name)return;DATA.push({id:'new_'+Date.now(),name,stage:2,phone:'',addr:'',tier:'自拓',log:'',next:'首次拨打',date:new Date().toISOString().slice(0,10),play:null,is_maibai:false,is_panshi:false,alias:[],it_scale:0,it_profiled:false,in_list:false,its:0,key_follow:false,deal:0,contact_name:'',contact_info:'',is_visited:false,visit_date:'',is_connected:false,cloud:'',prod:'',profit:'',scale:''});render();}
 function cpTalk(btn,e){e.stopPropagation();navigator.clipboard.writeText(btn.parentElement.querySelector('textarea').value);btn.textContent='已复制';setTimeout(()=>btn.textContent='复制',1500);}
 function exportData(){const blob=new Blob([JSON.stringify(DATA,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='客情作战台备份_'+new Date().toISOString().slice(0,10)+'.json';a.click();}
 
