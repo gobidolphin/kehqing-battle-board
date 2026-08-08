@@ -288,7 +288,7 @@ select:focus,input:focus,textarea:focus{outline:none;border-color:var(--brand);b
         <p>· 客户数据 36 家：30 名单内 + 6 家自拓</p>
         <p>· 数据存储在浏览器 localStorage（按设备隔离）</p>
         <p>· 编辑密码 091313（登录后 7 天内有效）</p>
-        <p>· 版本：v40（陌拜过/磐石 改为卡片内可编辑开关；移除"待跟进"过滤器）</p>
+        <p>· 版本：v41（修复 syncDomData 中 is_maibai/is_panshi 类型 bug）</p>
       </div></div>
     </div>
     <div class="side">
@@ -350,8 +350,8 @@ function syncDomData(){
     var c=DATA.find(function(x){return String(x.id)===String(id);});
     if(c){
       if(el.tagName==='SELECT'){
-        // is_connected select: value is "0"/"1", but field is boolean
-        if(f==='is_connected')c[f]=el.value==='1';
+        // boolean select: is_connected / is_maibai / is_panshi — value is "0"/"1"
+        if(f==='is_connected'||f==='is_maibai'||f==='is_panshi')c[f]=el.value==='1';
         else c[f]=parseInt(el.value)||el.value;
       }else{
         c[f]=el.value;
