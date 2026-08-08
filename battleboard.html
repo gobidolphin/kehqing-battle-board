@@ -288,7 +288,7 @@ select:focus,input:focus,textarea:focus{outline:none;border-color:var(--brand);b
         <p>· 客户数据 36 家：30 名单内 + 6 家自拓</p>
         <p>· 数据存储在浏览器 localStorage（按设备隔离）</p>
         <p>· 编辑密码 091313（登录后 7 天内有效）</p>
-        <p>· 版本：v39（放弃原因改为可编辑 textarea）</p>
+        <p>· 版本：v40（陌拜过/磐石 改为卡片内可编辑开关；移除"待跟进"过滤器）</p>
       </div></div>
     </div>
     <div class="side">
@@ -421,7 +421,7 @@ document.getElementById('pwd').addEventListener('keydown',e=>{if(e.key==='Enter'
 
 // ===== 过滤器 =====
 let cur='all', q='';
-const filters=[['all','全部'],['inlist','名单内'],['selfs','自拓'],['hot','热(≥4)'],['maibai','陌拜过'],['panshi','磐石name'],['live','待跟进'],['ab','放弃']];
+const filters=[['all','全部'],['inlist','名单内'],['selfs','自拓'],['hot','热(≥4)'],['maibai','陌拜过'],['panshi','磐石name'],['ab','放弃']];
 const fEl=document.getElementById('filters');
 function buildFilters(){
   fEl.innerHTML='';
@@ -435,7 +435,7 @@ function buildFilters(){
     fEl.appendChild(b);
   });
 }
-function pass(c){if(cur=='all')return true;if(cur=='inlist')return c.in_list!==false;if(cur=='selfs')return c.in_list===false;if(cur=='hot')return c.stage>=4;if(cur=='maibai')return c.is_maibai;if(cur=='panshi')return c.is_panshi;if(cur=='live')return c.stage==2||c.stage==3;if(cur=='ab')return c.stage==0;return true;}
+function pass(c){if(cur=='all')return true;if(cur=='inlist')return c.in_list!==false;if(cur=='selfs')return c.in_list===false;if(cur=='hot')return c.stage>=4;if(cur=='maibai')return c.is_maibai;if(cur=='panshi')return c.is_panshi;if(cur=='ab')return c.stage==0;return true;}
 function matchQ(c){if(!q)return true;const t=(c.name+' '+(c.alias||[]).join(' ')).toLowerCase();return t.includes(q.toLowerCase());}
 function doSearch(v){q=v.trim();renderClients();}
 function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
@@ -653,6 +653,11 @@ function card(c,ed){
     +'<div class="row">'
       +'<div class="field"><div class="lbl">已建联关键人</div><input '+D+' data-id="'+c.id+'" data-field="contact_name" value="'+esc(c.contact_name||'')+'" placeholder="姓名/职务" onclick="event.stopPropagation()" oninput="syncV(\''+c.id+'\',\'contact_name\',this.value)" onchange="upd(\''+c.id+'\',\'contact_name\',this.value)"></div>'
       +'<div class="field"><div class="lbl">关键人联系方式</div><input '+D+' data-id="'+c.id+'" data-field="contact_info" value="'+esc(c.contact_info||'')+'" placeholder="微信/手机" onclick="event.stopPropagation()" oninput="syncV(\''+c.id+'\',\'contact_info\',this.value)" onchange="upd(\''+c.id+'\',\'contact_info\',this.value)"></div>'
+    +'</div>'
+    // --- 陌拜过 / 磐石（可勾选） ---
+    +'<div class="row">'
+      +'<div class="field sm"><div class="lbl">陌拜过</div><select '+D+' data-id="'+c.id+'" data-field="is_maibai" onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'is_maibai\',this.value==\'1\')"><option value="0"'+(!c.is_maibai?' selected':'')+'>否</option><option value="1"'+(c.is_maibai?' selected':'')+'>是</option></select></div>'
+      +'<div class="field sm"><div class="lbl">磐石name</div><select '+D+' data-id="'+c.id+'" data-field="is_panshi" onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'is_panshi\',this.value==\'1\')"><option value="0"'+(!c.is_panshi?' selected':'')+'>否</option><option value="1"'+(c.is_panshi?' selected':'')+'>是</option></select></div>'
     +'</div>'
     +'<div class="row">'
       +'<div class="field"><div class="lbl">业务描述</div><input '+D+' data-id="'+c.id+'" data-field="prod" value="'+esc(c.prod||'')+'" placeholder="客户是做什么的" onclick="event.stopPropagation()" oninput="syncV(\''+c.id+'\',\'prod\',this.value)" onchange="upd(\''+c.id+'\',\'prod\',this.value)"></div>'
