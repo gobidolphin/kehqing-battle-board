@@ -321,7 +321,6 @@ function load(){
   return JSON.parse(JSON.stringify(SEED));
 }
 function save(){localStorage.setItem(KEY+'_ver',String(SEED_VERSION));localStorage.setItem(KEY,JSON.stringify(DATA));toast();}
-function save(){localStorage.setItem(KEY,JSON.stringify(DATA));toast();}
 window.addEventListener('storage',e=>{if(e.key===KEY&&e.newValue){try{DATA=JSON.parse(e.newValue);render();}catch(_){}}});
 function toast(){const t=document.getElementById('saved');t.classList.add('show');clearTimeout(window._tt);window._tt=setTimeout(()=>t.classList.remove('show'),1200);}
 function isLogged(){const ts=+localStorage.getItem(LK)||0;return Date.now()-ts<WEEK;}
