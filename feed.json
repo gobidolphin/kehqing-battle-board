@@ -1,0 +1,39 @@
+{
+  "date": "2026-08-13",
+  "news": [
+    {
+      "region": "cn",
+      "title": "DeepSeek V4 Pro 正式版上线，首推峰谷定价",
+      "body": "Agent能力逼近 Claude Fable 5，输出仅6元/百万token（价差60倍）；8月17日起空闲时段再半价，缓存命中输入低至0.025元。",
+      "link": "https://so.html5.qq.com/page/real/search_news?docid=70000021_4796a7d4cfa66452",
+      "time": "08/13"
+    },
+    {
+      "region": "cn",
+      "title": "中国AI企业掀起全球大模型价格战",
+      "body": "推理价格从6月初2美元降至1.2美元/百万token；Gartner预测2027年全球50%企业将采用中国AI模型，中美技术差距缩至2-3个月。",
+      "link": "https://www.163.com/dy/article/L3VEQQ3S051191D6.html",
+      "time": "08/10"
+    },
+    {
+      "region": "us",
+      "title": "Grok 4.6 发布，与 DeepSeek V4 Pro 同日对决",
+      "body": "输入$2/输出$6每百万token，约为其他旗舰一半；GDPVal-AA v2 评测1753 Elo排名第一，知识工作与 GPT-5.6 Sol 并列。",
+      "link": "https://finance.biggo.com/news/3dd94d75-f0d8-4a36-949c-0b372d8aed7d",
+      "time": "08/12"
+    },
+    {
+      "region": "us",
+      "title": "OpenAI GPT-5.6 最高降价80%，Meta 开源 Muse Spark 1.2",
+      "body": "AI推理成本跌至年内谷底1.16美元/百万token；Anthropic Claude Opus 5 定价仅为旗舰 Fable 5 的一半。",
+      "link": "https://www.ccidnet.com/AIqqy/1122760.jhtml",
+      "time": "08/11"
+    }
+  ],
+  "knowledge": {
+    "title": "杰文斯悖论：AI 越降价，算力需求越涨",
+    "body": "19世纪经济学家杰文斯发现：煤炭效率提升，总消耗反而暴涨。摩根士丹利指出，LLM推理价格半年降幅超40%，企业AI应用门槛降低，反而带动云和GPU总需求超预期——微软、亚马逊、谷歌等云厂商成最大受益者。",
+    "takeaway": "对客户别说「降价=省钱」，要说「降价=同样预算跑更多AI业务」。预算没少，消耗翻倍，上云正当时。"
+  },
+  "_ts": 1786630000000
+}
