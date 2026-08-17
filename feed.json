@@ -1,39 +1,39 @@
 {
-  "date": "2026-08-13",
+  "date": "2026-08-17",
   "news": [
     {
       "region": "cn",
-      "title": "DeepSeek V4 Pro 正式版上线，首推峰谷定价",
-      "body": "Agent能力逼近 Claude Fable 5，输出仅6元/百万token（价差60倍）；8月17日起空闲时段再半价，缓存命中输入低至0.025元。",
-      "link": "https://so.html5.qq.com/page/real/search_news?docid=70000021_4796a7d4cfa66452",
-      "time": "08/13"
+      "title": "DeepSeek 今日起执行峰谷计价，首推 Harness 智能体框架",
+      "body": "V4-Flash/V4-Pro 高峰时段价格翻倍、空闲时段半价；同步发布 Harness 开发者预览版对冲涨价流失风险。",
+      "link": "https://dy.163.com/article/L4FRO9110519DFFO.html",
+      "time": "08/17"
     },
     {
       "region": "cn",
-      "title": "中国AI企业掀起全球大模型价格战",
-      "body": "推理价格从6月初2美元降至1.2美元/百万token；Gartner预测2027年全球50%企业将采用中国AI模型，中美技术差距缩至2-3个月。",
-      "link": "https://www.163.com/dy/article/L3VEQQ3S051191D6.html",
-      "time": "08/10"
+      "title": "阿里开源 Qwen3.8-27B 多模态模型，家用显卡可跑",
+      "body": "270亿参数、262K上下文可扩至1M，Apache 2.0免费商用；另披露苹果正与阿里联合训练中国市场专属模型。",
+      "link": "https://new.qq.com/rain/a/20260817A02YFR00",
+      "time": "08/16"
+    },
+    {
+      "region": "cn",
+      "title": "智谱 GLM-5.3：不换基座，后训练让编程能力提升50%",
+      "body": "多项基准开源第一，金山灵犀专业版发布当日即接入；OpenRouter全球调用量前十中6个是国产模型。",
+      "link": "https://www.jur.com.cn/shuju/202608/289933.html",
+      "time": "08/16"
     },
     {
       "region": "us",
-      "title": "Grok 4.6 发布，与 DeepSeek V4 Pro 同日对决",
-      "body": "输入$2/输出$6每百万token，约为其他旗舰一半；GDPVal-AA v2 评测1753 Elo排名第一，知识工作与 GPT-5.6 Sol 并列。",
-      "link": "https://finance.biggo.com/news/3dd94d75-f0d8-4a36-949c-0b372d8aed7d",
-      "time": "08/12"
-    },
-    {
-      "region": "us",
-      "title": "OpenAI GPT-5.6 最高降价80%，Meta 开源 Muse Spark 1.2",
-      "body": "AI推理成本跌至年内谷底1.16美元/百万token；Anthropic Claude Opus 5 定价仅为旗舰 Fable 5 的一半。",
-      "link": "https://www.ccidnet.com/AIqqy/1122760.jhtml",
-      "time": "08/11"
+      "title": "谷歌 Gemini 3.7 Flash：编程基准近翻倍，价格砍半",
+      "body": "DeepSWE 从49.0%升至65.3%，输入$0.75/输出$3.75每百万token；瑞安航空签五年谷歌云协议部署Gemini。",
+      "link": "https://new.qq.com/rain/a/20260817A03E6000",
+      "time": "08/16"
     }
   ],
   "knowledge": {
-    "title": "杰文斯悖论：AI 越降价，算力需求越涨",
-    "body": "19世纪经济学家杰文斯发现：煤炭效率提升，总消耗反而暴涨。摩根士丹利指出，LLM推理价格半年降幅超40%，企业AI应用门槛降低，反而带动云和GPU总需求超预期——微软、亚马逊、谷歌等云厂商成最大受益者。",
-    "takeaway": "对客户别说「降价=省钱」，要说「降价=同样预算跑更多AI业务」。预算没少，消耗翻倍，上云正当时。"
+    "title": "峰谷定价：算力界的「错峰用电」",
+    "body": "DeepSeek 今天起把大模型调用分成高峰/空闲时段计价，空闲时段半价。逻辑和电网峰谷电价一样：算力闲时闲置是浪费，降价吸引批量任务填充。客户侧价值：批量推理、离线评测、数据清洗类任务挪到夜间跑，账单立减一半。",
+    "takeaway": "跟客户算账时主动问「你的任务是实时还是批量」——批量任务用错峰方案，报价直接砍半，成单率高一截。"
   },
-  "_ts": 1786630000000
+  "_ts": 1786936000000
 }
