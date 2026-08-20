@@ -1,39 +1,39 @@
 {
-  "date": "2026-08-17",
+  "date": "2026-08-20",
   "news": [
     {
       "region": "cn",
-      "title": "DeepSeek 今日起执行峰谷计价，首推 Harness 智能体框架",
-      "body": "V4-Flash/V4-Pro 高峰时段价格翻倍、空闲时段半价；同步发布 Harness 开发者预览版对冲涨价流失风险。",
-      "link": "https://dy.163.com/article/L4FRO9110519DFFO.html",
+      "title": "腾讯财报：混元Hy4近期发布，Hy3调用量暴涨68倍",
+      "body": "腾讯Q2财报披露Hy4计划近期发布；Hy3上线一周调用量较上代涨68倍，登顶OpenRouter调用榜，金融科技及企服收入增9%。",
+      "link": "https://xinwen.bjd.com.cn/content/s6a7c67f7e4b0e45f3fd5f72e.html",
+      "time": "08/12"
+    },
+    {
+      "region": "cn",
+      "title": "DeepSeek V4 Pro峰谷动态定价生效，高峰输出涨350%",
+      "body": "8月17日起V4系列改峰谷定价：高峰输入涨200%、输出涨350%，空闲时段大幅让利，并开放384K长上下文，错峰调用成控本关键。",
+      "link": "https://www.aibase.com/zh/news/30368",
       "time": "08/17"
     },
     {
       "region": "cn",
-      "title": "阿里开源 Qwen3.8-27B 多模态模型，家用显卡可跑",
-      "body": "270亿参数、262K上下文可扩至1M，Apache 2.0免费商用；另披露苹果正与阿里联合训练中国市场专属模型。",
-      "link": "https://new.qq.com/rain/a/20260817A02YFR00",
-      "time": "08/16"
-    },
-    {
-      "region": "cn",
-      "title": "智谱 GLM-5.3：不换基座，后训练让编程能力提升50%",
-      "body": "多项基准开源第一，金山灵犀专业版发布当日即接入；OpenRouter全球调用量前十中6个是国产模型。",
-      "link": "https://www.jur.com.cn/shuju/202608/289933.html",
-      "time": "08/16"
+      "title": "阿里Qwen全球下载量破30亿，超Meta谷歌居开源第一",
+      "body": "彭博报道：阿里开源模型半年下载30亿次居全球首位，衍生模型超30万个，中国开源生态影响力超预期。",
+      "link": "https://www.bloomberg.com/news/articles/2026-08-15/alibaba-ai-models-hit-3-billion-downloads-passing-meta-google",
+      "time": "08/15"
     },
     {
       "region": "us",
-      "title": "谷歌 Gemini 3.7 Flash：编程基准近翻倍，价格砍半",
-      "body": "DeepSWE 从49.0%升至65.3%，输入$0.75/输出$3.75每百万token；瑞安航空签五年谷歌云协议部署Gemini。",
-      "link": "https://new.qq.com/rain/a/20260817A03E6000",
-      "time": "08/16"
+      "title": "OpenAI/Anthropic中端模型大幅降价，应对中国低价模型",
+      "body": "OpenAI将GPT-5.6 Luna降价80%（$0.20/$1.20每百万token）；Anthropic取消Sonnet 5涨价计划，$2/$10永久锁定。美企支出一月降近25%。",
+      "link": "https://byteiota.com/ai-api-price-war-what-developers-must-act-on-in-august",
+      "time": "08/15"
     }
   ],
   "knowledge": {
-    "title": "峰谷定价：算力界的「错峰用电」",
-    "body": "DeepSeek 今天起把大模型调用分成高峰/空闲时段计价，空闲时段半价。逻辑和电网峰谷电价一样：算力闲时闲置是浪费，降价吸引批量任务填充。客户侧价值：批量推理、离线评测、数据清洗类任务挪到夜间跑，账单立减一半。",
-    "takeaway": "跟客户算账时主动问「你的任务是实时还是批量」——批量任务用错峰方案，报价直接砍半，成单率高一截。"
+    "title": "峰谷定价与模型路由：把价格波动变成降本方案",
+    "body": "DeepSeek峰谷价差达2-4倍，单家模型低价不可持续。模型路由（按任务复杂度分流到不同模型+错峰调度）可将推理成本降40-70%。",
+    "takeaway": "拜访客户时主动问其AI调用时段分布和任务类型，用\"错峰调度+多模型路由\"方案替代单一模型报价，把竞对涨价转化为腾讯云迁移商机。"
   },
-  "_ts": 1786936000000
+  "_ts": 1787187435875
 }
