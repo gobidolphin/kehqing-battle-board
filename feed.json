@@ -1,39 +1,39 @@
 {
-  "date": "2026-08-20",
+  "date": "2026-08-21",
   "news": [
     {
       "region": "cn",
-      "title": "腾讯财报：混元Hy4近期发布，Hy3调用量暴涨68倍",
-      "body": "腾讯Q2财报披露Hy4计划近期发布；Hy3上线一周调用量较上代涨68倍，登顶OpenRouter调用榜，金融科技及企服收入增9%。",
-      "link": "https://xinwen.bjd.com.cn/content/s6a7c67f7e4b0e45f3fd5f72e.html",
-      "time": "08/12"
+      "title": "腾讯云发布AI数据底座TDSQL Nexa，为Agent提供语义治理",
+      "body": "8月20日DTCC大会，腾讯云发布TDSQL Nexa：统一承载事务、向量检索、AI计算与分析，为Agent提供业务语义理解与权限治理，已进生产环境。",
+      "link": "https://view.inews.qq.com/a/20260820A0BAJA00?no-redirect=1",
+      "time": "08/20"
     },
     {
       "region": "cn",
-      "title": "DeepSeek V4 Pro峰谷动态定价生效，高峰输出涨350%",
-      "body": "8月17日起V4系列改峰谷定价：高峰输入涨200%、输出涨350%，空闲时段大幅让利，并开放384K长上下文，错峰调用成控本关键。",
-      "link": "https://www.aibase.com/zh/news/30368",
-      "time": "08/17"
+      "title": "阿里云增速45%创22季新高，AI收入连续12季三位数增长",
+      "body": "阿里财报：AI云及算力收入484亿同比增45%，AI产品收入123.76亿；Qwen3.8-Max参数2.4万亿，智能体评测全球第一并开放权重。",
+      "link": "https://view.inews.qq.com/a/20260820A0CMFZ00",
+      "time": "08/20"
     },
     {
       "region": "cn",
-      "title": "阿里Qwen全球下载量破30亿，超Meta谷歌居开源第一",
-      "body": "彭博报道：阿里开源模型半年下载30亿次居全球首位，衍生模型超30万个，中国开源生态影响力超预期。",
-      "link": "https://www.bloomberg.com/news/articles/2026-08-15/alibaba-ai-models-hit-3-billion-downloads-passing-meta-google",
-      "time": "08/15"
+      "title": "智谱GLM-5.3上线：旗舰级智能，价格不变，权重将开源",
+      "body": "GLM-5.3综合智能指数60分，与GPT-5.6 Sol同档，API定价与5.2持平，以更低成本实现同档智能，权重下周五开源。",
+      "link": "https://www.sohu.com/a/1065075978_455313",
+      "time": "08/20"
     },
     {
       "region": "us",
-      "title": "OpenAI/Anthropic中端模型大幅降价，应对中国低价模型",
-      "body": "OpenAI将GPT-5.6 Luna降价80%（$0.20/$1.20每百万token）；Anthropic取消Sonnet 5涨价计划，$2/$10永久锁定。美企支出一月降近25%。",
-      "link": "https://byteiota.com/ai-api-price-war-what-developers-must-act-on-in-august",
-      "time": "08/15"
+      "title": "Grok 4.6登陆AWS Bedrock：$2/$6前沿级Agent模型",
+      "body": "xAI旗舰Grok 4.6在Amazon Bedrock正式GA，50万上下文、四档推理强度，$2/$6每百万token，直接进AWS现有采购与计费体系。",
+      "link": "https://buttondown.com/fjgoff/archive/the-signal-august-20-2026",
+      "time": "08/20"
     }
   ],
   "knowledge": {
-    "title": "峰谷定价与模型路由：把价格波动变成降本方案",
-    "body": "DeepSeek峰谷价差达2-4倍，单家模型低价不可持续。模型路由（按任务复杂度分流到不同模型+错峰调度）可将推理成本降40-70%。",
-    "takeaway": "拜访客户时主动问其AI调用时段分布和任务类型，用\"错峰调度+多模型路由\"方案替代单一模型报价，把竞对涨价转化为腾讯云迁移商机。"
+    "title": "从每token到每任务成本：价值销售的新尺子",
+    "body": "OpenAI与Anthropic已推cost-per-task指标。token价剧烈波动，客户真正在意的是完成一次审核/一次对话的总成本。",
+    "takeaway": "报价时把'每百万token多少钱'换算成'每完成一笔业务多少钱'，按客户真实任务量做TCO对比表，把价格战话题升级成价值战。"
   },
-  "_ts": 1787187435875
+  "_ts": 1787309064000
 }
