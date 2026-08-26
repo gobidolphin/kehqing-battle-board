@@ -427,7 +427,7 @@ function syncDomData(){
     if(c){
       if(el.tagName==='SELECT'){
         // boolean select: is_connected / is_maibai / is_panshi — value is "0"/"1"
-        if(f==='is_connected'||f==='is_maibai'||f==='is_panshi'||f==='key_follow')c[f]=el.value==='1';
+        if(f==='is_connected'||f==='is_maibai'||f==='is_panshi'||f==='key_follow'||f==='it_profiled')c[f]=el.value==='1';
         else c[f]=parseInt(el.value)||el.value;
       }else if(f==='it_scale'||f==='deal'||f==='its'){
         c[f]=parseFloat(el.value)||0;  // 数值字段保持 number 类型
@@ -612,36 +612,30 @@ function applyQA(el,e,txt){
   render();
 }
 
-// ===== 核心指标看板（已挪到 客户管理 Tab 顶部）=====
+// ===== 核心指标看板（对齐周报口径）=====
 function renderDashboard(){
   const el=document.getElementById('dashboard');if(!el)return;
-  const inList=DATA.filter(c=>c.in_list!==false);
-  const selfS=DATA.filter(c=>c.in_list===false);
-  // 1) 建联率（总：名单内+自拓）— 基于「是否建联」独立字段
+  // 1) 累计建联
   const jl_all=DATA.filter(c=>c.is_connected).length;
   const jl_pct=DATA.length?Math.round(jl_all/DATA.length*100):0;
-  // 2) 摸排率（名单内）— stage>=3
-  const mp_in=inList.filter(c=>c.stage>=3).length;
-  const mp_in_pct=inList.length?Math.round(mp_in/inList.length*100):0;
-  // 3) 商机进展（名单内）— stage>=4
-  const sj_in=inList.filter(c=>c.stage>=4).length;
-  const sj_in_pct=inList.length?Math.round(sj_in/inList.length*100):0;
-  // 4) 陌拜成功率 — 陌拜过且阶段>=3
-  const mbT=DATA.filter(c=>c.is_maibai||c.is_visited).length;
-  const mbS=DATA.filter(c=>(c.is_maibai||c.is_visited)&&c.stage>=3).length;
-  const mb_pct=mbT?Math.round(mbS/mbT*100):0;
+  // 2) 累计IT摸排（it_profiled 标记）
+  const prof=DATA.filter(c=>c.it_profiled);
+  const prof_in=prof.filter(c=>c.in_list!==false).length;
+  // 3) 累计IT规模（已摸排客户的 IT体量 合计）
+  const itSum=parseFloat(prof.reduce((s,c)=>s+(+c.it_scale||0),0).toFixed(2));
+  // 4) 重点跟进中
+  const keyN=DATA.filter(c=>c.key_follow).length;
   // 5) ITS 5.1以上公司数
   const itsHi=DATA.filter(c=>(+c.its||0)>=5.1).length;
-  // 6) 有商机客户数（deal>0）
+  // 6) 有商机客户数（deal>0） 7) 商机总金额（万/月）
   const hasDeal=DATA.filter(c=>(+c.deal||0)>0).length;
-  // 7) 商机总金额（万/月）
-  const totalDeal=DATA.reduce((s,c)=>s+(+c.deal||0),0);
+  const totalDeal=parseFloat(DATA.reduce((s,c)=>s+(+c.deal||0),0).toFixed(2));
   const kpis=
     '<div class="kpis">'
-    +'<div class="kpi"><div class="dot blue"></div><div class="v">'+jl_pct+'<span class="unit">%</span></div><div class="l">建联率</div><div class="s">'+jl_all+' / '+DATA.length+' 家（名单内+自拓）</div></div>'
-    +'<div class="kpi"><div class="dot green"></div><div class="v" style="color:var(--green)">'+mp_in_pct+'<span class="unit">%</span></div><div class="l">摸排率 · 名单内</div><div class="s">'+mp_in+' / '+inList.length+' 家</div></div>'
-    +'<div class="kpi"><div class="dot orange"></div><div class="v" style="color:var(--orange)">'+sj_in_pct+'<span class="unit">%</span></div><div class="l">商机进展 · 名单内</div><div class="s">'+sj_in+' / '+inList.length+' 家</div></div>'
-    +'<div class="kpi"><div class="dot red"></div><div class="v" style="color:var(--red)">'+mb_pct+'<span class="unit">%</span></div><div class="l">陌拜成功率</div><div class="s">'+mbS+' / '+mbT+' 家</div></div>'
+    +'<div class="kpi"><div class="dot blue"></div><div class="v">'+jl_all+'<span class="unit">家</span></div><div class="l">累计建联</div><div class="s">建联率 '+jl_pct+'%（共 '+DATA.length+' 家）</div></div>'
+    +'<div class="kpi"><div class="dot green"></div><div class="v" style="color:var(--green)">'+prof.length+'<span class="unit">家</span></div><div class="l">累计 IT 摸排</div><div class="s">名单内 '+prof_in+' 家 + 自拓 '+(prof.length-prof_in)+' 家</div></div>'
+    +'<div class="kpi"><div class="dot amber"></div><div class="v" style="color:var(--amber)">'+itSum+'<span class="unit">万/月</span></div><div class="l">累计 IT 规模</div><div class="s">已摸排客户体量合计</div></div>'
+    +'<div class="kpi"><div class="dot orange"></div><div class="v" style="color:var(--orange)">'+keyN+'<span class="unit">家</span></div><div class="l">重点跟进中</div><div class="s">key_follow 标记</div></div>'
     +'<div class="kpi"><div class="dot amber"></div><div class="v" style="color:var(--amber)">'+itsHi+'<span class="unit">家</span></div><div class="l">ITS 5.1以上</div><div class="s">规模评估完成</div></div>'
     +'<div class="kpi"><div class="dot red"></div><div class="v" style="color:var(--red)">'+hasDeal+'<span class="unit">家</span></div><div class="l">有商机客户数</div><div class="s">已录入 deal</div></div>'
     +'<div class="kpi"><div class="dot green"></div><div class="v" style="color:var(--green)">¥ '+totalDeal+'<span class="unit">万/月</span></div><div class="l">商机总金额</div><div class="s">仅含已录入 deal 的客户</div></div>'
@@ -787,6 +781,7 @@ function card(c,ed){
     +'<div class="row">'
       +'<div class="field"><div class="lbl">云厂商</div><input '+D+' data-id="'+c.id+'" data-field="cloud" value="'+esc(c.cloud||'')+'" placeholder="阿里云/AWS/腾讯云..." onclick="event.stopPropagation()" oninput="syncV(\''+c.id+'\',\'cloud\',this.value)" onchange="upd(\''+c.id+'\',\'cloud\',this.value)"></div>'
       +'<div class="field" style="max-width:140px"><div class="lbl">IT体量（万/月）</div><input type="number" min="0" step="0.1" '+D+' data-id="'+c.id+'" data-field="it_scale" value="'+(c.it_scale||'')+'" placeholder="如 5" onclick="event.stopPropagation()" oninput="syncV(\''+c.id+'\',\'it_scale\',parseFloat(this.value)||0)" onchange="upd(\''+c.id+'\',\'it_scale\',parseFloat(this.value)||0)"></div>'
+      +'<div class="field sm"><div class="lbl">已IT摸排</div><select '+D+' data-id="'+c.id+'" data-field="it_profiled" onclick="event.stopPropagation()" onchange="upd(\''+c.id+'\',\'it_profiled\',this.value==\'1\')"><option value="0"'+(!c.it_profiled?' selected':'')+'>否</option><option value="1"'+(c.it_profiled?' selected':'')+'>是</option></select></div>'
       +'<div class="field" style="max-width:150px"><div class="lbl">最近更新</div><input type="date" '+D+' data-id="'+c.id+'" data-field="date" value="'+esc(c.date)+'" onclick="event.stopPropagation()" oninput="syncV(\''+c.id+'\',\'date\',this.value)" onchange="upd(\''+c.id+'\',\'date\',this.value)"></div>'
     +'</div>'
 
