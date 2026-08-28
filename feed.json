@@ -1,39 +1,39 @@
 {
-  "date": "2026-08-21",
+  "date": "2026-08-28",
   "news": [
     {
-      "region": "cn",
-      "title": "腾讯云发布AI数据底座TDSQL Nexa，为Agent提供语义治理",
-      "body": "8月20日DTCC大会，腾讯云发布TDSQL Nexa：统一承载事务、向量检索、AI计算与分析，为Agent提供业务语义理解与权限治理，已进生产环境。",
-      "link": "https://view.inews.qq.com/a/20260820A0BAJA00?no-redirect=1",
-      "time": "08/20"
-    },
-    {
-      "region": "cn",
-      "title": "阿里云增速45%创22季新高，AI收入连续12季三位数增长",
-      "body": "阿里财报：AI云及算力收入484亿同比增45%，AI产品收入123.76亿；Qwen3.8-Max参数2.4万亿，智能体评测全球第一并开放权重。",
-      "link": "https://view.inews.qq.com/a/20260820A0CMFZ00",
-      "time": "08/20"
-    },
-    {
-      "region": "cn",
-      "title": "智谱GLM-5.3上线：旗舰级智能，价格不变，权重将开源",
-      "body": "GLM-5.3综合智能指数60分，与GPT-5.6 Sol同档，API定价与5.2持平，以更低成本实现同档智能，权重下周五开源。",
-      "link": "https://www.sohu.com/a/1065075978_455313",
-      "time": "08/20"
-    },
-    {
       "region": "us",
-      "title": "Grok 4.6登陆AWS Bedrock：$2/$6前沿级Agent模型",
-      "body": "xAI旗舰Grok 4.6在Amazon Bedrock正式GA，50万上下文、四档推理强度，$2/$6每百万token，直接进AWS现有采购与计费体系。",
-      "link": "https://buttondown.com/fjgoff/archive/the-signal-august-20-2026",
-      "time": "08/20"
+      "title": "HuggingFace被曝卖身英伟达：129亿美元！全球最大AI开源平台改姓黄",
+      "body": "Hugging Face这把是真全员财富自由了啊o(╥﹏╥)o",
+      "link": "https://www.qbitai.com/2026/08/480186.html",
+      "time": "08/28"
+    },
+    {
+      "region": "cn",
+      "title": "34克、全天候AI，1996元起，雷鸟iO热卖加速智能眼镜全民普及",
+      "body": "8 月 27 日，全球领先消费级 AR 品牌雷鸟创新（RayNeo）公布雷鸟 iO 首销战报",
+      "link": "https://www.qbitai.com/2026/08/480202.html",
+      "time": "08/28"
+    },
+    {
+      "region": "cn",
+      "title": "全球首款专为iPhone用户打造的Agent耳机正式发布，有道AI耳机让声音变成生产力",
+      "body": "8月27日，网易有道正式发布OpenPods有道AI耳机。",
+      "link": "https://www.qbitai.com/2026/08/480083.html",
+      "time": "08/28"
+    },
+    {
+      "region": "cn",
+      "title": "MiniMax ARR暴涨500%，token暴涨2000%！这就是Agent红利吧",
+      "body": "好能增长，好能商业化啊！",
+      "link": "https://www.qbitai.com/2026/08/480092.html",
+      "time": "08/27"
     }
   ],
   "knowledge": {
-    "title": "从每token到每任务成本：价值销售的新尺子",
-    "body": "OpenAI与Anthropic已推cost-per-task指标。token价剧烈波动，客户真正在意的是完成一次审核/一次对话的总成本。",
-    "takeaway": "报价时把'每百万token多少钱'换算成'每完成一笔业务多少钱'，按客户真实任务量做TCO对比表，把价格战话题升级成价值战。"
+    "title": "SPIN 提问法：先问处境，再问难点",
+    "body": "大客户销售不是靠介绍产品开场，而是靠提问。SPIN 四步：背景问题摸现状、难点问题挖痛点、暗示问题放大代价、需求效益问题让客户自己说出价值。",
+    "takeaway": "下次拜访前写 4 个问题，每类一个，让客户说够 70% 的时间。"
   },
-  "_ts": 1787309064000
+  "_ts": 1787892388130
 }
