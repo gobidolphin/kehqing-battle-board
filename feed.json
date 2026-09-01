@@ -1,39 +1,39 @@
 {
-  "date": "2026-08-28",
+  "date": "2026-09-01",
   "news": [
     {
+      "region": "cn",
+      "title": "腾讯混元发布 Hy4 preview 轻量版",
+      "body": "权重从近1.5TB压缩至214GB，支持4090笔记本+A4000服务器异构联合推理，量化库已开源。",
+      "link": "https://news.qq.com/rain/a/20260901A069H400",
+      "time": "09/01"
+    },
+    {
+      "region": "cn",
+      "title": "混元 Hy4 preview 调用激增，WorkBuddy 紧急扩容",
+      "body": "上线首日任务排队，推理集群已扩容；Hy3 模型限免延长至9月30日。",
+      "link": "https://cloud.tencent.com/developer/news/4529848",
+      "time": "08/31"
+    },
+    {
+      "region": "cn",
+      "title": "阿里云百炼 Qwen3-VL-Rerank 降价",
+      "body": "文本输入降至0.5元/百万tokens，多模态输入从1.8元降至0.5元/百万tokens。",
+      "link": "https://news.qq.com/rain/a/20260901A06FKM00",
+      "time": "09/01"
+    },
+    {
       "region": "us",
-      "title": "HuggingFace被曝卖身英伟达：129亿美元！全球最大AI开源平台改姓黄",
-      "body": "Hugging Face这把是真全员财富自由了啊o(╥﹏╥)o",
-      "link": "https://www.qbitai.com/2026/08/480186.html",
-      "time": "08/28"
-    },
-    {
-      "region": "cn",
-      "title": "34克、全天候AI，1996元起，雷鸟iO热卖加速智能眼镜全民普及",
-      "body": "8 月 27 日，全球领先消费级 AR 品牌雷鸟创新（RayNeo）公布雷鸟 iO 首销战报",
-      "link": "https://www.qbitai.com/2026/08/480202.html",
-      "time": "08/28"
-    },
-    {
-      "region": "cn",
-      "title": "全球首款专为iPhone用户打造的Agent耳机正式发布，有道AI耳机让声音变成生产力",
-      "body": "8月27日，网易有道正式发布OpenPods有道AI耳机。",
-      "link": "https://www.qbitai.com/2026/08/480083.html",
-      "time": "08/28"
-    },
-    {
-      "region": "cn",
-      "title": "MiniMax ARR暴涨500%，token暴涨2000%！这就是Agent红利吧",
-      "body": "好能增长，好能商业化啊！",
-      "link": "https://www.qbitai.com/2026/08/480092.html",
-      "time": "08/27"
+      "title": "OpenAI GPT-5.6 Sol 输出价降33%",
+      "body": "输出降至$20/百万tokens、输入$4，促销至少持续至11月21日；分析称系应对开源模型冲击。",
+      "link": "https://quasa.io/insights/gpt-5-6-sol-output-falls-to-20-per-million-tokens-for-three-months",
+      "time": "08/26"
     }
   ],
   "knowledge": {
-    "title": "SPIN 提问法：先问处境，再问难点",
-    "body": "大客户销售不是靠介绍产品开场，而是靠提问。SPIN 四步：背景问题摸现状、难点问题挖痛点、暗示问题放大代价、需求效益问题让客户自己说出价值。",
-    "takeaway": "下次拜访前写 4 个问题，每类一个，让客户说够 70% 的时间。"
+    "title": "模型量化：把旗舰大模型塞进普通设备",
+    "body": "量化通过降低权重精度（如压至1.25比特）大幅缩小模型体积，让旗舰模型能在消费级GPU上运行，精度损失可控。",
+    "takeaway": "拜访预算敏感客户时，用混元轻量版案例说明可复用其现有GPU资产做POC，降低客户首期投入门槛。"
   },
-  "_ts": 1787892388130
+  "_ts": 1788243689840
 }
