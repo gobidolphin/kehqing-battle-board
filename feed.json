@@ -1,39 +1,39 @@
 {
-  "date": "2026-09-01",
+  "date": "2026-09-09",
   "news": [
     {
       "region": "cn",
-      "title": "腾讯混元发布 Hy4 preview 轻量版",
-      "body": "权重从近1.5TB压缩至214GB，支持4090笔记本+A4000服务器异构联合推理，量化库已开源。",
-      "link": "https://news.qq.com/rain/a/20260901A069H400",
-      "time": "09/01"
+      "title": "DeepSeek 官宣 Flash 系列降价，最高降60%",
+      "body": "9月10日12时起执行新价，引入分时段定价：输入缓存命中空闲价降至0.02元/百万Token，输出空闲价4元。",
+      "link": "https://www.donews.com/news/detail/1/6702489.html",
+      "time": "09/09"
     },
     {
       "region": "cn",
-      "title": "混元 Hy4 preview 调用激增，WorkBuddy 紧急扩容",
-      "body": "上线首日任务排队，推理集群已扩容；Hy3 模型限免延长至9月30日。",
-      "link": "https://cloud.tencent.com/developer/news/4529848",
-      "time": "08/31"
-    },
-    {
-      "region": "cn",
-      "title": "阿里云百炼 Qwen3-VL-Rerank 降价",
-      "body": "文本输入降至0.5元/百万tokens，多模态输入从1.8元降至0.5元/百万tokens。",
-      "link": "https://news.qq.com/rain/a/20260901A06FKM00",
-      "time": "09/01"
+      "title": "中国大模型周调用量连续19周超美国，混元登顶",
+      "body": "OpenRouter数据：中国模型周调用56.72万亿Token；混元Hy4 preview以14.7万亿登顶，环比暴增379%。",
+      "link": "https://www.toutiao.com/article/7682936436160594466/",
+      "time": "09/08"
     },
     {
       "region": "us",
-      "title": "OpenAI GPT-5.6 Sol 输出价降33%",
-      "body": "输出降至$20/百万tokens、输入$4，促销至少持续至11月21日；分析称系应对开源模型冲击。",
-      "link": "https://quasa.io/insights/gpt-5-6-sol-output-falls-to-20-per-million-tokens-for-three-months",
-      "time": "08/26"
+      "title": "OpenAI GPT-6 Astra 提价2.5倍，试水按效果收费",
+      "body": "API单价定为前代2.5倍并探索按任务效果计费；同期Anthropic将Fable 5.1缓存读取价大降75%。",
+      "link": "https://new.qq.com/rain/a/20260909A030J900",
+      "time": "09/09"
+    },
+    {
+      "region": "us",
+      "title": "Meta 推出消费级个人智能体 Muse",
+      "body": "9月8日面向美国市场上线，可自主完成网购下单、发邮件、规划行程，运行于云端虚拟计算机。",
+      "link": "https://new.qq.com/rain/a/20260909A030J900",
+      "time": "09/08"
     }
   ],
   "knowledge": {
-    "title": "模型量化：把旗舰大模型塞进普通设备",
-    "body": "量化通过降低权重精度（如压至1.25比特）大幅缩小模型体积，让旗舰模型能在消费级GPU上运行，精度损失可控。",
-    "takeaway": "拜访预算敏感客户时，用混元轻量版案例说明可复用其现有GPU资产做POC，降低客户首期投入门槛。"
+    "title": "分时段定价：错峰调用省钱",
+    "body": "DeepSeek新 pricing 将高峰价定为空闲价2倍。缓存命中+错峰组合可把输入成本压低60%，调用量越大省得越多。",
+    "takeaway": "给客户算TCO时主动问任务能否错峰跑批，用闲时价+缓存命中做降本方案，把价格敏感客户的异议转成落单理由。"
   },
-  "_ts": 1788243689840
+  "_ts": 1788915365067
 }
