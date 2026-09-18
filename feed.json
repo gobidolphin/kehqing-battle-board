@@ -1,39 +1,39 @@
 {
-  "date": "2026-09-09",
+  "date": "2026-09-18",
   "news": [
     {
       "region": "cn",
-      "title": "DeepSeek 官宣 Flash 系列降价，最高降60%",
-      "body": "9月10日12时起执行新价，引入分时段定价：输入缓存命中空闲价降至0.02元/百万Token，输出空闲价4元。",
-      "link": "https://www.donews.com/news/detail/1/6702489.html",
-      "time": "09/09"
+      "title": "腾讯开源 BrowserSkill：Agent 直接借用你的浏览器",
+      "body": "MIT 协议 CLI 工具，Agent 复用已登录标签页，验证码交还用户；兼容 Cursor/Claude Code 等。",
+      "link": "https://github.com/Tencent/BrowserSkill",
+      "time": "09/17"
     },
     {
       "region": "cn",
-      "title": "中国大模型周调用量连续19周超美国，混元登顶",
-      "body": "OpenRouter数据：中国模型周调用56.72万亿Token；混元Hy4 preview以14.7万亿登顶，环比暴增379%。",
-      "link": "https://www.toutiao.com/article/7682936436160594466/",
-      "time": "09/08"
+      "title": "中电信发布首个全栈国产轻量智能体大模型",
+      "body": "星辰 Xing4.0-29B-A4B：29B 总参/4B 激活 MoE，基于国产算力与框架训练，主打代码智能体。",
+      "link": "https://www.toutiao.com/article/7686450677584871942",
+      "time": "09/17"
+    },
+    {
+      "region": "cn",
+      "title": "网易有道 LobsterAI 2.0：办公 Agent 改按量付费",
+      "body": "打破传统席位费模式，新增 Sites/Teams，产物一键生成公网链接；发布首份办公Agent行为报告。",
+      "link": "https://www.toutiao.com/article/7686393310721606178",
+      "time": "09/17"
     },
     {
       "region": "us",
-      "title": "OpenAI GPT-6 Astra 提价2.5倍，试水按效果收费",
-      "body": "API单价定为前代2.5倍并探索按任务效果计费；同期Anthropic将Fable 5.1缓存读取价大降75%。",
-      "link": "https://new.qq.com/rain/a/20260909A030J900",
-      "time": "09/09"
-    },
-    {
-      "region": "us",
-      "title": "Meta 推出消费级个人智能体 Muse",
-      "body": "9月8日面向美国市场上线，可自主完成网购下单、发邮件、规划行程，运行于云端虚拟计算机。",
-      "link": "https://new.qq.com/rain/a/20260909A030J900",
-      "time": "09/08"
+      "title": "OpenAI 开放 Agents API，Anthropic 合并 Cowork 与聊天",
+      "body": "Codex 底座对外开放：一次调用建生产级 Agent，仅收 token 费；Claude 则把 Cowork 并入主对话。",
+      "link": "https://toknow.ai/posts/ai-weekly-agents-api-misalignment-voice-models",
+      "time": "09/17"
     }
   ],
   "knowledge": {
-    "title": "分时段定价：错峰调用省钱",
-    "body": "DeepSeek新 pricing 将高峰价定为空闲价2倍。缓存命中+错峰组合可把输入成本压低60%，调用量越大省得越多。",
-    "takeaway": "给客户算TCO时主动问任务能否错峰跑批，用闲时价+缓存命中做降本方案，把价格敏感客户的异议转成落单理由。"
+    "title": "席位费 vs 按量付费：Agent 产品的报价分水岭",
+    "body": "传统 SaaS 按人头收席位费；Agent 产品正转向按 token/任务量计费，用多少付多少，门槛骤降。",
+    "takeaway": "给客户报价时主动给两套方案：小团队试点推按量付费降低决策门槛，规模化后再谈年框席位锁定折扣。"
   },
-  "_ts": 1788915365067
+  "_ts": 1789697993346
 }
