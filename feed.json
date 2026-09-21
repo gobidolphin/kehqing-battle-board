@@ -1,39 +1,39 @@
 {
-  "date": "2026-09-18",
+  "date": "2026-09-21",
   "news": [
     {
       "region": "cn",
-      "title": "腾讯开源 BrowserSkill：Agent 直接借用你的浏览器",
-      "body": "MIT 协议 CLI 工具，Agent 复用已登录标签页，验证码交还用户；兼容 Cursor/Claude Code 等。",
-      "link": "https://github.com/Tencent/BrowserSkill",
-      "time": "09/17"
+      "title": "千问发布 Qwen3.8-Omni-Flash，定价不足 Gemini 两成",
+      "body": "阿里千问发布多模态Agent模型，音视频任务接近Gemini 3.8 Flash，输入$0.15/百万token，价格不到对方两成。",
+      "link": "https://m.ebrun.com/708650.html",
+      "time": "09/19"
     },
     {
       "region": "cn",
-      "title": "中电信发布首个全栈国产轻量智能体大模型",
-      "body": "星辰 Xing4.0-29B-A4B：29B 总参/4B 激活 MoE，基于国产算力与框架训练，主打代码智能体。",
-      "link": "https://www.toutiao.com/article/7686450677584871942",
-      "time": "09/17"
+      "title": "DeepSeek API 峰谷计费扩围，周末节假日全天按闲时收费",
+      "body": "DeepSeek公布新峰谷计费规则，调休周末与法定节假日全天按空闲时段计费，企业错峰调用成本再降。",
+      "link": "https://www.toutiao.com/a7687500741149213235",
+      "time": "09/19"
     },
     {
       "region": "cn",
-      "title": "网易有道 LobsterAI 2.0：办公 Agent 改按量付费",
-      "body": "打破传统席位费模式，新增 Sites/Teams，产物一键生成公网链接；发布首份办公Agent行为报告。",
-      "link": "https://www.toutiao.com/article/7686393310721606178",
-      "time": "09/17"
+      "title": "阶跃星辰发布 Step 5 Preview，600B Agent 模型输入仅 $1/百万",
+      "body": "阶跃星辰推出600B稀疏Agent模型，激活27B，百万上下文，输入$1/百万token、缓存95%折扣，主攻代码与金融场景。",
+      "link": "https://runtimewire.com/article/stepfun-step-5-preview-600b-agent-model-pricing",
+      "time": "09/20"
     },
     {
       "region": "us",
-      "title": "OpenAI 开放 Agents API，Anthropic 合并 Cowork 与聊天",
-      "body": "Codex 底座对外开放：一次调用建生产级 Agent，仅收 token 费；Claude 则把 Cowork 并入主对话。",
-      "link": "https://toknow.ai/posts/ai-weekly-agents-api-misalignment-voice-models",
-      "time": "09/17"
+      "title": "OpenAI Luna 降价 80%，Anthropic 推半价模型，中美 AI 价格战加剧",
+      "body": "法媒报道：OpenAI将Luna降价80%，Anthropic新模型性能近旗舰、价格减半，中国模型性价比倒逼硅谷降价。",
+      "link": "https://www.163.com/dy/article/L7ADLDMB0514BIJT.html",
+      "time": "09/21"
     }
   ],
   "knowledge": {
-    "title": "席位费 vs 按量付费：Agent 产品的报价分水岭",
-    "body": "传统 SaaS 按人头收席位费；Agent 产品正转向按 token/任务量计费，用多少付多少，门槛骤降。",
-    "takeaway": "给客户报价时主动给两套方案：小团队试点推按量付费降低决策门槛，规模化后再谈年框席位锁定折扣。"
+    "title": "模型分层调度：让便宜的模型干粗活",
+    "body": "把80%常规请求路由给轻量模型，只把难任务发给旗舰模型，整体推理账单可降一半以上，这就是分层调度。",
+    "takeaway": "拜访客户时主动算一笔分层账：用混元轻量版承接高频简单流量，旗舰模型只做复杂任务，帮客户把账单砍半，顺带锁定我方为入口模型。"
   },
-  "_ts": 1789697993346
+  "_ts": 1789957802993
 }
