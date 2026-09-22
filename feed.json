@@ -1,39 +1,39 @@
 {
-  "date": "2026-09-21",
+  "date": "2026-09-22",
   "news": [
     {
       "region": "cn",
-      "title": "千问发布 Qwen3.8-Omni-Flash，定价不足 Gemini 两成",
-      "body": "阿里千问发布多模态Agent模型，音视频任务接近Gemini 3.8 Flash，输入$0.15/百万token，价格不到对方两成。",
-      "link": "https://m.ebrun.com/708650.html",
-      "time": "09/19"
+      "title": "DeepSeek 梁文锋：下一代模型用国产芯片训练，华为 Q4 交付",
+      "body": "DeepSeek投资者会披露：正训练2万亿参数新模型，优先用华为等国产芯片训练，华为最早四季度交付训练芯片。",
+      "link": "https://www.leiphone.com/category/zaobao/5mlqTB9MeU1qAtoe.html",
+      "time": "09/21"
     },
     {
       "region": "cn",
-      "title": "DeepSeek API 峰谷计费扩围，周末节假日全天按闲时收费",
-      "body": "DeepSeek公布新峰谷计费规则，调休周末与法定节假日全天按空闲时段计费，企业错峰调用成本再降。",
-      "link": "https://www.toutiao.com/a7687500741149213235",
-      "time": "09/19"
-    },
-    {
-      "region": "cn",
-      "title": "阶跃星辰发布 Step 5 Preview，600B Agent 模型输入仅 $1/百万",
-      "body": "阶跃星辰推出600B稀疏Agent模型，激活27B，百万上下文，输入$1/百万token、缓存95%折扣，主攻代码与金融场景。",
-      "link": "https://runtimewire.com/article/stepfun-step-5-preview-600b-agent-model-pricing",
-      "time": "09/20"
+      "title": "智谱回应 ZCode 数据争议：正式开源并请信通院安全审计",
+      "body": "智谱宣布AI编程工具ZCode即将开源，邀请中国信通院审计数据留存，并建常态化漏洞报告机制，回应隐私担忧。",
+      "link": "https://www.163.com/dy/article/L7DRSPLL0534A4SC.html",
+      "time": "09/22"
     },
     {
       "region": "us",
-      "title": "OpenAI Luna 降价 80%，Anthropic 推半价模型，中美 AI 价格战加剧",
-      "body": "法媒报道：OpenAI将Luna降价80%，Anthropic新模型性能近旗舰、价格减半，中国模型性价比倒逼硅谷降价。",
-      "link": "https://www.163.com/dy/article/L7ADLDMB0514BIJT.html",
+      "title": "xAI 发布 Grok 4.7：$2/百万输入，比前沿旗舰便宜 80%",
+      "body": "Grok 4.7输入$2、输出$6/百万token，缓存读$0.5，500K上下文，已上Cursor/OpenRouter/Cloudflare，主打编程Agent。",
+      "link": "https://forkast.news/nine-days-after-musk-endorsed-a-slowdown-xai-ships-a-model-that-undercuts-the-slowdown-by-80",
       "time": "09/21"
+    },
+    {
+      "region": "us",
+      "title": "法律AI独角兽 Harvey 弃用 OpenAI/Anthropic，转自训模型毛利转正",
+      "body": "估值156亿美元的Harvey因token成本暴涨毛利跌至-50%，8月基于Kimi K3自训模型后毛利转正，多家AI公司跟进开源路线。",
+      "link": "https://aitoolsrecap.com/Blog/ai-news-september-22-2026",
+      "time": "09/22"
     }
   ],
   "knowledge": {
-    "title": "模型分层调度：让便宜的模型干粗活",
-    "body": "把80%常规请求路由给轻量模型，只把难任务发给旗舰模型，整体推理账单可降一半以上，这就是分层调度。",
-    "takeaway": "拜访客户时主动算一笔分层账：用混元轻量版承接高频简单流量，旗舰模型只做复杂任务，帮客户把账单砍半，顺带锁定我方为入口模型。"
+    "title": "按任务计费思维：便宜单价不等于便宜账单",
+    "body": "Grok 4.7单价低80%，但首发评测发现单任务耗token更多。比模型要看“完成一单任务的总成本”，不是token单价。",
+    "takeaway": "给客户做POC对比时，用同一批真实任务跑账单：总成本=单价×单任务耗token×任务量，用“每单任务成本”替客户算总账，避免被友商低单价话术带偏。"
   },
-  "_ts": 1789957802993
+  "_ts": 1790059853137
 }
