@@ -1,39 +1,39 @@
 {
-  "date": "2026-09-23",
+  "date": "2026-09-24",
   "news": [
     {
       "region": "cn",
-      "title": "腾讯云发布 DataBuddy：Agent 原生数据+AI 工作台",
-      "body": "腾讯云发布第三款助手类产品DataBuddy（继CodeBuddy/WorkBuddy后），覆盖数据工程、治理、分析Agent场景，号称效率提升5-10倍。",
-      "link": "https://www.newswire.ca/news-releases/tencent-cloud-launches-tencent-cloud-databuddy-an-agent-native-data-ai-workbench-816823491.html",
-      "time": "09/22"
+      "title": "阿里云首款智能体电脑 Qwen Book 云栖大会亮相",
+      "body": "Qwen Book可跨应用、跨智能体自主完成任务，已适配高通/英特尔并打通支付宝等阿里系应用，年底或明年初发布。",
+      "link": "https://www.toutiao.com/article/7688898750609981998/",
+      "time": "09/23"
     },
     {
       "region": "cn",
-      "title": "云栖大会：阿里云推 Agentic Cloud，发布 AgentCore 等新品",
-      "body": "阿里云发布Agent构建治理平台AgentCore、Agent Sandbox及新CPFS存储，灵骏超节点已支撑Qwen3.8 Max等超2T参数模型商用。",
-      "link": "https://www.news.cn/tech/20260922/6bd1c77079d74175a692fca1b3f13edd/c.html",
-      "time": "09/22"
+      "title": "爱诗科技发布 PixVerse R2：首个实时世界模型",
+      "body": "用户可用WASD键+Prompt实时探索和改变生成世界，已开放互动影游体验，长期画面漂移下降约35.8%。",
+      "link": "https://www.sohu.com/a/1080143980_455313",
+      "time": "09/24"
     },
     {
       "region": "us",
-      "title": "OpenAI 发 GPT-6 Sol/Luna：API 价格较上代腰斩",
-      "body": "Sol定价$2/$10每百万token主打编码与Agent，Luna $0.1/$0.5主打高吞吐任务，较GPT-5.6促销价降50%，Sol错误率减半。",
-      "link": "https://venturebeat.com/technology/openai-releases-gpt-6-sol-and-luna-models-slashing-api-costs-50-or-more",
-      "time": "09/22"
+      "title": "Meta 个人智能体 Muse 正式上线，订阅最高 $100/月",
+      "body": "Muse可订机票、议价账单、处理表单，支付接入Stripe Link，标志个人Agent从聊天转向替人花钱办事。",
+      "link": "https://aibreakingwire.com/news/ai-brief-2026-09-24",
+      "time": "09/24"
     },
     {
       "region": "us",
-      "title": "Anthropic 发 Claude Opus 5.5：成本降 40%，反超旗舰",
-      "body": "Opus 5.5定价$4/$20每百万token，典型任务成本较Opus 5降40%，多项基准反超贵150%的Fable 5.1，Sonnet/Haiku 5.5将跟进。",
-      "link": "https://venturebeat.com/technology/anthropic-releases-claude-opus-5-5-beating-fable-5-1-on-key-agentic-benchmarks-at-60-cheaper-api-price",
-      "time": "09/22"
+      "title": "OpenAI 个人智能体 Aeon 曝光，或于 DevDay 前发布",
+      "body": "ChatGPT客户端代码显示Aeon为云端编排+本地操作电脑的持久化智能体，对标Meta Muse与Grok Bot。",
+      "link": "https://www.sohu.com/a/1080143980_455313",
+      "time": "09/24"
     }
   ],
   "knowledge": {
-    "title": "提示缓存（Prompt Caching）：被忽视的降价杠杆",
-    "body": "多轮对话与Agent场景中重复的上下文可按缓存价计费，Anthropic缓存读已降至$0.2/百万token，命中部分比标准价省80%以上。",
-    "takeaway": "给客户做POC时主动开启上下文缓存，并把「缓存命中后账单」与「无缓存账单」并排算给客户看，用真实节省金额推动成交，同时对冲友商的低单价话术。"
+    "title": "Agent 报价新范式：订阅制 vs 按量计费",
+    "body": "Meta Muse订阅最高$100/月、Grok Bot绑定$30-300月费，Agent产品正从按token转向按席位/套餐订阅，预算更确定。",
+    "takeaway": "给客户报Agent方案时同时出两版报价：「按席位包月」攻CFO（预算确定性），「按token用量」攻技术负责人（弹性成本），用对手的订阅价做锚点反衬混元API性价比。"
   },
-  "_ts": 1790138797667
+  "_ts": 1790215551074
 }
