@@ -1,39 +1,39 @@
 {
-  "date": "2026-09-24",
+  "date": "2026-09-25",
   "news": [
     {
       "region": "cn",
-      "title": "阿里云首款智能体电脑 Qwen Book 云栖大会亮相",
-      "body": "Qwen Book可跨应用、跨智能体自主完成任务，已适配高通/英特尔并打通支付宝等阿里系应用，年底或明年初发布。",
-      "link": "https://www.toutiao.com/article/7688898750609981998/",
-      "time": "09/23"
+      "title": "阿里发布 Qwen-Audio-3.1 语音模型，全线语音降价最高95%",
+      "body": "ASR/TTS/实时语音三类全面升级并上架千问平台，全线语音模型降价最高95%，同步开源语音Agent框架。",
+      "link": "https://hzdaily.hangzhou.com.cn/mrsb/2026/09/24/article_detail_3_20260924A116.html",
+      "time": "09/24"
     },
     {
       "region": "cn",
-      "title": "爱诗科技发布 PixVerse R2：首个实时世界模型",
-      "body": "用户可用WASD键+Prompt实时探索和改变生成世界，已开放互动影游体验，长期画面漂移下降约35.8%。",
-      "link": "https://www.sohu.com/a/1080143980_455313",
+      "title": "平头哥发布真武V900：最强中国自研AI芯片",
+      "body": "云栖大会发布新一代训推一体芯片，性能为真武M890三倍，支持万亿参数训推，2027年Q1量产售卖。",
+      "link": "https://www.cet.com.cn/wzsy/cjcj/10579667.shtml",
       "time": "09/24"
     },
     {
       "region": "us",
-      "title": "Meta 个人智能体 Muse 正式上线，订阅最高 $100/月",
-      "body": "Muse可订机票、议价账单、处理表单，支付接入Stripe Link，标志个人Agent从聊天转向替人花钱办事。",
-      "link": "https://aibreakingwire.com/news/ai-brief-2026-09-24",
-      "time": "09/24"
+      "title": "OpenAI GPT-6 Sol/Luna 永久降价50%，Luna输入仅$0.10",
+      "body": "Sol主打编码与Agent($2/$10)，Luna面向高频任务($0.10/$0.50)，官方明确为长期定价而非促销。",
+      "link": "https://www.163.com/dy/article/L7LOKLTL05118O92.html",
+      "time": "09/25"
     },
     {
       "region": "us",
-      "title": "OpenAI 个人智能体 Aeon 曝光，或于 DevDay 前发布",
-      "body": "ChatGPT客户端代码显示Aeon为云端编排+本地操作电脑的持久化智能体，对标Meta Muse与Grok Bot。",
-      "link": "https://www.sohu.com/a/1080143980_455313",
+      "title": "Anthropic Claude Opus 5.5 同日跟进：综合成本降40%",
+      "body": "输入输出降20%($4/$20)、缓存读取降60%、速度快30%+，靠'省Token'而非砍单价打总账战。",
+      "link": "https://finance.china.com.cn/industry/20260924/6325032.shtml",
       "time": "09/24"
     }
   ],
   "knowledge": {
-    "title": "Agent 报价新范式：订阅制 vs 按量计费",
-    "body": "Meta Muse订阅最高$100/月、Grok Bot绑定$30-300月费，Agent产品正从按token转向按席位/套餐订阅，预算更确定。",
-    "takeaway": "给客户报Agent方案时同时出两版报价：「按席位包月」攻CFO（预算确定性），「按token用量」攻技术负责人（弹性成本），用对手的订阅价做锚点反衬混元API性价比。"
+    "title": "两种降价路线：降单价 vs 降总账",
+    "body": "OpenAI直接砍标价一半(降单价)；Anthropic单价只降20%，靠缓存降价+Token用量减半让总账降40%(降总账)。",
+    "takeaway": "客户拿友商'半价'压价时别硬拼单价：改用TCO算账——把提示缓存、上下文压缩、模型分层调度打包进方案，用'总账单省多少'替代'单价便宜多少'作答。"
   },
-  "_ts": 1790215551074
+  "_ts": 1790301994412
 }
