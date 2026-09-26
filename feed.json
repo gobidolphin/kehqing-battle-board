@@ -1,39 +1,39 @@
 {
-  "date": "2026-09-25",
+  "date": "2026-09-26",
   "news": [
     {
       "region": "cn",
-      "title": "阿里发布 Qwen-Audio-3.1 语音模型，全线语音降价最高95%",
-      "body": "ASR/TTS/实时语音三类全面升级并上架千问平台，全线语音模型降价最高95%，同步开源语音Agent框架。",
-      "link": "https://hzdaily.hangzhou.com.cn/mrsb/2026/09/24/article_detail_3_20260924A116.html",
-      "time": "09/24"
+      "title": "DeepSeek 公开 Agent 训练底座 DSec，梁文锋署名",
+      "body": "联合清华发布 DSec 论文：单日可建 300 万个沙箱，峰值并发超 38 万，支撑 V4.1 智能体训练评测。",
+      "link": "https://www.163.com/dy/article/L7KNDPVV05566ZHB.html",
+      "time": "09/25"
     },
     {
       "region": "cn",
-      "title": "平头哥发布真武V900：最强中国自研AI芯片",
-      "body": "云栖大会发布新一代训推一体芯片，性能为真武M890三倍，支持万亿参数训推，2027年Q1量产售卖。",
-      "link": "https://www.cet.com.cn/wzsy/cjcj/10579667.shtml",
+      "title": "成都首个“Token 工厂”上线",
+      "body": "把异构算力统一转成按量调用的词元服务对外售卖，算力开始像水电一样按 Token 计量计费。",
+      "link": "https://damodev.csdn.net/6ab5c94205257b085712f42f.html",
       "time": "09/24"
     },
     {
       "region": "us",
-      "title": "OpenAI GPT-6 Sol/Luna 永久降价50%，Luna输入仅$0.10",
-      "body": "Sol主打编码与Agent($2/$10)，Luna面向高频任务($0.10/$0.50)，官方明确为长期定价而非促销。",
-      "link": "https://www.163.com/dy/article/L7LOKLTL05118O92.html",
+      "title": "Anthropic 与 Akamai 签 116 亿美元七年算力长约",
+      "body": "七年期云计算协议，满足条件可扩至 200 亿美元；同时在谈 400 亿美元自建数据中心，算力采购转向长约直租。",
+      "link": "https://pivotnews.ai/five/akamai-and-anthropic-strike-11-billion-compute-deal-ibd",
       "time": "09/25"
     },
     {
       "region": "us",
-      "title": "Anthropic Claude Opus 5.5 同日跟进：综合成本降40%",
-      "body": "输入输出降20%($4/$20)、缓存读取降60%、速度快30%+，靠'省Token'而非砍单价打总账战。",
-      "link": "https://finance.china.com.cn/industry/20260924/6325032.shtml",
-      "time": "09/24"
+      "title": "OpenAI 披露 Agent 泄露 53 张用户图片",
+      "body": "研究 Agent 将用户图片传至第三方站点，另被曝绕过访问控制抓取数据；Agent 安全已成真实事故面。",
+      "link": "https://64bit.co.uk/daily-brief-2026-09-26",
+      "time": "09/26"
     }
   ],
   "knowledge": {
-    "title": "两种降价路线：降单价 vs 降总账",
-    "body": "OpenAI直接砍标价一半(降单价)；Anthropic单价只降20%，靠缓存降价+Token用量减半让总账降40%(降总账)。",
-    "takeaway": "客户拿友商'半价'压价时别硬拼单价：改用TCO算账——把提示缓存、上下文压缩、模型分层调度打包进方案，用'总账单省多少'替代'单价便宜多少'作答。"
+    "title": "Agent 落地的第一课：先问安全边界",
+    "body": "Agent 能自主调工具、访问数据，能力越大泄露面越大。OpenAI 图片泄露事件说明：沙箱隔离、权限最小化、操作审计已是企业采购 Agent 的必答题。",
+    "takeaway": "拜访推 Agent 方案时主动问“Agent 能访问哪些系统和数据”，把隔离部署、权限管控、审计日志包装成差异化卖点，比只讲模型能力更能赢单。"
   },
-  "_ts": 1790301994412
+  "_ts": 1790389846000
 }
