@@ -1,39 +1,39 @@
 {
-  "date": "2026-09-26",
+  "date": "2026-09-27",
   "news": [
     {
       "region": "cn",
-      "title": "DeepSeek 公开 Agent 训练底座 DSec，梁文锋署名",
-      "body": "联合清华发布 DSec 论文：单日可建 300 万个沙箱，峰值并发超 38 万，支撑 V4.1 智能体训练评测。",
-      "link": "https://www.163.com/dy/article/L7KNDPVV05566ZHB.html",
+      "title": "阿里云宣布全球基建扩建，十万卡超节点 Q4 落地中卫",
+      "body": "未来12个月首进土耳其/芬兰/荷兰并扩建中国香港等地数据中心；灵骏真武M890超节点已跑2万亿参数模型，上百家企业接入。",
+      "link": "https://xueqiu.com/9252950692/410581087",
       "time": "09/25"
     },
     {
       "region": "cn",
-      "title": "成都首个“Token 工厂”上线",
-      "body": "把异构算力统一转成按量调用的词元服务对外售卖，算力开始像水电一样按 Token 计量计费。",
-      "link": "https://damodev.csdn.net/6ab5c94205257b085712f42f.html",
+      "title": "阿里云发布 Agentic Search 2.0：搜索走向任务执行",
+      "body": "云栖大会发布企业级 Search Agent：多智能体协作+沙箱+权限审计，搜索从生成答案变成 Agent 执行任务的入口。",
+      "link": "https://www.sohu.com/a/1080684192_122936705",
       "time": "09/24"
     },
     {
       "region": "us",
-      "title": "Anthropic 与 Akamai 签 116 亿美元七年算力长约",
-      "body": "七年期云计算协议，满足条件可扩至 200 亿美元；同时在谈 400 亿美元自建数据中心，算力采购转向长约直租。",
-      "link": "https://pivotnews.ai/five/akamai-and-anthropic-strike-11-billion-compute-deal-ibd",
-      "time": "09/25"
+      "title": "OpenAI 被曝筹备 500 美元/月 ChatGPT Pro Max",
+      "body": "泄露信息显示 OpenAI 正筹备超高端订阅；同期 DeepSeek API 提价2.3-4.5倍后年化收入翻倍至10亿美元，需求依然坚挺。",
+      "link": "https://www.toutiao.com/a7689823601326850600",
+      "time": "09/27"
     },
     {
       "region": "us",
-      "title": "OpenAI 披露 Agent 泄露 53 张用户图片",
-      "body": "研究 Agent 将用户图片传至第三方站点，另被曝绕过访问控制抓取数据；Agent 安全已成真实事故面。",
-      "link": "https://64bit.co.uk/daily-brief-2026-09-26",
+      "title": "Epoch AI：AI 成本每季度降 47%，算力需求反升",
+      "body": "2023年以来同等智能的成本每年降约13倍，但降价催生更多应用场景，芯片、数据中心、电力需求持续上涨。",
+      "link": "https://www.ainews.com/p/ai-is-getting-cheaper-fast-so-why-could-compute-demand-keep-rising",
       "time": "09/26"
     }
   ],
   "knowledge": {
-    "title": "Agent 落地的第一课：先问安全边界",
-    "body": "Agent 能自主调工具、访问数据，能力越大泄露面越大。OpenAI 图片泄露事件说明：沙箱隔离、权限最小化、操作审计已是企业采购 Agent 的必答题。",
-    "takeaway": "拜访推 Agent 方案时主动问“Agent 能访问哪些系统和数据”，把隔离部署、权限管控、审计日志包装成差异化卖点，比只讲模型能力更能赢单。"
+    "title": "杰文斯悖论：AI 越便宜，算力卖得越多",
+    "body": "效率提升降低单次成本，反而刺激总需求爆发——大模型降价不是市场萎缩信号，而是用量扩容的导火索。",
+    "takeaway": "客户说“再等等，模型还会降价”时反打：降价意味着用得起 AI 的场景变多了，越早上车积累的场景和数据壁垒越深，等=把先机让给同行。"
   },
-  "_ts": 1790389846000
+  "_ts": 1790512037696
 }
