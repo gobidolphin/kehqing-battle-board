@@ -1,39 +1,39 @@
 {
-  "date": "2026-09-27",
+  "date": "2026-09-28",
   "news": [
     {
       "region": "cn",
-      "title": "阿里云宣布全球基建扩建，十万卡超节点 Q4 落地中卫",
-      "body": "未来12个月首进土耳其/芬兰/荷兰并扩建中国香港等地数据中心；灵骏真武M890超节点已跑2万亿参数模型，上百家企业接入。",
-      "link": "https://xueqiu.com/9252950692/410581087",
-      "time": "09/25"
+      "title": "腾讯混元 Hy4 Preview 开源：7700 亿参数仅激活 490 亿",
+      "body": "MoE架构+百万词元上下文，盲测超GLM-5.3/Kimi K3；模型自优化训练使推理吞吐提升超三成，将接入CodeBuddy/WorkBuddy。",
+      "link": "https://www.toutiao.com/article/7690353348284924457/",
+      "time": "09/28"
     },
     {
       "region": "cn",
-      "title": "阿里云发布 Agentic Search 2.0：搜索走向任务执行",
-      "body": "云栖大会发布企业级 Search Agent：多智能体协作+沙箱+权限审计，搜索从生成答案变成 Agent 执行任务的入口。",
-      "link": "https://www.sohu.com/a/1080684192_122936705",
-      "time": "09/24"
+      "title": "中信建投：阿里亮出五层全栈，Qwen4 发布在即",
+      "body": "云栖大会主线Agentic AI：真武V900芯片+磐久超节点、Qwen3.8-Flash低成本对标前沿，阿里云升级为AgenticCloud推AgentCore底座。",
+      "link": "https://www.mrjjxw.com/articles/2026-09-28/4592535.html",
+      "time": "09/28"
     },
     {
       "region": "us",
-      "title": "OpenAI 被曝筹备 500 美元/月 ChatGPT Pro Max",
-      "body": "泄露信息显示 OpenAI 正筹备超高端订阅；同期 DeepSeek API 提价2.3-4.5倍后年化收入翻倍至10亿美元，需求依然坚挺。",
-      "link": "https://www.toutiao.com/a7689823601326850600",
+      "title": "Salesforce 弃座位费：Agent 按结果收费",
+      "body": "Dreamforce 2026宣布定价转向Flex Credits消耗制+按解决工单/省下的钱分成，仅客户问题被解决才计费，销售可逐案定制条款。",
+      "link": "https://inite.ai/en/news/salesforce-ditches-one-price-fits-all-as-ai-agents-take-over",
       "time": "09/27"
     },
     {
       "region": "us",
-      "title": "Epoch AI：AI 成本每季度降 47%，算力需求反升",
-      "body": "2023年以来同等智能的成本每年降约13倍，但降价催生更多应用场景，芯片、数据中心、电力需求持续上涨。",
-      "link": "https://www.ainews.com/p/ai-is-getting-cheaper-fast-so-why-could-compute-demand-keep-rising",
-      "time": "09/26"
+      "title": "双模型编排打平旗舰，成本直降 36%",
+      "body": "Devin Fusion以双模型编排低36%成本追平顶级单模型；专用分类模型Jev单例仅0.0007美元，竞争从比最强转向比最省。",
+      "link": "https://www.toutiao.com/a7690179548252275263",
+      "time": "09/27"
     }
   ],
   "knowledge": {
-    "title": "杰文斯悖论：AI 越便宜，算力卖得越多",
-    "body": "效率提升降低单次成本，反而刺激总需求爆发——大模型降价不是市场萎缩信号，而是用量扩容的导火索。",
-    "takeaway": "客户说“再等等，模型还会降价”时反打：降价意味着用得起 AI 的场景变多了，越早上车积累的场景和数据壁垒越深，等=把先机让给同行。"
+    "title": "MoE 稀疏激活：总参数 ≠ 成本",
+    "body": "混合专家模型总参数可达万亿，但每次请求只激活一小部分。算成本要看激活参数和实际调用量，不是招牌上的参数量。",
+    "takeaway": "客户嫌大模型贵时，用激活参数帮他重算成本账：7700亿参数的模型单次只跑490亿，账单按实际激活计——顺势给出按量试用的POC方案。"
   },
-  "_ts": 1790512037696
+  "_ts": 1790562619581
 }
