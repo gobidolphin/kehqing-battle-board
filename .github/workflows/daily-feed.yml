@@ -1,0 +1,35 @@
+name: 每日更新新闻与知识点
+
+on:
+  schedule:
+    # 每天 00:05 UTC = 北京时间 08:05
+    - cron: '5 0 * * *'
+  workflow_dispatch:  # 允许手动触发
+
+permissions:
+  contents: write
+
+jobs:
+  update-feed:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: 更新 feed.json
+        run: python scripts/update_feed.py
+
+      - name: 提交并推送
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add feed.json
+          if git diff --cached --quiet; then
+            echo "无变化，跳过提交"
+          else
+            git commit -m "feed: 每日新闻与知识点更新 ($(date -u +%Y-%m-%d))"
+            git push
+          fi
