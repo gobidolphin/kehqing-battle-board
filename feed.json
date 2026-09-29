@@ -2,13 +2,6 @@
   "date": "2026-09-29",
   "news": [
     {
-      "region": "us",
-      "title": "啥题啊能干崩OpenAI最强模型训练…",
-      "body": "啥题啊能干崩OpenAI最强模型训练…",
-      "link": "https://www.qbitai.com/2026/09/498546.html",
-      "time": "09/27"
-    },
-    {
       "region": "cn",
       "title": "美团 LongCat-2.5-Preview：1.6 万亿参数 MoE 上线",
       "body": "总参数1.6万亿，MoE架构每次推理仅激活约480亿，万亿级模型推理成本逼近百亿级，大模型降本再添变量。",
