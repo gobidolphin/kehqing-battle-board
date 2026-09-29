@@ -10,30 +10,37 @@
     },
     {
       "region": "cn",
-      "title": "李飞飞创业公司被苏姿丰550亿收购！世界模型最大交易落地",
-      "body": "李飞飞将入职AMD首席科学家",
-      "link": "https://www.qbitai.com/2026/09/499098.html",
+      "title": "美团 LongCat-2.5-Preview：1.6 万亿参数 MoE 上线",
+      "body": "总参数1.6万亿，MoE架构每次推理仅激活约480亿，万亿级模型推理成本逼近百亿级，大模型降本再添变量。",
+      "link": "https://www.toutiao.com/a7690578230696362542",
+      "time": "09/25"
+    },
+    {
+      "region": "cn",
+      "title": "DeepSeek V4.1-Flash 登顶 OpenRouter，周用量激增 172%",
+      "body": "V4.1-Flash登顶OpenRouter周榜，周调用量飙升172%；峰谷定价低至$0.15/百万输入，低价策略持续拉动需求验证。",
+      "link": "https://www.ainewscrypto.com/news/openai-and-anthropic-tee-up-flagship-price-cuts-as-deepseek-usage-jumps-on-openrouter",
       "time": "09/29"
     },
     {
-      "region": "cn",
-      "title": "工业创新进入“组队局”，拆解西门子Xcelerator开放生态的赋能链路",
-      "body": "工业平台已经卷到帮伙伴拿线索、做Agent、出海了",
-      "link": "https://www.qbitai.com/2026/09/498877.html",
+      "region": "us",
+      "title": "谷歌确认 Gemini 4 进入后训练，拟远早于年底发布",
+      "body": "DeepMind负责人Kavukcuoglu确认Gemini 4进入后训练早期，改走先发早期检查点、再高频迭代的快节奏路线。",
+      "link": "https://www.163.com/dy/article/L7TGVMA005118I96.html",
       "time": "09/28"
     },
     {
-      "region": "cn",
-      "title": "HC归来，华为正重新定义AIDC基础设施",
-      "body": "AI基础设施下一站：算电协同",
-      "link": "https://www.qbitai.com/2026/09/498787.html",
-      "time": "09/28"
+      "region": "us",
+      "title": "分析师定性：旗舰降价是\"圈地运动\"而非价格战",
+      "body": "Forrester/Greyhound：OpenAI与Anthropic旗舰双双降价，本质是争夺企业默认智能采购渠道，倒逼本地部署重新算账。",
+      "link": "https://news.qq.com/rain/a/20260929A079EO00",
+      "time": "09/29"
     }
   ],
   "knowledge": {
-    "title": "Coach 不是朋友，是利益共同体",
-    "body": "Coach（内线教练）帮你是因为你的赢单对他有利——政绩、省事、露脸。判断真伪 Coach 的标准：他是否给你独家信息、是否帮你安排关键会面。",
-    "takeaway": "给每个重点商机找一名 Coach，并用'独家信息'和'牵线动作'两条标准检验成色。"
+    "title": "TCO 总拥有成本：别只报单价",
+    "body": "API单价只是冰山一角，集成、运维、数据迁移与合规才是大头。主动替客户算三年总账，把隐性成本显性化。",
+    "takeaway": "下次报价附一页三年TCO对比表（自建 vs 上云），把迁移、运维、合规成本摆上桌——用总账优势对冲单价劣势。"
   },
-  "_ts": 1790660137422
+  "_ts": 1790696769766
 }
