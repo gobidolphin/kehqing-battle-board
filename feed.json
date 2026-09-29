@@ -1,39 +1,39 @@
 {
-  "date": "2026-09-28",
+  "date": "2026-09-29",
   "news": [
     {
+      "region": "us",
+      "title": "啥题啊能干崩OpenAI最强模型训练…",
+      "body": "啥题啊能干崩OpenAI最强模型训练…",
+      "link": "https://www.qbitai.com/2026/09/498546.html",
+      "time": "09/27"
+    },
+    {
       "region": "cn",
-      "title": "腾讯混元 Hy4 Preview 开源：7700 亿参数仅激活 490 亿",
-      "body": "MoE架构+百万词元上下文，盲测超GLM-5.3/Kimi K3；模型自优化训练使推理吞吐提升超三成，将接入CodeBuddy/WorkBuddy。",
-      "link": "https://www.toutiao.com/article/7690353348284924457/",
+      "title": "李飞飞创业公司被苏姿丰550亿收购！世界模型最大交易落地",
+      "body": "李飞飞将入职AMD首席科学家",
+      "link": "https://www.qbitai.com/2026/09/499098.html",
+      "time": "09/29"
+    },
+    {
+      "region": "cn",
+      "title": "工业创新进入“组队局”，拆解西门子Xcelerator开放生态的赋能链路",
+      "body": "工业平台已经卷到帮伙伴拿线索、做Agent、出海了",
+      "link": "https://www.qbitai.com/2026/09/498877.html",
       "time": "09/28"
     },
     {
       "region": "cn",
-      "title": "中信建投：阿里亮出五层全栈，Qwen4 发布在即",
-      "body": "云栖大会主线Agentic AI：真武V900芯片+磐久超节点、Qwen3.8-Flash低成本对标前沿，阿里云升级为AgenticCloud推AgentCore底座。",
-      "link": "https://www.mrjjxw.com/articles/2026-09-28/4592535.html",
+      "title": "HC归来，华为正重新定义AIDC基础设施",
+      "body": "AI基础设施下一站：算电协同",
+      "link": "https://www.qbitai.com/2026/09/498787.html",
       "time": "09/28"
-    },
-    {
-      "region": "us",
-      "title": "Salesforce 弃座位费：Agent 按结果收费",
-      "body": "Dreamforce 2026宣布定价转向Flex Credits消耗制+按解决工单/省下的钱分成，仅客户问题被解决才计费，销售可逐案定制条款。",
-      "link": "https://inite.ai/en/news/salesforce-ditches-one-price-fits-all-as-ai-agents-take-over",
-      "time": "09/27"
-    },
-    {
-      "region": "us",
-      "title": "双模型编排打平旗舰，成本直降 36%",
-      "body": "Devin Fusion以双模型编排低36%成本追平顶级单模型；专用分类模型Jev单例仅0.0007美元，竞争从比最强转向比最省。",
-      "link": "https://www.toutiao.com/a7690179548252275263",
-      "time": "09/27"
     }
   ],
   "knowledge": {
-    "title": "MoE 稀疏激活：总参数 ≠ 成本",
-    "body": "混合专家模型总参数可达万亿，但每次请求只激活一小部分。算成本要看激活参数和实际调用量，不是招牌上的参数量。",
-    "takeaway": "客户嫌大模型贵时，用激活参数帮他重算成本账：7700亿参数的模型单次只跑490亿，账单按实际激活计——顺势给出按量试用的POC方案。"
+    "title": "Coach 不是朋友，是利益共同体",
+    "body": "Coach（内线教练）帮你是因为你的赢单对他有利——政绩、省事、露脸。判断真伪 Coach 的标准：他是否给你独家信息、是否帮你安排关键会面。",
+    "takeaway": "给每个重点商机找一名 Coach，并用'独家信息'和'牵线动作'两条标准检验成色。"
   },
-  "_ts": 1790562619581
+  "_ts": 1790660137422
 }
