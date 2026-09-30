@@ -1,39 +1,39 @@
 {
-  "date": "2026-09-29",
+  "date": "2026-09-30",
   "news": [
     {
       "region": "cn",
-      "title": "美团 LongCat-2.5-Preview：1.6 万亿参数 MoE 上线",
-      "body": "总参数1.6万亿，MoE架构每次推理仅激活约480亿，万亿级模型推理成本逼近百亿级，大模型降本再添变量。",
-      "link": "https://www.toutiao.com/a7690578230696362542",
-      "time": "09/25"
+      "title": "AWS Bedrock AgentCore 落地中国北京/宁夏两区域",
+      "body": "亚马逊云科技宣布AgentCore在中国区域正式可用，全托管Agent部署运维，硬件级会话隔离，支持任意模型框架，外企云加码国内Agent市场。",
+      "link": "https://www.prnasia.com/story/549909-1.shtml",
+      "time": "09/29"
     },
     {
       "region": "cn",
-      "title": "DeepSeek V4.1-Flash 登顶 OpenRouter，周用量激增 172%",
-      "body": "V4.1-Flash登顶OpenRouter周榜，周调用量飙升172%；峰谷定价低至$0.15/百万输入，低价策略持续拉动需求验证。",
-      "link": "https://www.ainewscrypto.com/news/openai-and-anthropic-tee-up-flagship-price-cuts-as-deepseek-usage-jumps-on-openrouter",
+      "title": "中国大模型周调用量连续22周超美国，DeepSeek二连冠",
+      "body": "OpenRouter数据：上周中国模型处理62.2万亿token vs 美国14.2万亿；DeepSeek V4.1-Flash二连冠，混元Hy4第四，前五占三席。",
+      "link": "https://www.chinadailyasia.com/article/640290",
+      "time": "09/30"
+    },
+    {
+      "region": "us",
+      "title": "OpenAI DevDay 发布常驻智能体 Dots，连 4000+ 应用",
+      "body": "Dots配独立云端电脑和浏览器，7×24跟进复杂任务，接4000多个应用；Pro/Business Premium先行，敏感操作需人工审批。",
+      "link": "https://mashable.com/tech/openai-dev-day-dots-ai-agents",
       "time": "09/29"
     },
     {
       "region": "us",
-      "title": "谷歌确认 Gemini 4 进入后训练，拟远早于年底发布",
-      "body": "DeepMind负责人Kavukcuoglu确认Gemini 4进入后训练早期，改走先发早期检查点、再高频迭代的快节奏路线。",
-      "link": "https://www.163.com/dy/article/L7TGVMA005118I96.html",
-      "time": "09/28"
-    },
-    {
-      "region": "us",
-      "title": "分析师定性：旗舰降价是\"圈地运动\"而非价格战",
-      "body": "Forrester/Greyhound：OpenAI与Anthropic旗舰双双降价，本质是争夺企业默认智能采购渠道，倒逼本地部署重新算账。",
-      "link": "https://news.qq.com/rain/a/20260929A079EO00",
+      "title": "OpenAI 砍掉 GPT-6.1 Astra 升级版，转头推低价 Sol",
+      "body": "Astra升级版因频繁无视指令被砍，次日发GPT-6.1 Sol：$2/$10每百万token、缓存输入$0.10，旗舰不稳加速性价比竞赛。",
+      "link": "https://startupfortune.com/openai-and-anthropic-both-just-launched-cheaper-flagship-ai-models",
       "time": "09/29"
     }
   ],
   "knowledge": {
-    "title": "TCO 总拥有成本：别只报单价",
-    "body": "API单价只是冰山一角，集成、运维、数据迁移与合规才是大头。主动替客户算三年总账，把隐性成本显性化。",
-    "takeaway": "下次报价附一页三年TCO对比表（自建 vs 上云），把迁移、运维、合规成本摆上桌——用总账优势对冲单价劣势。"
+    "title": "主权 AI：数据不出域也是卖点",
+    "body": "IBM与Yotta推主权Agent平台、AWS AgentCore进中国区域，都主打数据/治理留在本地。受监管行业客户吃这一套。",
+    "takeaway": "见金融/政务客户时主动问一句数据出域红线，把私有化部署和本地合规写进方案首页——合规先于价格谈。"
   },
-  "_ts": 1790696769766
+  "_ts": 1790730540183
 }
