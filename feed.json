@@ -1,39 +1,39 @@
 {
-  "date": "2026-09-30",
+  "date": "2026-10-01",
   "news": [
     {
       "region": "cn",
-      "title": "AWS Bedrock AgentCore 落地中国北京/宁夏两区域",
-      "body": "亚马逊云科技宣布AgentCore在中国区域正式可用，全托管Agent部署运维，硬件级会话隔离，支持任意模型框架，外企云加码国内Agent市场。",
-      "link": "https://www.prnasia.com/story/549909-1.shtml",
-      "time": "09/29"
+      "title": "DeepSeek 一口气开源 6 个昇腾组件，与英伟达版一一对应",
+      "body": "9月30日开源TileLang等6个昇腾底层组件，DeepGEMM矩阵计算达硬件上限99.8%，双方共建昇腾950的128卡超节点。",
+      "link": "https://www.toutiao.com/a7691359362287960630",
+      "time": "09/30"
     },
     {
       "region": "cn",
-      "title": "中国大模型周调用量连续22周超美国，DeepSeek二连冠",
-      "body": "OpenRouter数据：上周中国模型处理62.2万亿token vs 美国14.2万亿；DeepSeek V4.1-Flash二连冠，混元Hy4第四，前五占三席。",
-      "link": "https://www.chinadailyasia.com/article/640290",
+      "title": "国产大模型告别白菜价：八家厂商 API 均价一年涨 48%-80%",
+      "body": "大摩统计八家厂商：2026Q2国内API输入均价同比涨48%、输出涨80%；智谱提价83%调用量反涨400%。",
+      "link": "https://www.enicn.com/eshow/2026/0929/93764.html",
+      "time": "09/29"
+    },
+    {
+      "region": "us",
+      "title": "谷歌 Gemini 4 Argon 发布：$2/$10 早鸟价杀入价格战",
+      "body": "9月30日发布，主打编程与网络安全，官方18项评测12项领先；早鸟价$2/$10每百万token，后涨至$4/$20。",
+      "link": "https://www.aol.com/articles/google-debuts-gemini-4-argon-204002000.html",
       "time": "09/30"
     },
     {
       "region": "us",
-      "title": "OpenAI DevDay 发布常驻智能体 Dots，连 4000+ 应用",
-      "body": "Dots配独立云端电脑和浏览器，7×24跟进复杂任务，接4000多个应用；Pro/Business Premium先行，敏感操作需人工审批。",
-      "link": "https://mashable.com/tech/openai-dev-day-dots-ai-agents",
-      "time": "09/29"
-    },
-    {
-      "region": "us",
-      "title": "OpenAI 砍掉 GPT-6.1 Astra 升级版，转头推低价 Sol",
-      "body": "Astra升级版因频繁无视指令被砍，次日发GPT-6.1 Sol：$2/$10每百万token、缓存输入$0.10，旗舰不稳加速性价比竞赛。",
-      "link": "https://startupfortune.com/openai-and-anthropic-both-just-launched-cheaper-flagship-ai-models",
-      "time": "09/29"
+      "title": "OpenAI 被曝寻求 300 亿美元过桥融资，估值冲 1.4 万亿",
+      "body": "彭博9月29日爆料：OpenAI推迟IPO后寻求至少300亿美元过桥融资，投前估值约1.4万亿美元，技术资本双线推进。",
+      "link": "https://businesstimescn.com/articles/627921.html",
+      "time": "09/30"
     }
   ],
   "knowledge": {
-    "title": "主权 AI：数据不出域也是卖点",
-    "body": "IBM与Yotta推主权Agent平台、AWS AgentCore进中国区域，都主打数据/治理留在本地。受监管行业客户吃这一套。",
-    "takeaway": "见金融/政务客户时主动问一句数据出域红线，把私有化部署和本地合规写进方案首页——合规先于价格谈。"
+    "title": "涨价时代的反向促单：把涨价变锁定",
+    "body": "国产API集体提价，智谱涨价83%调用量反涨400%——客户要的不是最低价，是确定性。涨价窗口正是锁长约的契机。",
+    "takeaway": "本周给存量客户发一轮续约提醒：现在续1-3年长约锁定现价，把'即将涨价'从坏消息变成促单工具。"
   },
-  "_ts": 1790730540183
+  "_ts": 1790829484620
 }
