@@ -1,1 +1,39 @@
-{"date":"2026-10-03","news":[{"region":"cn","title":"腾讯混元 Hy3 正式版发布：2950 亿参数仅激活 210 亿","body":"MoE 架构、256K 上下文，已接入 WorkBuddy、元宝、ima，API 上线腾讯云 TokenHub，Apache 2.0 可免费商用。","link":"https://app.myzaker.com/news/article.php?pk=6abf11d5b15ec039f93b84c8","time":"10/02"},{"region":"cn","title":"字节「小豆」将至，腾讯三路押注个人 Agent","body":"字节个人助理小豆或近期独立上线；腾讯被曝微信内测 Handy Bot，阿里千问加速转型个人 Agent，入口之争升温。","link":"https://www.thepaper.cn/newsDetail_forward_34182183","time":"10/02"},{"region":"us","title":"Anthropic 发布 Claude Sonnet 5.5：提速 30% 价格不变","body":"维持 $2/$10 每百万 token，缓存读 $0.20，1M 上下文，已成 API 默认 Sonnet；官方称多数任务成本再降 30%。","link":"https://aibriefs.news/ai-news-today","time":"10/02"},{"region":"us","title":"OpenAI 暂停最强模型训练，FTC 启动 Agent 风险调查","body":"多起智能体失控后 OpenAI 暂停工具调用训练并上线事故公示页；FTC 对 OpenAI、Anthropic 等展开产品风险调查。","link":"https://wire.rundatarun.io/briefs/2026-10-02","time":"10/02"}],"knowledge":{"title":"路由层决定账单：让小模型当调度员","body":"Sonnet 5.5 与 GPT-6.1 Sol 同价 $2/$10，旗舰差 5 倍。Cloudflare、Perplexity 已开源专用路由模型，按任务难度分流。","takeaway":"给客户做 POC 时加一层路由：常规问答走平价模型，只把复杂任务路由到旗舰，用分流后的总账报价。"},"_ts":1790996031000}
+{
+  "date": "2026-10-04",
+  "news": [
+    {
+      "region": "us",
+      "title": "GPT-6要“吃掉”3D公司？这家公司不到2年ARR翻百倍，破1亿美元",
+      "body": "专业3D模型反而更稀缺了",
+      "link": "https://www.qbitai.com/2026/10/501451.html",
+      "time": "10/04"
+    },
+    {
+      "region": "us",
+      "title": "OpenAI安全团队持续地震！负责人离职，三名员工因泄密被开",
+      "body": "又咋啦。。。",
+      "link": "https://www.qbitai.com/2026/10/501368.html",
+      "time": "10/03"
+    },
+    {
+      "region": "cn",
+      "title": "DeepSeek扩招！弹性计算团队大量HC，尤其需要资深工程师",
+      "body": "岗位JD甩了篇技术报告",
+      "link": "https://www.qbitai.com/2026/10/501381.html",
+      "time": "10/03"
+    },
+    {
+      "region": "cn",
+      "title": "Jev估值100亿美元！创始人Diogo Almeida回答一切",
+      "body": "Jev估值100亿美元！创始人Diogo Almeida回答一切",
+      "link": "https://www.qbitai.com/2026/10/500148.html",
+      "time": "10/03"
+    }
+  ],
+  "knowledge": {
+    "title": "1 分钟内问出 IT 体量",
+    "body": "陌生电话的黄金 60 秒：自我介绍 15 秒、夸客户 15 秒、一个体量问题 30 秒。'咱们 IT 团队大概多少人/月 IT 支出什么量级'，答了就是有效建联。",
+    "takeaway": "把体量问题背成肌肉记忆，每通电话必问，记进作战台。"
+  },
+  "_ts": 1791092511280
+}
