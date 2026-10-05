@@ -1,19 +1,26 @@
 {
-  "date": "2026-10-04",
+  "date": "2026-10-05",
   "news": [
     {
       "region": "us",
-      "title": "GPT-6要“吃掉”3D公司？这家公司不到2年ARR翻百倍，破1亿美元",
-      "body": "专业3D模型反而更稀缺了",
-      "link": "https://www.qbitai.com/2026/10/501451.html",
-      "time": "10/04"
+      "title": "限时28天！OpenAI承诺没新功能就重置，网友：只想要Opus",
+      "body": "有改进就体验，没改进就重置，横竖不亏。",
+      "link": "https://www.qbitai.com/2026/10/501700.html",
+      "time": "10/05"
     },
     {
       "region": "us",
-      "title": "OpenAI安全团队持续地震！负责人离职，三名员工因泄密被开",
-      "body": "又咋啦。。。",
-      "link": "https://www.qbitai.com/2026/10/501368.html",
-      "time": "10/03"
+      "title": "AI算力硬合作，马斯克还是更相信中国制造",
+      "body": "一种混搭的可能：英特尔继续供先进工艺，即前端用14A；后端再接台积电，来补工厂运营、良率、封装这些能力。",
+      "link": "https://www.qbitai.com/2026/10/501605.html",
+      "time": "10/04"
+    },
+    {
+      "region": "cn",
+      "title": "最火AI岗位FDE：月薪5万，都干这些…",
+      "body": "什么是FDE？它会一直存在吗？",
+      "link": "https://www.qbitai.com/2026/10/501506.html",
+      "time": "10/04"
     },
     {
       "region": "cn",
@@ -21,19 +28,12 @@
       "body": "岗位JD甩了篇技术报告",
       "link": "https://www.qbitai.com/2026/10/501381.html",
       "time": "10/03"
-    },
-    {
-      "region": "cn",
-      "title": "Jev估值100亿美元！创始人Diogo Almeida回答一切",
-      "body": "Jev估值100亿美元！创始人Diogo Almeida回答一切",
-      "link": "https://www.qbitai.com/2026/10/500148.html",
-      "time": "10/03"
     }
   ],
   "knowledge": {
-    "title": "1 分钟内问出 IT 体量",
-    "body": "陌生电话的黄金 60 秒：自我介绍 15 秒、夸客户 15 秒、一个体量问题 30 秒。'咱们 IT 团队大概多少人/月 IT 支出什么量级'，答了就是有效建联。",
-    "takeaway": "把体量问题背成肌肉记忆，每通电话必问，记进作战台。"
+    "title": "关键词破冰：用客户的语言开场",
+    "body": "陌拜/冷电话开场不要背公司介绍，要用客户行业的关键词：银行聊风控与信创、SaaS 聊获客成本、制造聊供应链。关键词对了，门就开了。",
+    "takeaway": "给明天要拜访的客户写 3 个他行业的关键词，编进开场 30 秒。"
   },
-  "_ts": 1791092511280
+  "_ts": 1791177954849
 }
