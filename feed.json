@@ -1,1 +1,39 @@
-{"date":"2026-10-05","news":[{"region":"cn","title":"DeepSeek Harness 国庆上新 v0.2：桌面端+兼容 Claude 扩展","body":"新增 macOS/Windows 桌面安装包、定时任务与插件管理，实验性兼容 Claude Code Mods，负责人称意在验证插件架构扩展力。","link":"https://www.thepaper.cn/newsDetail_forward_34200055","time":"10/05"},{"region":"cn","title":"Kimi K3.1 预告曝光：100 万上下文+三档推理强度","body":"API 后台已出现 kimi-k3-1 标识，官方预告支持 100 万 token 上下文，提供 Low/High/Max 三档推理，预计 10 月发布。","link":"https://www.yeyulingfeng.com/a/1116810.html","time":"10/02"},{"region":"us","title":"旗舰竞争转向性价比：单任务成本成新战场","body":"谷歌 Gemini 4 Argon 以旗舰半价入场，Anthropic 缓存读降价 60%，OpenAI 轻量模型降 80%，厂商集体押注成本效率。","link":"https://en.fnnews.com/news/202610041330468746","time":"10/04"},{"region":"us","title":"模型商品化加速：新旗舰仅上一代五分之一价","body":"GPT-6.1 Sol 定价为旗舰 1/5，模型能力趋商品化；Gartner 预计 2026 全球 AI 支出 2.52 万亿美元、同比增 44%。","link":"https://mindgrow.io/ai/ai-is-getting-so-cheap-to-run-that-selling-it-is-becoming-a-127993","time":"10/04"}],"knowledge":{"title":"迁移成本：兼容层让客户敢换平台","body":"DeepSeek Harness 实验性兼容 Claude Code Mods，旧扩展可适配复用。换平台不再等于推翻重来，迁移顾虑被直接打掉。","takeaway":"挖竞品客户时先盘点其现有插件与脚本，出一份兼容/平移清单再谈报价，把迁移成本从异议变成切入点。"},"_ts":1791188077000}
+{
+  "date": "2026-10-06",
+  "news": [
+    {
+      "region": "us",
+      "title": "限时28天！OpenAI承诺没新功能就重置，网友：只想要Opus",
+      "body": "有改进就体验，没改进就重置，横竖不亏。",
+      "link": "https://www.qbitai.com/2026/10/501700.html",
+      "time": "10/05"
+    },
+    {
+      "region": "us",
+      "title": "AI算力硬合作，马斯克还是更相信中国制造",
+      "body": "一种混搭的可能：英特尔继续供先进工艺，即前端用14A；后端再接台积电，来补工厂运营、良率、封装这些能力。",
+      "link": "https://www.qbitai.com/2026/10/501605.html",
+      "time": "10/04"
+    },
+    {
+      "region": "cn",
+      "title": "刚刚，诺贝尔奖颁给光遗传学！",
+      "body": "从绿藻里的光开关，到控制神经元",
+      "link": "https://www.qbitai.com/2026/10/501720.html",
+      "time": "10/05"
+    },
+    {
+      "region": "cn",
+      "title": "刚刚，Hinton发了首篇RSI论文",
+      "body": "AI已经开始真正进入「造下一代AI」的流水线",
+      "link": "https://www.qbitai.com/2026/10/501705.html",
+      "time": "10/05"
+    }
+  ],
+  "knowledge": {
+    "title": "三段式话术：介绍—夸客户—给方案",
+    "body": "陌拜标准结构：15 秒介绍我是谁，15 秒夸客户（最近的动作/新闻，证明你做过功课），30 秒给方案（我能帮你解决什么具体问题）。",
+    "takeaway": "夸客户的部分必须具体到一条新闻或一个产品动作，空泛的夸奖等于没夸。"
+  },
+  "_ts": 1791267073323
+}
