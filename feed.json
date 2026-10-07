@@ -1,1 +1,39 @@
-{"date":"2026-10-06","news":[{"region":"cn","title":"DeepSeek 新轮融资或逼近千亿：腾讯、宁德时代重金加码","body":"彭博社：本轮至少800亿元、最高或近千亿，远超500亿目标，为2027年初IPO铺路；腾讯意在将AI融入旗下平台。","link":"https://www.163.com/dy/article/L8IP5IU90519QIKK.html","time":"10/06"},{"region":"cn","title":"昇腾在华份额达50%反超英伟达，DeepSeek联手华为造编程工具","body":"双方合作开发昇腾芯片编程工具，含开源CUDA替代方案TileLang；昇腾份额四年逆转至50%，英伟达降至8%。","link":"https://new.qq.com/rain/a/20261006A04QUK00","time":"10/06"},{"region":"us","title":"SemiAnalysis：Agent负载下Anthropic订阅等效价值约OpenAI 5倍","body":"极限实测九家厂商订阅：Anthropic套餐API等效价值约5倍于OpenAI；订阅占其推理算力超40%、收入仅10%。","link":"https://www.aimoogh.com/en/posts/analysis-anthropic-s-subscriptions-offer-5x-more-api-equival","time":"10/05"},{"region":"us","title":"Together AI 把 GLM 5.3/Kimi K3 直插编码 Agent，账单腰斩","body":"开源旗舰模型直接接入现有编码工具链、无需迁移，主打同质量下模型成本降50%以上，一条命令即可切换。","link":"https://buttondown.com/soumyo/archive/ai-builders-digest-tuesday-october-6-2026","time":"10/06"}],"knowledge":{"title":"订阅 vs 按量：先算等效价值再报价","body":"同一订阅套餐跑不同模型和负载，等效API价值可差5倍。席位价≠真实成本，重度Agent场景按量计费常更划算。","takeaway":"客户询价订阅时，先按其真实负载折算每百万token等效成本，主动出一份按量+资源包对比方案，把价格异议变成算账优势。"},"_ts":1791280709831}
+{
+  "date": "2026-10-07",
+  "news": [
+    {
+      "region": "us",
+      "title": "OpenAI一夜甩出722篇数学论文！黎曼霍奇BSD全上阵，数学家：读不过来",
+      "body": "三位菲尔兹奖得主：不代表认可",
+      "link": "https://www.qbitai.com/2026/10/501749.html",
+      "time": "10/07"
+    },
+    {
+      "region": "us",
+      "title": "OpenAI「疯狂28天」首日，这都发了些啥啊…",
+      "body": "OpenAI「疯狂28天」首日，这都发了些啥啊…",
+      "link": "https://www.qbitai.com/2026/10/501726.html",
+      "time": "10/06"
+    },
+    {
+      "region": "cn",
+      "title": "刚刚，诺贝尔物理奖一人独揽！",
+      "body": "南极洲甚至有一座高地以他名字命名",
+      "link": "https://www.qbitai.com/2026/10/501746.html",
+      "time": "10/06"
+    },
+    {
+      "region": "cn",
+      "title": "不er，咋陶哲轩也成AI减速派了？？",
+      "body": "不er，咋陶哲轩也成AI减速派了？？",
+      "link": "https://www.qbitai.com/2026/10/501736.html",
+      "time": "10/06"
+    }
+  ],
+  "knowledge": {
+    "title": "外卖理论：判断客户活得怎么样",
+    "body": "判断一家公司经营状况的土办法：看招聘（BOSS 直聘在招岗位数）、看外卖（楼下骑手密度）、看加班灯。三个信号比财报更及时。",
+    "takeaway": "陌拜前花 2 分钟查客户在招岗位数，写进卡片'业务描述'。"
+  },
+  "_ts": 1791351982819
+}
