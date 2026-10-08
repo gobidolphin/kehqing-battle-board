@@ -1,39 +1,39 @@
 {
-  "date": "2026-10-07",
+  "date": "2026-10-08",
   "news": [
     {
       "region": "us",
-      "title": "OpenAI一夜甩出722篇数学论文！黎曼霍奇BSD全上阵，数学家：读不过来",
-      "body": "三位菲尔兹奖得主：不代表认可",
-      "link": "https://www.qbitai.com/2026/10/501749.html",
-      "time": "10/07"
+      "title": "GPT-6今起免费用！拒答变少，话变多了",
+      "body": "ChatGPT聊天框长出界面",
+      "link": "https://www.qbitai.com/2026/10/501834.html",
+      "time": "10/08"
     },
     {
       "region": "us",
-      "title": "OpenAI「疯狂28天」首日，这都发了些啥啊…",
-      "body": "OpenAI「疯狂28天」首日，这都发了些啥啊…",
-      "link": "https://www.qbitai.com/2026/10/501726.html",
-      "time": "10/06"
+      "title": "Claude新模型发布！跑分暴击GPT-6 Luna，价格比梁文谷还便宜，OpenAI只能…",
+      "body": "小模型新守门员",
+      "link": "https://www.qbitai.com/2026/10/501832.html",
+      "time": "10/08"
     },
     {
       "region": "cn",
-      "title": "刚刚，诺贝尔物理奖一人独揽！",
-      "body": "南极洲甚至有一座高地以他名字命名",
-      "link": "https://www.qbitai.com/2026/10/501746.html",
-      "time": "10/06"
+      "title": "大模型原生智能体手机STEPX Neo将于10月13日正式发布",
+      "body": "大模型原生智能体手机STEPX Neo将于10月13日正式发布",
+      "link": "https://www.qbitai.com/2026/10/501915.html",
+      "time": "10/08"
     },
     {
       "region": "cn",
-      "title": "不er，咋陶哲轩也成AI减速派了？？",
-      "body": "不er，咋陶哲轩也成AI减速派了？？",
-      "link": "https://www.qbitai.com/2026/10/501736.html",
-      "time": "10/06"
+      "title": "迟到25年！诺贝尔化学奖揭晓，95岁法国教授圆梦",
+      "body": "迟到25年！诺贝尔化学奖揭晓，95岁法国教授圆梦",
+      "link": "https://www.qbitai.com/2026/10/501825.html",
+      "time": "10/07"
     }
   ],
   "knowledge": {
-    "title": "外卖理论：判断客户活得怎么样",
-    "body": "判断一家公司经营状况的土办法：看招聘（BOSS 直聘在招岗位数）、看外卖（楼下骑手密度）、看加班灯。三个信号比财报更及时。",
-    "takeaway": "陌拜前花 2 分钟查客户在招岗位数，写进卡片'业务描述'。"
+    "title": "客户分层：把时间花在 P0 上",
+    "body": "P0 每天触达、P1 隔天、P2 每周、P3 暂停。分层不是给客户贴标签，是给自己的时间定价——80% 的成交来自 20% 的客户。",
+    "takeaway": "打开作战台检查：P0 客户今天是否都已触达？没触达的现在就补。"
   },
-  "_ts": 1791351982819
+  "_ts": 1791438745008
 }
