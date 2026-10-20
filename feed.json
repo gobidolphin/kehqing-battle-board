@@ -1,1 +1,39 @@
-{"date":"2026-10-19","news":[{"region":"cn","title":"我国首个十万卡 AI 超集群真机亮相","body":"国产首个十万卡级AI超集群实机展出，标志大规模国产算力集群从纸面走向交付，训练与推理供给进一步放量。","link":"https://www.163.com/dy/article/L9JBU5H205562DGT.html","time":"10/19"},{"region":"cn","title":"个人 Agent 混战开打：阿里、蚂蚁、字节、腾讯全亮牌","body":"阿里千问Go!代办理赔价保、蚂蚁灵光2.0内测、字节小豆、腾讯LightVela齐发；源头是Meta Muse上线22天下载破500万。","link":"https://www.toutiao.com/a7697769298906923560","time":"10/18"},{"region":"us","title":"速度与当地化都要加价：Fast 档翻倍、区域推理加 10%","body":"Anthropic美国本地推理乘1.1倍，OpenAI区域处理加价10%，各家Fast/Priority档为标准价约2倍，溢价可叠加。","link":"https://safeguard.sh/resources/blog/paying-for-speed-and-location-priority-fast-and-residency-prices","time":"10/19"},{"region":"us","title":"价格两极化：Anthropic 新增 $10/$50 顶档，谷歌促销价将翻倍","body":"Anthropic上线$10/$50新顶档；Gemini 4 Argon早鸟价12月1日翻倍至$4/$20，3.8 Flash明年1月1日翻倍。","link":"https://www.risingtrends.co/blog/ai-industry-trends","time":"10/18"}],"knowledge":{"title":"Batch API：等一天，省一半","body":"OpenAI/Anthropic/Google的Batch API统一半价，24小时内返回；夜间报表、标注、Embedding等无人等待的任务都该走Batch。","takeaway":"盘点客户夜间批处理任务清单（报表/标注/重建索引），出一份Batch改造方案，同样结果账单直接砍50%。"},"_ts":1792371597080}
+{
+  "date": "2026-10-20",
+  "news": [
+    {
+      "region": "us",
+      "title": "Claude新模型曝光！能跳出思维定势，修Bug治标又治本",
+      "body": "OpenAI只掏出一个6.1 Terra…",
+      "link": "https://www.qbitai.com/2026/10/504314.html",
+      "time": "10/20"
+    },
+    {
+      "region": "us",
+      "title": "谷歌开源RSI新成果！华人浓度爆表",
+      "body": "Harness层的RSI",
+      "link": "https://www.qbitai.com/2026/10/504184.html",
+      "time": "10/19"
+    },
+    {
+      "region": "cn",
+      "title": "从百比特芯片到整机交付，这家量子计算公司正将量子算力推向可调用服务",
+      "body": "同步搭建千比特规模量子算力云平台",
+      "link": "https://www.qbitai.com/2026/10/504277.html",
+      "time": "10/19"
+    },
+    {
+      "region": "cn",
+      "title": "通研院孵化的团队，也盯上了RSI",
+      "body": "当AI越来越懂你，如何让智能真正属于你？",
+      "link": "https://www.qbitai.com/2026/10/504294.html",
+      "time": "10/19"
+    }
+  ],
+  "knowledge": {
+    "title": "冷电话的 KPI 是'下一个动作'，不是成交",
+    "body": "陌拜电话的成功率本来就低，衡量标准不是成交，而是推进：问到体量、加上微信、约到拜访，三选一就算赢。",
+    "takeaway": "今天每通电话结束问自己：拿到了三个动作里的哪一个？记进 ColdCall 记录。"
+  },
+  "_ts": 1792471147936
+}
