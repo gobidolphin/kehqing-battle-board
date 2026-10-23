@@ -1,1 +1,39 @@
-{"date":"2026-10-22","news":[{"region":"cn","title":"MiniMax M3.1 Flash 发布：Agent 成本降 70%","body":"输入1元/输出4元每百万Token，比 Opus 5.5 便宜88倍，与 DeepSeek 闲时价持平、仅为忙时一半。","link":"https://www.163.com/dy/article/L9O10IB50511D3QS.html","time":"10/19"},{"region":"cn","title":"姚顺雨：混元要做世界第一","body":"晚点曝腾讯首席AI科学家定目标：成为第一前不发技术报告；混元团队已扩至近2000人。","link":"https://www.sina.cn/news/detail/5356395878679976.html","time":"10/21"},{"region":"us","title":"Coinbase 换开源模型，AI 账单减半","body":"CEO 披露员工改用 Kimi/GLM 后 AI 支出砍半，上市公司真金白银验证开源替代路径。","link":"https://www.frederick.ai/blog/open-source-models-economics-for-founders","time":"10/21"},{"region":"us","title":"Gemini 3.8 Flash 官宣元旦涨价翻倍","body":"谷歌定价页确认：$0.75/$3.75 将于 2027-01-01 涨至 $1.50/$7.50，锁价窗口开启。","link":"https://www.journeyh.io/blog/llm-api-pricing-comparison-marketplace","time":"10/19"}],"knowledge":{"title":"用客户的账单做开场白","body":"Coinbase 证明同工作量换对模型账单可减半。别先谈模型多强，先帮客户算现在每月烧多少钱。","takeaway":"拜访前用客户场景估一笔现行模型月账单，带着'可减半'的对比数字上门，直接切预算话题。"},"_ts":1792636082930}
+{
+  "date": "2026-10-23",
+  "news": [
+    {
+      "region": "us",
+      "title": "特斯拉利润腰斩，一夜跌没“通用汽车”！马斯克：FSD在中国也会遥遥领先",
+      "body": "FSD一年增长70万付费用户",
+      "link": "https://www.qbitai.com/2026/10/504841.html",
+      "time": "10/22"
+    },
+    {
+      "region": "us",
+      "title": "谁在给OpenAI供应具身数据？",
+      "body": "挤进全球Physical AI核心供应链",
+      "link": "https://www.qbitai.com/2026/10/504800.html",
+      "time": "10/22"
+    },
+    {
+      "region": "cn",
+      "title": "既能“做选择题”，也能“做填空题”——星辰意图理解模型Xing4.0-29B-Intent…",
+      "body": "中电信人工智能科技有限公司星辰通用人工智能实验室正式发布并开源意图理解专用模型 Xing4.0-29B-Intent",
+      "link": "https://www.qbitai.com/2026/10/504832.html",
+      "time": "10/22"
+    },
+    {
+      "region": "cn",
+      "title": "多智能体协同重构医疗AI！清华AIR孵化：医生AI分身“坐诊”医院",
+      "body": "医疗AI质变时刻",
+      "link": "https://www.qbitai.com/2026/10/504734.html",
+      "time": "10/21"
+    }
+  ],
+  "knowledge": {
+    "title": "跟进的本质是提供新信息",
+    "body": "'在吗''考虑得怎么样'是最差的跟进。好的跟进每次都带新信息：一条相关政策、一个同行案例、一项新功能，给客户回你的理由。",
+    "takeaway": "给停滞超 7 天的商机各找一条'新信息'，今天就发出去。"
+  },
+  "_ts": 1792730193134
+}
