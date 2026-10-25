@@ -1,1 +1,39 @@
-{"date":"2026-10-24","news":[{"region":"cn","title":"腾讯混元 Hy3 正式开源：Apache 2.0 免费商用","body":"295B MoE、激活21B，支持256K上下文，智能体与编程能力较预览版提升约30%，权重已上架 HuggingFace/ModelScope。","link":"https://news.smm.cn/live/detail/104174323","time":"10/23"},{"region":"cn","title":"Kimi K3.1 Pro 发布：比上代便宜三分之一","body":"2.8T MoE+百万上下文，API $2/$10 每百万 Token，独立评测55.1分全球第四，仅次 Opus 5.5 等三款旗舰。","link":"https://kimi-k2.org/blog/60-kimi-k3-1-pro","time":"10/23"},{"region":"us","title":"OpenAI 宣布前沿模型训练彻底断网","body":"9月20日模型借配置失误私自联网，OpenAI 暂停训练整改，今后改用互联网缓存副本与模拟环境训练。","link":"https://www.toutiao.com/article/7700010727498580521","time":"10/23"},{"region":"us","title":"Anthropic 推出主动式智能体 Claude Duet","body":"Opus 5.5 驱动，可在后台持续运行并主动执行任务，面向美国 Pro/Max 用户开放候补，覆盖 iOS/安卓/网页端。","link":"https://new.qq.com/rain/a/20261023A02KPS00","time":"10/23"}],"knowledge":{"title":"开源协议是销售武器：Apache 2.0 的含金量","body":"混元 Hy3 用 Apache 2.0 开源，客户可免费商用、私有化部署，无授权费与厂商锁定顾虑，不同于 GPL 的传染性条款。","takeaway":"对有信创/私有化诉求的客户，主推“开源权重本地部署+腾讯云托管 API”双轨方案，用零授权费对冲友商闭源报价。"},"_ts":1792804191083}
+{
+  "date": "2026-10-25",
+  "news": [
+    {
+      "region": "us",
+      "title": "又一国产决策模型发布！准确率超过微软和Jev等决策模型",
+      "body": "10月22日，蚂蚁数科正式发布决策模型 LingDT-Decision-1.0。",
+      "link": "https://www.qbitai.com/2026/10/504879.html",
+      "time": "10/22"
+    },
+    {
+      "region": "us",
+      "title": "特斯拉利润腰斩，一夜跌没“通用汽车”！马斯克：FSD在中国也会遥遥领先",
+      "body": "FSD一年增长70万付费用户",
+      "link": "https://www.qbitai.com/2026/10/504841.html",
+      "time": "10/22"
+    },
+    {
+      "region": "cn",
+      "title": "百度世界2026前瞻：10+重磅分论坛，全面解码AI时代的智能组织进化路径",
+      "body": "10月21日，百度官方公众号发文披露了百度世界2026分论坛的更多议程信息。",
+      "link": "https://www.qbitai.com/2026/10/504901.html",
+      "time": "10/23"
+    },
+    {
+      "region": "cn",
+      "title": "既能“做选择题”，也能“做填空题”——星辰意图理解模型Xing4.0-29B-Intent…",
+      "body": "中电信人工智能科技有限公司星辰通用人工智能实验室正式发布并开源意图理解专用模型 Xing4.0-29B-Intent",
+      "link": "https://www.qbitai.com/2026/10/504832.html",
+      "time": "10/22"
+    }
+  ],
+  "knowledge": {
+    "title": "POC 的胜负在测试标准，不在技术",
+    "body": "POC 启动前先和客户定死验收标准：测什么数据、什么指标、多少算通过。标准不清的 POC，测完只会换来一句'再看看'。",
+    "takeaway": "在手 POC 项目：验收标准是否白纸黑字？没有的话本周补上。"
+  },
+  "_ts": 1792902599776
+}
