@@ -1,1 +1,39 @@
-{"date":"2026-10-25","news":[{"region":"cn","title":"行业监测：国内词元均价一年翻倍至13.46元","body":"2025下半年6.8元/百万词元涨至13.46元，仍约为国外典型水平117.8元的九分之一；日均用量同期翻近4倍，涨价实为涨回成本线。","link":"http://mp.weixin.qq.com/s?__biz=MzI0OTE5NDQ3MA==&mid=2247490703&idx=2&sn=3effa4e531b6868c5dc7f1bce0a5922b","time":"10/24"},{"region":"cn","title":"DeepSeek V4.1 Flash 在 OpenRouter 输入价降至$0.02","body":"10月24日 OpenRouter 挂牌价输入$0.30→$0.02（-93%），输出$1.00；V4 Pro 同步降至$0.65/$1.30，开源模型继续压价。","link":"https://gravity.fast/data/llm-api-price-history","time":"10/24"},{"region":"us","title":"Anthropic 为 Claude Pro/Max 上线跨对话长期记忆","body":"10月24日起 Claude 可跨会话记住用户偏好与项目上下文，正面迎战 ChatGPT 记忆功能，助理入口竞争升级。","link":"https://trackpodcasts.com/episodes/24th-october-ai-news-daily-anthropic-adds-long-term-memory-to-claude-intensifyin","time":"10/24"},{"region":"us","title":"谷歌锁定约100万 TPU、超1GW 算力，Anthropic 获使用权","body":"谷歌签下迄今最大算力安排之一，Anthropic 分得使用权；同期欧盟拟投200亿欧元建五座 AI 超级工厂。","link":"https://trackpodcasts.com/episodes/24th-october-ai-news-daily-anthropic-adds-long-term-memory-to-claude-intensifyin","time":"10/24"}],"knowledge":{"title":"哑铃定价：旗舰降、腰部涨","body":"2026年定价分层：旗舰模型亏本降价抢开发者入口，中低端按算力成本涨价走量。夹在中间、既无成本优势也无能力优势的产品最先出局。","takeaway":"给客户做双层报价：高频标准任务切轻量/开源模型控账单，关键场景用旗舰保效果，用组合价对冲“全线涨价”的心理压力。"},"_ts":1792905326748}
+{
+  "date": "2026-10-26",
+  "news": [
+    {
+      "region": "us",
+      "title": "又一国产决策模型发布！准确率超过微软和Jev等决策模型",
+      "body": "10月22日，蚂蚁数科正式发布决策模型 LingDT-Decision-1.0。",
+      "link": "https://www.qbitai.com/2026/10/504879.html",
+      "time": "10/22"
+    },
+    {
+      "region": "us",
+      "title": "特斯拉利润腰斩，一夜跌没“通用汽车”！马斯克：FSD在中国也会遥遥领先",
+      "body": "FSD一年增长70万付费用户",
+      "link": "https://www.qbitai.com/2026/10/504841.html",
+      "time": "10/22"
+    },
+    {
+      "region": "cn",
+      "title": "百度世界2026前瞻：10+重磅分论坛，全面解码AI时代的智能组织进化路径",
+      "body": "10月21日，百度官方公众号发文披露了百度世界2026分论坛的更多议程信息。",
+      "link": "https://www.qbitai.com/2026/10/504901.html",
+      "time": "10/23"
+    },
+    {
+      "region": "cn",
+      "title": "既能“做选择题”，也能“做填空题”——星辰意图理解模型Xing4.0-29B-Intent…",
+      "body": "中电信人工智能科技有限公司星辰通用人工智能实验室正式发布并开源意图理解专用模型 Xing4.0-29B-Intent",
+      "link": "https://www.qbitai.com/2026/10/504832.html",
+      "time": "10/22"
+    }
+  ],
+  "knowledge": {
+    "title": "报价是价值谈判，不是价格让步",
+    "body": "客户压价时，先确认价值是否讲透，再谈价格。降价必须换东西：换更长合约、换案例授权、换首付款比例。",
+    "takeaway": "准备一张'让步交换表'：每档折扣对应要什么交换条件。"
+  },
+  "_ts": 1792989249720
+}
