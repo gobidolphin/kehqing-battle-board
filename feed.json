@@ -1,39 +1,39 @@
 {
-  "date": "2026-10-29",
+  "date": "2026-10-30",
   "news": [
     {
       "region": "us",
-      "title": "GPT-6.1 Terra首批网友实测来了！1折价格获得Astra级电脑操作能力",
-      "body": "同一天，OpenAI还甩出3项AI科学新发现",
-      "link": "https://www.qbitai.com/2026/10/505719.html",
-      "time": "10/27"
-    },
-    {
-      "region": "us",
-      "title": "国产AI 3D大模型Hi3D来了！开源可商用，PK干掉GPT-6",
-      "body": "还是专业的模型做专业的事情",
-      "link": "https://www.qbitai.com/2026/10/505694.html",
-      "time": "10/27"
+      "title": "敢和英伟达现场PK的国产GPU，我是服的",
+      "body": "跟H200和Thor T5000硬碰硬",
+      "link": "https://www.qbitai.com/2026/10/506376.html",
+      "time": "10/29"
     },
     {
       "region": "cn",
-      "title": "Personal Agent走向真实任务，蚂蚁百灵开源 Ling-3.1-flash-10…",
-      "body": "10月28 日，蚂蚁集团旗下百灵大模型正式开源 Ling-3.1-flash-1019。",
-      "link": "https://www.qbitai.com/2026/10/505928.html",
-      "time": "10/28"
+      "title": "从学习人类到学习机器人同伴，清华大学联合无问芯穹、智元提出具身智能规模化落地新路径",
+      "body": "让机器人成为彼此的“老师”",
+      "link": "https://www.qbitai.com/2026/10/506662.html",
+      "time": "10/30"
     },
     {
       "region": "cn",
-      "title": "不藏了！人形机器人全开源动真格，从机械结构一路拆到运动算法",
-      "body": "人形机器人全套图纸开源！从关节到算法，下载就能自己造。",
-      "link": "https://www.qbitai.com/2026/10/505865.html",
-      "time": "10/27"
+      "title": "前排围观！MEET2027报名通道正式开启，首批重磅嘉宾已就位",
+      "body": "前排围观！MEET2027报名通道正式开启，首批重磅嘉宾已就位",
+      "link": "https://www.qbitai.com/2026/10/506609.html",
+      "time": "10/30"
+    },
+    {
+      "region": "cn",
+      "title": "买车送终身AI？智己LS8纯电版25万起！全系线控底盘宁德时代标配",
+      "body": "Momenta世界模型上车",
+      "link": "https://www.qbitai.com/2026/10/506569.html",
+      "time": "10/30"
     }
   ],
   "knowledge": {
-    "title": "Coach 不是朋友，是利益共同体",
-    "body": "Coach（内线教练）帮你是因为你的赢单对他有利——政绩、省事、露脸。判断真伪 Coach 的标准：他是否给你独家信息、是否帮你安排关键会面。",
-    "takeaway": "给每个重点商机找一名 Coach，并用'独家信息'和'牵线动作'两条标准检验成色。"
+    "title": "影响力六原则之互惠：先给，再要",
+    "body": "人对'欠人情'极度敏感。销售中的互惠不是送礼，而是先提供有价值的帮助：一份行业报告、一次免费诊断、一个有用的引荐。",
+    "takeaway": "本周给目标客户各送一份'与他业务相关'的资料，只给不求，下周再约。"
   },
-  "_ts": 1793252179332
+  "_ts": 1793338528362
 }
