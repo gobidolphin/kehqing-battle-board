@@ -1,39 +1,39 @@
 {
-  "date": "2026-10-30",
+  "date": "2026-10-31",
   "news": [
     {
       "region": "us",
-      "title": "敢和英伟达现场PK的国产GPU，我是服的",
-      "body": "跟H200和Thor T5000硬碰硬",
-      "link": "https://www.qbitai.com/2026/10/506376.html",
-      "time": "10/29"
+      "title": "英伟达团队基于 MiniMax H3 开源视频增强方案，最高支持 4K 重生成",
+      "body": "英伟达与麻省理工学院团队，在 Hugging Face 发布了视频增强项目 Open-H3-Regenerate-2K 的模型权重",
+      "link": "https://www.qbitai.com/2026/10/506743.html",
+      "time": "10/30"
     },
     {
-      "region": "cn",
-      "title": "从学习人类到学习机器人同伴，清华大学联合无问芯穹、智元提出具身智能规模化落地新路径",
-      "body": "让机器人成为彼此的“老师”",
-      "link": "https://www.qbitai.com/2026/10/506662.html",
+      "region": "us",
+      "title": "Claude新模型曝光：新Fable，新Opus…",
+      "body": "Claude新模型曝光：新Fable，新Opus…",
+      "link": "https://www.qbitai.com/2026/10/506674.html",
       "time": "10/30"
     },
     {
       "region": "cn",
-      "title": "前排围观！MEET2027报名通道正式开启，首批重磅嘉宾已就位",
-      "body": "前排围观！MEET2027报名通道正式开启，首批重磅嘉宾已就位",
-      "link": "https://www.qbitai.com/2026/10/506609.html",
+      "title": "榜一，拿来吧你！智元这波双模型杀穿多榜榜单",
+      "body": "xs，还要给机器人打绩效",
+      "link": "https://www.qbitai.com/2026/10/506819.html",
       "time": "10/30"
     },
     {
       "region": "cn",
-      "title": "买车送终身AI？智己LS8纯电版25万起！全系线控底盘宁德时代标配",
-      "body": "Momenta世界模型上车",
-      "link": "https://www.qbitai.com/2026/10/506569.html",
+      "title": "AI零帧起手写算子，反超DeepSeek人类手写巅峰：快了9.8%！",
+      "body": "之前还连登昇腾三榜第一",
+      "link": "https://www.qbitai.com/2026/10/506785.html",
       "time": "10/30"
     }
   ],
   "knowledge": {
-    "title": "影响力六原则之互惠：先给，再要",
-    "body": "人对'欠人情'极度敏感。销售中的互惠不是送礼，而是先提供有价值的帮助：一份行业报告、一次免费诊断、一个有用的引荐。",
-    "takeaway": "本周给目标客户各送一份'与他业务相关'的资料，只给不求，下周再约。"
+    "title": "影响力六原则之社会认同：同行案例是最硬的通货",
+    "body": "客户在不确定时会看别人怎么做。同规模、同行业、同场景的成功案例，比十页产品 PPT 更有说服力。",
+    "takeaway": "整理 3 个与你目标客户同行业的落地案例，做成一页纸，拜访时先讲案例再讲产品。"
   },
-  "_ts": 1793338528362
+  "_ts": 1793424282463
 }
