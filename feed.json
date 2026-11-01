@@ -1,6 +1,13 @@
 {
-  "date": "2026-10-31",
+  "date": "2026-11-01",
   "news": [
+    {
+      "region": "us",
+      "title": "刚刚，Claude宣布取消5小时限制！首批Ultra用户已「解封」",
+      "body": "200美元Ultra用户先用",
+      "link": "https://www.qbitai.com/2026/10/506855.html",
+      "time": "10/31"
+    },
     {
       "region": "us",
       "title": "英伟达团队基于 MiniMax H3 开源视频增强方案，最高支持 4K 重生成",
@@ -9,31 +16,24 @@
       "time": "10/30"
     },
     {
-      "region": "us",
-      "title": "Claude新模型曝光：新Fable，新Opus…",
-      "body": "Claude新模型曝光：新Fable，新Opus…",
-      "link": "https://www.qbitai.com/2026/10/506674.html",
-      "time": "10/30"
+      "region": "cn",
+      "title": "你的8G iPad里有12G内存！库克走了但他的刀法追着我砍",
+      "body": "苹果“牛奶倒河里”式操作翻红",
+      "link": "https://www.qbitai.com/2026/10/506884.html",
+      "time": "10/31"
     },
     {
       "region": "cn",
-      "title": "榜一，拿来吧你！智元这波双模型杀穿多榜榜单",
-      "body": "xs，还要给机器人打绩效",
-      "link": "https://www.qbitai.com/2026/10/506819.html",
-      "time": "10/30"
-    },
-    {
-      "region": "cn",
-      "title": "AI零帧起手写算子，反超DeepSeek人类手写巅峰：快了9.8%！",
-      "body": "之前还连登昇腾三榜第一",
-      "link": "https://www.qbitai.com/2026/10/506785.html",
-      "time": "10/30"
+      "title": "世界模型首次指导设计芯片！超大核NPU700TOPS，99%算力可用",
+      "body": "AI算力利用“九九成”",
+      "link": "https://www.qbitai.com/2026/10/506866.html",
+      "time": "10/31"
     }
   ],
   "knowledge": {
-    "title": "影响力六原则之社会认同：同行案例是最硬的通货",
-    "body": "客户在不确定时会看别人怎么做。同规模、同行业、同场景的成功案例，比十页产品 PPT 更有说服力。",
-    "takeaway": "整理 3 个与你目标客户同行业的落地案例，做成一页纸，拜访时先讲案例再讲产品。"
+    "title": "被拒绝是信号，不是终点",
+    "body": "客户说'不需要'往往意味着：没听懂价值、时机不对、或找错了人。拒绝里藏着信息——问一句'主要卡在哪'，比换下一个客户更值钱。",
+    "takeaway": "复盘最近 3 次被拒：分别卡在价值、时机还是人？各写一条下次的应对话术。"
   },
-  "_ts": 1793424282463
+  "_ts": 1793512244907
 }
