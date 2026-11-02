@@ -1,39 +1,39 @@
 {
-  "date": "2026-11-01",
+  "date": "2026-11-02",
   "news": [
     {
       "region": "us",
-      "title": "刚刚，Claude宣布取消5小时限制！首批Ultra用户已「解封」",
-      "body": "200美元Ultra用户先用",
-      "link": "https://www.qbitai.com/2026/10/506855.html",
-      "time": "10/31"
+      "title": "GPT-6.2 Astra开启灰测！Claude Mythos 5.5同日曝光",
+      "body": "HuggingFace疑似泄露权重已被下5000次",
+      "link": "https://www.qbitai.com/2026/11/507082.html",
+      "time": "11/02"
     },
     {
       "region": "us",
-      "title": "英伟达团队基于 MiniMax H3 开源视频增强方案，最高支持 4K 重生成",
-      "body": "英伟达与麻省理工学院团队，在 Hugging Face 发布了视频增强项目 Open-H3-Regenerate-2K 的模型权重",
-      "link": "https://www.qbitai.com/2026/10/506743.html",
-      "time": "10/30"
+      "title": "Claude紧急叫停！暗改Harness禁止逆向游戏",
+      "body": "Claude紧急叫停！暗改Harness禁止逆向游戏",
+      "link": "https://www.qbitai.com/2026/11/507038.html",
+      "time": "11/01"
     },
     {
       "region": "cn",
-      "title": "你的8G iPad里有12G内存！库克走了但他的刀法追着我砍",
-      "body": "苹果“牛奶倒河里”式操作翻红",
-      "link": "https://www.qbitai.com/2026/10/506884.html",
-      "time": "10/31"
+      "title": "三年前布局，今年爆火丨西湖大学成立新中心",
+      "body": "西湖世界模型研究中心成立",
+      "link": "https://www.qbitai.com/2026/11/507076.html",
+      "time": "11/01"
     },
     {
       "region": "cn",
-      "title": "世界模型首次指导设计芯片！超大核NPU700TOPS，99%算力可用",
-      "body": "AI算力利用“九九成”",
-      "link": "https://www.qbitai.com/2026/10/506866.html",
-      "time": "10/31"
+      "title": "清华姚期智团队新作：代数世界模型，让AI像牛顿一样思考",
+      "body": "让AI像牛顿一样思考",
+      "link": "https://www.qbitai.com/2026/11/507031.html",
+      "time": "11/01"
     }
   ],
   "knowledge": {
-    "title": "被拒绝是信号，不是终点",
-    "body": "客户说'不需要'往往意味着：没听懂价值、时机不对、或找错了人。拒绝里藏着信息——问一句'主要卡在哪'，比换下一个客户更值钱。",
-    "takeaway": "复盘最近 3 次被拒：分别卡在价值、时机还是人？各写一条下次的应对话术。"
+    "title": "电话优先于微信",
+    "body": "冷启动阶段电话的触达效率远高于微信：电话 1 分钟能问清体量，微信可能三天不回。加上微信是结果，不是起点。",
+    "takeaway": "今天的客户触达，先打电话；通话超过 1 分钟再加微信沉淀。"
   },
-  "_ts": 1793512244907
+  "_ts": 1793598658154
 }
