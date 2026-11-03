@@ -1,39 +1,39 @@
 {
-  "date": "2026-11-02",
+  "date": "2026-11-03",
   "news": [
     {
       "region": "us",
-      "title": "GPT-6.2 Astra开启灰测！Claude Mythos 5.5同日曝光",
-      "body": "HuggingFace疑似泄露权重已被下5000次",
-      "link": "https://www.qbitai.com/2026/11/507082.html",
-      "time": "11/02"
+      "title": "模拟计算进入矩阵时代！北大联手硅谷IBM，写下新定义",
+      "body": "GPU迭代一百次的事，它一步做完",
+      "link": "https://www.qbitai.com/2026/11/507367.html",
+      "time": "11/03"
     },
     {
       "region": "us",
-      "title": "Claude紧急叫停！暗改Harness禁止逆向游戏",
-      "body": "Claude紧急叫停！暗改Harness禁止逆向游戏",
-      "link": "https://www.qbitai.com/2026/11/507038.html",
-      "time": "11/01"
+      "title": "MIT：GPT-6 Astra能直接修改Qwen权重，数学能力暴涨6倍",
+      "body": "指令执行能力也同步提升",
+      "link": "https://www.qbitai.com/2026/11/507322.html",
+      "time": "11/03"
     },
     {
       "region": "cn",
-      "title": "三年前布局，今年爆火丨西湖大学成立新中心",
-      "body": "西湖世界模型研究中心成立",
-      "link": "https://www.qbitai.com/2026/11/507076.html",
-      "time": "11/01"
+      "title": "A社紧急修改招股书！RSI我们快要控制不住了",
+      "body": "单季狂揽1130亿人民币，但...",
+      "link": "https://www.qbitai.com/2026/11/507382.html",
+      "time": "11/03"
     },
     {
       "region": "cn",
-      "title": "清华姚期智团队新作：代数世界模型，让AI像牛顿一样思考",
-      "body": "让AI像牛顿一样思考",
-      "link": "https://www.qbitai.com/2026/11/507031.html",
-      "time": "11/01"
+      "title": "B站举办2026超级科学晚，脑机接口、人造太阳等前沿科技齐亮相",
+      "body": "10月31日，2026年bilibili超级科学晚（以下简称“B站科学晚”）在北京如期举行。",
+      "link": "https://www.qbitai.com/2026/11/507339.html",
+      "time": "11/03"
     }
   ],
   "knowledge": {
-    "title": "电话优先于微信",
-    "body": "冷启动阶段电话的触达效率远高于微信：电话 1 分钟能问清体量，微信可能三天不回。加上微信是结果，不是起点。",
-    "takeaway": "今天的客户触达，先打电话；通话超过 1 分钟再加微信沉淀。"
+    "title": "1 分钟内问出 IT 体量",
+    "body": "陌生电话的黄金 60 秒：自我介绍 15 秒、夸客户 15 秒、一个体量问题 30 秒。'咱们 IT 团队大概多少人/月 IT 支出什么量级'，答了就是有效建联。",
+    "takeaway": "把体量问题背成肌肉记忆，每通电话必问，记进作战台。"
   },
-  "_ts": 1793598658154
+  "_ts": 1793687701324
 }
