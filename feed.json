@@ -1,39 +1,39 @@
 {
-  "date": "2026-11-04",
+  "date": "2026-11-05",
   "news": [
     {
       "region": "us",
-      "title": "苹果被曝的新产品，中国央企8个月前已装进公共卫生间",
-      "body": "TeleAI智慧看护助手",
-      "link": "https://www.qbitai.com/2026/11/507410.html",
-      "time": "11/03"
+      "title": "GPT-Image-2.6全量上线！直出GIF和SVG，6.2 Astra也现身了",
+      "body": "最快6秒出图",
+      "link": "https://www.qbitai.com/2026/11/507707.html",
+      "time": "11/05"
     },
     {
       "region": "us",
-      "title": "模拟计算进入矩阵时代！北大联手硅谷IBM，写下新定义",
-      "body": "GPU迭代一百次的事，它一步做完",
-      "link": "https://www.qbitai.com/2026/11/507367.html",
-      "time": "11/03"
+      "title": "Linux内核被挖出948个漏洞！OpenAI花120万美元找到的",
+      "body": "被轰成筛子了…",
+      "link": "https://www.qbitai.com/2026/11/507697.html",
+      "time": "11/05"
     },
     {
       "region": "cn",
-      "title": "让Agent首次拥有“视听双流记忆”：openJiuwen Agent-Memory看懂长…",
-      "body": "长视频记忆精度飙升，问答时延最高降97%",
-      "link": "https://www.qbitai.com/2026/11/507533.html",
-      "time": "11/04"
+      "title": "以“真实工作”检验机器人价值，XROGO在CeMAT ASIA发布机器人到岗计划",
+      "body": "像雇人一样雇机器人",
+      "link": "https://www.qbitai.com/2026/11/507767.html",
+      "time": "11/05"
     },
     {
       "region": "cn",
-      "title": "机器人干活，AI当厂长！这家巨头要造下一代自主智能仓",
-      "body": "AI接管调度运营，仓库越干越聪明",
-      "link": "https://www.qbitai.com/2026/11/507507.html",
-      "time": "11/03"
+      "title": "基于本体+知识+Harness+Datat Agent的智能体完整落地链路！",
+      "body": "Data + AI 技术实践巡展 · 上海站",
+      "link": "https://www.qbitai.com/2026/11/507696.html",
+      "time": "11/05"
     }
   ],
   "knowledge": {
-    "title": "关键词破冰：用客户的语言开场",
-    "body": "陌拜/冷电话开场不要背公司介绍，要用客户行业的关键词：银行聊风控与信创、SaaS 聊获客成本、制造聊供应链。关键词对了，门就开了。",
-    "takeaway": "给明天要拜访的客户写 3 个他行业的关键词，编进开场 30 秒。"
+    "title": "三段式话术：介绍—夸客户—给方案",
+    "body": "陌拜标准结构：15 秒介绍我是谁，15 秒夸客户（最近的动作/新闻，证明你做过功课），30 秒给方案（我能帮你解决什么具体问题）。",
+    "takeaway": "夸客户的部分必须具体到一条新闻或一个产品动作，空泛的夸奖等于没夸。"
   },
-  "_ts": 1793772186460
+  "_ts": 1793860279444
 }
