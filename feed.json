@@ -1,6 +1,13 @@
 {
-  "date": "2026-11-07",
+  "date": "2026-11-08",
   "news": [
+    {
+      "region": "us",
+      "title": "抢跑DeepSeek！硅谷华人把下一代Agent Harness造出来了！？",
+      "body": "苦单Session久矣，两大Agent玩家不谋而合。",
+      "link": "https://www.qbitai.com/2026/11/508264.html",
+      "time": "11/07"
+    },
     {
       "region": "cn",
       "title": "AGENTS.MD，危险危险危险！！！",
@@ -21,19 +28,12 @@
       "body": "Dario刚喊减速…",
       "link": "https://www.qbitai.com/2026/11/508184.html",
       "time": "11/06"
-    },
-    {
-      "region": "cn",
-      "title": "为什么每个 Personal Agent 背后，都必须配备一台“云电脑”？",
-      "body": "PPIO 沙箱，把“云电脑”做成开箱即用的 API",
-      "link": "https://www.qbitai.com/2026/11/508174.html",
-      "time": "11/06"
     }
   ],
   "knowledge": {
-    "title": "客户分层：把时间花在 P0 上",
-    "body": "P0 每天触达、P1 隔天、P2 每周、P3 暂停。分层不是给客户贴标签，是给自己的时间定价——80% 的成交来自 20% 的客户。",
-    "takeaway": "打开作战台检查：P0 客户今天是否都已触达？没触达的现在就补。"
+    "title": "商机要挂金额，不挂金额的都是线索",
+    "body": "商机三要素：明确需求、预算量级、决策时间表。三者缺一，就只是线索。作战台里 deal>0 的客户必须能说出这三个数。",
+    "takeaway": "检查作战台商机客户：谁能说清预算和时间表？说不清的下次拜访必须问。"
   },
-  "_ts": 1794030550548
+  "_ts": 1794117067934
 }
