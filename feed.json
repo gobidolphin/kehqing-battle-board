@@ -1,39 +1,39 @@
 {
-  "date": "2026-11-08",
+  "date": "2026-11-09",
   "news": [
     {
       "region": "us",
-      "title": "抢跑DeepSeek！硅谷华人把下一代Agent Harness造出来了！？",
-      "body": "苦单Session久矣，两大Agent玩家不谋而合。",
-      "link": "https://www.qbitai.com/2026/11/508264.html",
+      "title": "GitHub不堪重负！OpenAI收购替代品，A社原地自研，马斯克也要搞",
+      "body": "AI写代码太快，基础设施跟不上了",
+      "link": "https://www.qbitai.com/2026/11/508449.html",
+      "time": "11/07"
+    },
+    {
+      "region": "us",
+      "title": "OpenAI新融资到账110亿美元，不及原计划一半",
+      "body": "融资缩水，硅谷投资人也谨慎了",
+      "link": "https://www.qbitai.com/2026/11/508344.html",
       "time": "11/07"
     },
     {
       "region": "cn",
-      "title": "AGENTS.MD，危险危险危险！！！",
-      "body": "全新的电脑病毒",
-      "link": "https://www.qbitai.com/2026/11/508244.html",
-      "time": "11/07"
+      "title": "资本正在撤离“世界模型”",
+      "body": "没有永远的夏天",
+      "link": "https://www.qbitai.com/2026/11/508466.html",
+      "time": "11/08"
     },
     {
       "region": "cn",
-      "title": "Jeff Dean李飞飞最新对谈：全是RSI非共识",
-      "body": "RSI不可能无限快",
-      "link": "https://www.qbitai.com/2026/11/508196.html",
+      "title": "为了去AI味，人类开始主动写烂文章了……",
+      "body": "需要说明的是，这并不意味着不会说人话就一定是人，也不意味着说人话的就一定不是AI.......",
+      "link": "https://www.qbitai.com/2026/11/508330.html",
       "time": "11/07"
-    },
-    {
-      "region": "cn",
-      "title": "A\\三大内部模型曝光！领先Opus5.5三个月，RSI缩短80%实验时间",
-      "body": "Dario刚喊减速…",
-      "link": "https://www.qbitai.com/2026/11/508184.html",
-      "time": "11/06"
     }
   ],
   "knowledge": {
-    "title": "商机要挂金额，不挂金额的都是线索",
-    "body": "商机三要素：明确需求、预算量级、决策时间表。三者缺一，就只是线索。作战台里 deal>0 的客户必须能说出这三个数。",
-    "takeaway": "检查作战台商机客户：谁能说清预算和时间表？说不清的下次拜访必须问。"
+    "title": "暗示问题：把痛点换算成钱",
+    "body": "客户不为'痛点'买单，为'代价'买单。把问题量化：一次资损多少、误拦率 1% 影响多少交易、人工审核一天多少钱。数字自己会说服人。",
+    "takeaway": "为重点客户算一笔账：他的痛点一年值多少钱？写进方案第一页。"
   },
-  "_ts": 1794117067934
+  "_ts": 1794204355118
 }
