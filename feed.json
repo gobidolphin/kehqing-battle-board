@@ -1,39 +1,39 @@
 {
-  "date": "2026-11-09",
+  "date": "2026-11-10",
   "news": [
     {
       "region": "us",
-      "title": "GitHub不堪重负！OpenAI收购替代品，A社原地自研，马斯克也要搞",
-      "body": "AI写代码太快，基础设施跟不上了",
-      "link": "https://www.qbitai.com/2026/11/508449.html",
-      "time": "11/07"
-    },
-    {
-      "region": "us",
-      "title": "OpenAI新融资到账110亿美元，不及原计划一半",
-      "body": "融资缩水，硅谷投资人也谨慎了",
-      "link": "https://www.qbitai.com/2026/11/508344.html",
-      "time": "11/07"
+      "title": "黄仁勋承认出轨发全员信道歉！英伟达启动紧急调查",
+      "body": "英伟达暗盘跌2%",
+      "link": "https://www.qbitai.com/2026/11/508498.html",
+      "time": "11/09"
     },
     {
       "region": "cn",
-      "title": "资本正在撤离“世界模型”",
-      "body": "没有永远的夏天",
-      "link": "https://www.qbitai.com/2026/11/508466.html",
-      "time": "11/08"
+      "title": "“AI毁了我的计算机学位”",
+      "body": "教授也用Claude糊弄…",
+      "link": "https://www.qbitai.com/2026/11/508706.html",
+      "time": "11/09"
     },
     {
       "region": "cn",
-      "title": "为了去AI味，人类开始主动写烂文章了……",
-      "body": "需要说明的是，这并不意味着不会说人话就一定是人，也不意味着说人话的就一定不是AI.......",
-      "link": "https://www.qbitai.com/2026/11/508330.html",
-      "time": "11/07"
+      "title": "腾讯混元跻身最强开源模型！一手实测Hy4：搭配WorkBuddy，多模态Agent交付力拉…",
+      "body": "腾讯混元跻身最强开源模型！一手实测Hy4：搭配WorkBuddy，多模态Agent交付力拉…",
+      "link": "https://www.qbitai.com/2026/11/507843.html",
+      "time": "11/09"
+    },
+    {
+      "region": "cn",
+      "title": "千问办公2.0发布，首个支持多人与Agent协作的Team Agent来了",
+      "body": "11月9日，千问办公发布2.0版本",
+      "link": "https://www.qbitai.com/2026/11/508694.html",
+      "time": "11/09"
     }
   ],
   "knowledge": {
-    "title": "暗示问题：把痛点换算成钱",
-    "body": "客户不为'痛点'买单，为'代价'买单。把问题量化：一次资损多少、误拦率 1% 影响多少交易、人工审核一天多少钱。数字自己会说服人。",
-    "takeaway": "为重点客户算一笔账：他的痛点一年值多少钱？写进方案第一页。"
+    "title": "需求效益问题：让客户自己说服自己",
+    "body": "SPIN 最后一步是问'如果解决了这个问题，对您有什么帮助'。客户自己说出的价值，比你讲的可信十倍。",
+    "takeaway": "下次演示结束前问一句：'如果这个能力上线，您团队最先用在哪？'"
   },
-  "_ts": 1794204355118
+  "_ts": 1794294379128
 }
