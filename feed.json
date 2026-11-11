@@ -1,39 +1,39 @@
 {
-  "date": "2026-11-10",
+  "date": "2026-11-11",
   "news": [
     {
       "region": "us",
-      "title": "黄仁勋承认出轨发全员信道歉！英伟达启动紧急调查",
-      "body": "英伟达暗盘跌2%",
-      "link": "https://www.qbitai.com/2026/11/508498.html",
-      "time": "11/09"
+      "title": "英伟达机器人开源撞上Fable 5.2发布！Jim Fan：不是寒冬是夏天",
+      "body": "英伟达机器人开源撞上Fable 5.2发布！Jim Fan：不是寒冬是夏天",
+      "link": "https://www.qbitai.com/2026/11/509032.html",
+      "time": "11/10"
     },
     {
       "region": "cn",
-      "title": "“AI毁了我的计算机学位”",
-      "body": "教授也用Claude糊弄…",
-      "link": "https://www.qbitai.com/2026/11/508706.html",
-      "time": "11/09"
+      "title": "无人拖拉机真正下地了！新疆大田深翻30+厘米，丘沃智能开物™系统首次完整曝光",
+      "body": "L4无人化作业走向规模交付",
+      "link": "https://www.qbitai.com/2026/11/509052.html",
+      "time": "11/11"
     },
     {
       "region": "cn",
-      "title": "腾讯混元跻身最强开源模型！一手实测Hy4：搭配WorkBuddy，多模态Agent交付力拉…",
-      "body": "腾讯混元跻身最强开源模型！一手实测Hy4：搭配WorkBuddy，多模态Agent交付力拉…",
-      "link": "https://www.qbitai.com/2026/11/507843.html",
-      "time": "11/09"
+      "title": "从芯片到千比特整机，超导量子计算还有一场硬仗",
+      "body": "近亿元融资刚刚落袋",
+      "link": "https://www.qbitai.com/2026/11/509017.html",
+      "time": "11/10"
     },
     {
       "region": "cn",
-      "title": "千问办公2.0发布，首个支持多人与Agent协作的Team Agent来了",
-      "body": "11月9日，千问办公发布2.0版本",
-      "link": "https://www.qbitai.com/2026/11/508694.html",
-      "time": "11/09"
+      "title": "从“一脑多机”到“一脑多手”，蚂蚁灵波开源LingBot-Touch触觉基础模型",
+      "body": "11月10日，蚂蚁灵波科技开源触觉基础模型LingBot-Touch",
+      "link": "https://www.qbitai.com/2026/11/508996.html",
+      "time": "11/10"
     }
   ],
   "knowledge": {
-    "title": "需求效益问题：让客户自己说服自己",
-    "body": "SPIN 最后一步是问'如果解决了这个问题，对您有什么帮助'。客户自己说出的价值，比你讲的可信十倍。",
-    "takeaway": "下次演示结束前问一句：'如果这个能力上线，您团队最先用在哪？'"
+    "title": "承诺与一致：小答应带来大答应",
+    "body": "人倾向于和自己之前的承诺保持一致。销售推进就是让客户不断做小承诺：先答应试用、再答应拉会、再答应引荐决策人。",
+    "takeaway": "每次沟通结束前锁定一个'下一步小承诺'，并写进跟进记录。"
   },
-  "_ts": 1794294379128
+  "_ts": 1794376687910
 }
