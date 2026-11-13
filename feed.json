@@ -1,39 +1,39 @@
 {
-  "date": "2026-11-11",
+  "date": "2026-11-13",
   "news": [
     {
       "region": "us",
-      "title": "英伟达机器人开源撞上Fable 5.2发布！Jim Fan：不是寒冬是夏天",
-      "body": "英伟达机器人开源撞上Fable 5.2发布！Jim Fan：不是寒冬是夏天",
-      "link": "https://www.qbitai.com/2026/11/509032.html",
-      "time": "11/10"
+      "title": "Anthropic启动IPO路演，估值已缩水6000亿美元",
+      "body": "全世界都在踩刹车，达里奥一个人踩油门",
+      "link": "https://www.qbitai.com/2026/11/509381.html",
+      "time": "11/12"
+    },
+    {
+      "region": "us",
+      "title": "马斯克Grok泄露自家机密！SpaceX特斯拉工资绩效全曝光",
+      "body": "Grok在让人破绷这件事上，从来不会让人失望。",
+      "link": "https://www.qbitai.com/2026/11/509355.html",
+      "time": "11/12"
     },
     {
       "region": "cn",
-      "title": "无人拖拉机真正下地了！新疆大田深翻30+厘米，丘沃智能开物™系统首次完整曝光",
-      "body": "L4无人化作业走向规模交付",
-      "link": "https://www.qbitai.com/2026/11/509052.html",
-      "time": "11/11"
+      "title": "多模态“源神”！MiniMax开源SOTA生图模型，原生4K，一张两毛",
+      "body": "「CAD拆解」",
+      "link": "https://www.qbitai.com/2026/11/509440.html",
+      "time": "11/12"
     },
     {
       "region": "cn",
-      "title": "从芯片到千比特整机，超导量子计算还有一场硬仗",
-      "body": "近亿元融资刚刚落袋",
-      "link": "https://www.qbitai.com/2026/11/509017.html",
-      "time": "11/10"
-    },
-    {
-      "region": "cn",
-      "title": "从“一脑多机”到“一脑多手”，蚂蚁灵波开源LingBot-Touch触觉基础模型",
-      "body": "11月10日，蚂蚁灵波科技开源触觉基础模型LingBot-Touch",
-      "link": "https://www.qbitai.com/2026/11/508996.html",
-      "time": "11/10"
+      "title": "从通用大模型到学习过程智能，AI如何真正进入课堂？",
+      "body": "银河智学首席科学家邓澍军博士发表主题演讲",
+      "link": "https://www.qbitai.com/2026/11/509404.html",
+      "time": "11/12"
     }
   ],
   "knowledge": {
-    "title": "承诺与一致：小答应带来大答应",
-    "body": "人倾向于和自己之前的承诺保持一致。销售推进就是让客户不断做小承诺：先答应试用、再答应拉会、再答应引荐决策人。",
-    "takeaway": "每次沟通结束前锁定一个'下一步小承诺'，并写进跟进记录。"
+    "title": "稀缺原则：给客户一个现在行动的理由",
+    "body": "没有期限的优惠等于没有优惠。POC 名额、季度价格、政策窗口期——给客户一个'为什么是这周'的理由，单子才不会无限拖延。",
+    "takeaway": "为停滞商机各设计一个时间锚点，下次沟通时明确提出。"
   },
-  "_ts": 1794376687910
+  "_ts": 1794551199452
 }
