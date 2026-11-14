@@ -1,39 +1,39 @@
 {
-  "date": "2026-11-13",
+  "date": "2026-11-14",
   "news": [
     {
       "region": "us",
-      "title": "Anthropic启动IPO路演，估值已缩水6000亿美元",
-      "body": "全世界都在踩刹车，达里奥一个人踩油门",
-      "link": "https://www.qbitai.com/2026/11/509381.html",
-      "time": "11/12"
+      "title": "黄仁勋辞职，英伟达33年首换帅，市值蒸发超3万亿",
+      "body": "一个时代结束了",
+      "link": "https://www.qbitai.com/2026/11/509995.html",
+      "time": "11/13"
     },
     {
       "region": "us",
-      "title": "马斯克Grok泄露自家机密！SpaceX特斯拉工资绩效全曝光",
-      "body": "Grok在让人破绷这件事上，从来不会让人失望。",
-      "link": "https://www.qbitai.com/2026/11/509355.html",
-      "time": "11/12"
+      "title": "高难盲测超越GPT-6-Astra与Opus-5！无界前沿开源Fx-Bio-1031，把R…",
+      "body": "数据不出域、本地可部署",
+      "link": "https://www.qbitai.com/2026/11/509663.html",
+      "time": "11/13"
     },
     {
       "region": "cn",
-      "title": "多模态“源神”！MiniMax开源SOTA生图模型，原生4K，一张两毛",
-      "body": "「CAD拆解」",
-      "link": "https://www.qbitai.com/2026/11/509440.html",
-      "time": "11/12"
+      "title": "MEET2027含金量再加码：AI4S/量子计算/AI Infra…第二批嘉宾强势来袭！",
+      "body": "12.9 北京，来MEET2027现场",
+      "link": "https://www.qbitai.com/2026/11/509827.html",
+      "time": "11/13"
     },
     {
       "region": "cn",
-      "title": "从通用大模型到学习过程智能，AI如何真正进入课堂？",
-      "body": "银河智学首席科学家邓澍军博士发表主题演讲",
-      "link": "https://www.qbitai.com/2026/11/509404.html",
-      "time": "11/12"
+      "title": "中国AI突破复杂肺癌诊疗！中美医疗圈集体坐不住了",
+      "body": "250名国内顶尖三甲医院医生联合评测",
+      "link": "https://www.qbitai.com/2026/11/509796.html",
+      "time": "11/13"
     }
   ],
   "knowledge": {
-    "title": "稀缺原则：给客户一个现在行动的理由",
-    "body": "没有期限的优惠等于没有优惠。POC 名额、季度价格、政策窗口期——给客户一个'为什么是这周'的理由，单子才不会无限拖延。",
-    "takeaway": "为停滞商机各设计一个时间锚点，下次沟通时明确提出。"
+    "title": "拜访纪要不过夜",
+    "body": "拜访结束 2 小时内写纪要，记忆留存率最高。纪要三要素：客户原话（需求/顾虑）、关键人态度、下一步动作+时间点。",
+    "takeaway": "今天的拜访现在就补纪要，原话用引号记下来。"
   },
-  "_ts": 1794551199452
+  "_ts": 1794636431256
 }
