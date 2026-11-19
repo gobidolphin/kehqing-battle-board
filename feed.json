@@ -1,39 +1,39 @@
 {
-  "date": "2026-11-18",
+  "date": "2026-11-19",
   "news": [
     {
       "region": "us",
-      "title": "思维链一作Jason Wei离职！怎么去Meta待一年都跑路",
-      "body": "入职Meta刚满一年出头，竟然直接提桶跑路了！",
-      "link": "https://www.qbitai.com/2026/11/510811.html",
+      "title": "Gemini新模型Neon箭在弦上，网友：遍历元素周期表？",
+      "body": "氖人寻味！",
+      "link": "https://www.qbitai.com/2026/11/510922.html",
       "time": "11/18"
     },
     {
       "region": "us",
-      "title": "英伟达AMD首次联手押注！Genesis完成A轮融资，估值超230亿",
-      "body": "具身全栈玩家",
-      "link": "https://www.qbitai.com/2026/11/510821.html",
+      "title": "GPT-6.2难产！OpenAI怕了",
+      "body": "OpenAI也终于活成了2022年谷歌的样子",
+      "link": "https://www.qbitai.com/2026/11/510914.html",
       "time": "11/18"
     },
     {
       "region": "cn",
-      "title": "潜伏小红书48h：AI时代，顶尖技术人才都在聊什么？",
-      "body": "小红书校招沙龙，一群技术高手认真对待年轻人的野心",
-      "link": "https://www.qbitai.com/2026/11/510737.html",
-      "time": "11/18"
+      "title": "AI基建大潮方兴未艾，联想集团最佳财季诞生！",
+      "body": "全球AI生态链领先企业联想集团今日公布截至2026/27财年第二季度业绩",
+      "link": "https://www.qbitai.com/2026/11/511088.html",
+      "time": "11/19"
     },
     {
       "region": "cn",
-      "title": "李沐加盟的Aimotion，是一家什么AI公司？",
-      "body": "瞄准「产业级世界模型」",
-      "link": "https://www.qbitai.com/2026/11/510688.html",
-      "time": "11/17"
+      "title": "安谋科技深度解析Arm Cortex-M42，发布“星辰100e”AIoT原型平台，助力打…",
+      "body": "11月18日，安谋科技（中国）有限公司举办Arm® Cortex®-M CPU新品说明会",
+      "link": "https://www.qbitai.com/2026/11/511079.html",
+      "time": "11/19"
     }
   ],
   "knowledge": {
-    "title": "EB 决策人：只谈价值，不谈功能",
-    "body": "拍板的人不关心参数，关心结果：降多少成本、控多少风险、出什么政绩。对 EB 的汇报一页封顶，只讲钱和风险。",
-    "takeaway": "把方案里所有功能描述翻译成'省钱/控险/政绩'三类价值语言。"
+    "title": "冷电话的 KPI 是'下一个动作'，不是成交",
+    "body": "陌拜电话的成功率本来就低，衡量标准不是成交，而是推进：问到体量、加上微信、约到拜访，三选一就算赢。",
+    "takeaway": "今天每通电话结束问自己：拿到了三个动作里的哪一个？记进 ColdCall 记录。"
   },
-  "_ts": 1794985949940
+  "_ts": 1795072347776
 }
