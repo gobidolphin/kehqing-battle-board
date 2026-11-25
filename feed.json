@@ -1,39 +1,39 @@
 {
-  "date": "2026-11-24",
+  "date": "2026-11-25",
   "news": [
     {
       "region": "us",
-      "title": "Google Cloud 出海峰会报名开启",
-      "body": "2027 Google Cloud 出海峰会将于 1 月 14 日在北京中关村国际创新中心举行",
-      "link": "https://www.qbitai.com/2026/11/512370.html",
+      "title": "华人计算机视觉泰斗二次创业！离开苹果下场，专注下一代空间与物理AI",
+      "body": "复杂场景三维建模成本降至10美元以内",
+      "link": "https://www.qbitai.com/2026/11/512498.html",
+      "time": "11/25"
+    },
+    {
+      "region": "us",
+      "title": "Claude Opus 5.6灰测效果来了",
+      "body": "整体效率大约是此前Opus版本的2到3倍。",
+      "link": "https://www.qbitai.com/2026/11/512478.html",
+      "time": "11/25"
+    },
+    {
+      "region": "cn",
+      "title": "高德发布世界模型ABot-World 0.5，支持构建音画同步、可实时重塑的AI物理世界",
+      "body": "近日，阿里巴巴集团旗下高德正式发布新一代通用交互式世界模型 ABot-World 0.5。",
+      "link": "https://www.qbitai.com/2026/11/512454.html",
       "time": "11/24"
     },
     {
       "region": "cn",
-      "title": "业界首提“端侧超节点”，让端侧AI组队计算：AI效率暴涨270%，不用换芯片或模型",
-      "body": "端侧老炮辛米尔，打通物理AI规模化落地之路",
-      "link": "https://www.qbitai.com/2026/11/512362.html",
-      "time": "11/24"
-    },
-    {
-      "region": "cn",
-      "title": "文心 5.5 Flash Preview正式开源，采用 Apache 2.0 协议",
-      "body": "文心 5.5 Flash Preview正式开源，采用 Apache 2.0 协议",
-      "link": "https://www.qbitai.com/2026/11/512354.html",
-      "time": "11/24"
-    },
-    {
-      "region": "cn",
-      "title": "八年研发，首搭方程豹钛9，全球首个折叠方向盘量产上车",
-      "body": "11月19日，方程豹钛9上市，售价27.99万元起",
-      "link": "https://www.qbitai.com/2026/11/512348.html",
+      "title": "蚂蚁开源医疗健康预测模型，根据睡眠数据可预测未来六年150种疾病风险",
+      "body": "蚂蚁刚刚发布医疗健康模型全家桶",
+      "link": "https://www.qbitai.com/2026/11/512451.html",
       "time": "11/24"
     }
   ],
   "knowledge": {
-    "title": "POC 的胜负在测试标准，不在技术",
-    "body": "POC 启动前先和客户定死验收标准：测什么数据、什么指标、多少算通过。标准不清的 POC，测完只会换来一句'再看看'。",
-    "takeaway": "在手 POC 项目：验收标准是否白纸黑字？没有的话本周补上。"
+    "title": "报价是价值谈判，不是价格让步",
+    "body": "客户压价时，先确认价值是否讲透，再谈价格。降价必须换东西：换更长合约、换案例授权、换首付款比例。",
+    "takeaway": "准备一张'让步交换表'：每档折扣对应要什么交换条件。"
   },
-  "_ts": 1795513376176
+  "_ts": 1795594626542
 }
